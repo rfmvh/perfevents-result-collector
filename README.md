@@ -1,5 +1,7 @@
 # perfevents-result-collector
 
+Authors: Jan Smerda, Michael Petlan
+
 This is a tool allowing to collect results from PERF and OProfile testing
 on various systems. PERF and OProfile are measuring/profiling tools that
 can count occurrences of various hardware events implemented in CPUs, such
@@ -40,3 +42,4 @@ further event verification.
 The tool consists of a PostgreSQL database and a Python API/wrapper that
 would take care of the queries and importing data in it. Thus a testcase
 could report its results to the DB along with the environment data.
+
