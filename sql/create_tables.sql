@@ -1,0 +1,95 @@
+--
+-- experiments
+--
+DROP SEQUENCE IF EXISTS exp_id_seq CASCADE;
+CREATE SEQUENCE exp_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS experiments CASCADE;
+CREATE TABLE experiments (
+	exp_id INTEGER NOT NULL PRIMARY KEY,
+	cmd VARCHAR(256),
+	description VARCHAR(256),
+	systemwide BOOLEAN NOT NULL DEFAULT FALSE,
+	name VARCHAR(64) NOT NULL);
+
+--
+-- tools
+--
+DROP SEQUENCE IF EXISTS tool_id_seq CASCADE;
+CREATE SEQUENCE tool_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS tools CASCADE;
+CREATE TABLE tools (
+	tool_id INTEGER NOT NULL PRIMARY KEY,
+	name VARCHAR(32) NOT NULL,
+	version VARCHAR(32) NOT NULL);
+
+--
+-- virt
+--
+DROP SEQUENCE IF EXISTS virt_id_seq CASCADE;
+CREATE SEQUENCE virt_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS virt CASCADE;
+CREATE TABLE virt (
+	virt_id INTEGER NOT NULL PRIMARY KEY,
+	name VARCHAR(16) NOT NULL);
+
+--
+-- kernels
+--
+DROP SEQUENCE IF EXISTS kernel_id_seq CASCADE;
+CREATE SEQUENCE kernel_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS kernels CASCADE;
+CREATE TABLE kernels (
+	kernel_id INTEGER NOT NULL PRIMARY KEY,
+	name VARCHAR(16) NOT NULL);
+
+--
+-- environments
+--
+DROP SEQUENCE IF EXISTS env_id_seq CASCADE;
+CREATE SEQUENCE env_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS environments CASCADE;
+CREATE TABLE environments (
+	env_id INTEGER NOT NULL PRIMARY KEY,
+	arch VARCHAR(16) NOT NULL,
+	microarch VARCHAR(32) NOT NULL,
+	family INTEGER, 
+	model INTEGER, 
+	stepping INTEGER,
+	virt_id INTEGER NOT NULL REFERENCES virt(virt_id),
+	kernel_id INTEGER NOT NULL REFERENCES kernels(kernel_id));
+
+--
+-- events
+--
+DROP SEQUENCE IF EXISTS event_id_seq CASCADE;
+CREATE SEQUENCE event_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS events CASCADE;
+CREATE TABLE events (
+	event_id INTEGER NOT NULL PRIMARY KEY, 
+	name VARCHAR(64) NOT NULL,
+	evt_num INTEGER,
+	nmask INTEGER, 
+	idgroup INTEGER NOT NULL);
+
+--
+-- results
+--
+DROP SEQUENCE IF EXISTS rsl_id_seq CASCADE;
+CREATE SEQUENCE rsl_id_seq INCREMENT 1 START 1000000;
+
+DROP TABLE IF EXISTS results CASCADE;
+CREATE TABLE results (
+	rsl_id INTEGER NOT NULL PRIMARY KEY,
+	exp_id INTEGER NOT NULL REFERENCES experiments(exp_id), 
+	tool_id INTEGER NOT NULL REFERENCES tools(tool_id),
+	env_id INTEGER NOT NULL REFERENCES environments(env_id), 
+	event_id INTEGER NOT NULL REFERENCES events(event_id),
+	val FLOAT NOT NULL,
+	reliability_manual FLOAT,
+	reliability_auto FLOAT);
