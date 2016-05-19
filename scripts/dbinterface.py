@@ -73,7 +73,7 @@ class DBConnection(object):
   def __exit__(self, *args):
     self.close()
 
-  def query(self, sql_query, sql_params = None, dryrun = None, debug = None, on_sql_exception = None):
+  def query(self, sql_query, sql_params = None, fetchall = False, dryrun = None, debug = None, on_sql_exception = None):
     """
     Execute SQL query.
 
@@ -133,15 +133,19 @@ class DBConnection(object):
       cur.execute(sql_query)
 
       if debug:
-          time_query = time.time()
+        time_query = time.time()
 
-      result = cur.fetchall()
+      if fetchall:
+        result = cur.fetchall()
+      else:
+        result = self.conn.commit()
 
       if debug:
         time_end = time.time()
 
         sys.stderr.write('RESULTDB: query result:\n')
-        sys.stderr.write('%s\n' % pprint.pformat(result))
+        if fetchall:
+          sys.stderr.write('%s\n' % pprint.pformat(result))
 
         sys.stderr.write('RESULTDB: query took %.4f sec, fetching results took %.4f sec\n' % (time_query - time_start, time_end - time_query))
 
@@ -159,13 +163,16 @@ class DBConnection(object):
 
       return result
 
+  def select(self, *args, **kwargs):
+    kwargs['fetchall'] = True
+    return self.query(*args, **kwargs)
 
   def commit(self):
     try:
       self.conn.commit()
 
     except psycopg2.Error as e:
-      sys.stderr.write('RESULTDB: An error appeared when communicating with the RESULTDB:\n%s\n' % str(e.pgerror))
+      sys.stderr.write('RESULTDB: An error appeared when communicating with the RESULTDB during COMMIT:\n%s\n' % str(e.pgerror))
       sys.exit(1)
 
 if __name__ == '__main__':
