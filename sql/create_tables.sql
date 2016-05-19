@@ -39,6 +39,20 @@ CREATE TABLE virt (
 	name VARCHAR(16) NOT NULL);
 ALTER SEQUENCE virt_id_seq OWNED BY virt.virt_id;
 
+
+--
+-- vendors
+--
+DROP SEQUENCE IF EXISTS vendor_id_seq CASCADE;
+CREATE SEQUENCE vendor_id_seq INCREMENT 1 START 1;
+
+DROP TABLE IF EXISTS vendors CASCADE;
+CREATE TABLE vendors (
+	vendor_id INTEGER NOT NULL DEFAULT nextval('vendor_id_seq') PRIMARY KEY,
+	name VARCHAR(16) NOT NULL);
+ALTER SEQUENCE vendor_id_seq OWNED BY vendors.vendor_id;
+
+
 --
 -- kernels
 --
@@ -61,7 +75,8 @@ DROP TABLE IF EXISTS environments CASCADE;
 CREATE TABLE environments (
 	env_id INTEGER NOT NULL DEFAULT nextval('env_id_seq') PRIMARY KEY,
 	arch VARCHAR(16) NOT NULL,
-	microarch VARCHAR(32) NOT NULL,
+	microarch VARCHAR(32),
+	vendor_id INTEGER NOT NULL REFERENCES vendors(vendor_id),
 	family INTEGER,
 	model INTEGER,
 	stepping INTEGER,
@@ -81,7 +96,7 @@ CREATE TABLE events (
 	name VARCHAR(64) NOT NULL,
 	evt_num INTEGER,
 	nmask INTEGER,
-	idgroup INTEGER NOT NULL);
+	idgroup INTEGER);
 ALTER SEQUENCE event_id_seq OWNED BY events.event_id;
 
 --
