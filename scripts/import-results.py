@@ -148,7 +148,7 @@ def prepareRegexpByTool(toolName):
   if toolName == "perf":
     return re.compile(r"""
                         (?P<value>\d+);;
-                        (?P<name>\w+);
+                        (?P<name>[\w/=,:\-]+);
                         """, re.VERBOSE)
 
   elif toolName == "oprofile":
