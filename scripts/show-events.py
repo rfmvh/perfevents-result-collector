@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
+import sys
 import re
 import os
-import sys
 
 from dbinterface import *
 from optparse import OptionParser
