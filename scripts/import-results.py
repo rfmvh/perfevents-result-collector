@@ -238,7 +238,7 @@ optparser.add_option("", "--experiment", action="store", dest="experiment", help
 m = Main(options)
 
 # open DB
-db = DBConnection(debug=True)
+db = DBConnection()
 
 # FIXME
 

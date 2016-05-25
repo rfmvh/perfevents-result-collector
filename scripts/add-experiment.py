@@ -18,8 +18,7 @@ optparser.add_option("", "--force", action="store_true", default=False, dest="fo
 (options, args) = optparser.parse_args()
 
 # open DB
-db = DBConnection(debug=True)
-
+db = DBConnection()
 
 def add(name, cmd, desc, systWide, force):
   if not name:
