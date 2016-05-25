@@ -50,7 +50,7 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     if not results:
       sys.exit(0)
     
-    conditions+=" and r.evt_id = %(event)s "
+    conditions+=" and r.event_id = %(event)s "
     sql_params['event'] = results[0][0]
     
   if eventGroup:
