@@ -115,6 +115,20 @@ def dbGetVendorId(db, vendor):
   return results[0][0]
 
 
+# Get virt id
+def dbGetVirtId(db, virt):
+  sql_query = 'SELECT virt_id FROM virt WHERE name = %(virt_name)s;'
+  sql_params = {'virt_name': virt}
+
+  results = db.select(sql_query, sql_params)
+  if not results:
+    sql_query_insert = 'INSERT INTO virt (name) VALUES (%(virt_name)s);'
+    db.query(sql_query_insert, sql_params)
+    results = db.select(sql_query, sql_params)
+
+  return results[0][0]
+
+
 # Get environment id
 def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, idVirt):
   sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and family = %(env_family)s and model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
@@ -247,7 +261,7 @@ db = DBConnection()
 kernelId = dbGetKernelId(db, m.kernel)
 toolId = dbGetToolId(db, m.toolName, m.toolVersion)
 vendorId = dbGetVendorId(db, m.vendor)
-virtId = 1
+virtId = dbGetVirtId(db, m.virt)
 environmentId = dbGetEnvironmentId(db, m.arch, m.cpuFamily, m.cpuModel, m.cpuStepping, kernelId, vendorId, virtId)
 experimentId = dbGetExperimentId(db, m.experiment)
 
