@@ -117,6 +117,9 @@ def dbGetVendorId(db, vendor):
 
 # Get virt id
 def dbGetVirtId(db, virt):
+  if not virt:
+    virt = "none"
+
   sql_query = 'SELECT virt_id FROM virt WHERE name = %(virt_name)s;'
   sql_params = {'virt_name': virt}
 
