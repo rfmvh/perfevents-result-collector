@@ -9,7 +9,7 @@ from dbinterface import *
 reg_parse = re.compile(r"""
                       (?P<arch>\w+);
                       (?P<vendor>\w+);
-                      (?P<cpuFamily>\d+);
+                      (?P<cpuFamily>\d*);
                       (?P<cpuModel>\d+);
                       (?P<microarch>[\w\-]+)
                       """, re.VERBOSE)
@@ -29,12 +29,20 @@ for line in sys.stdin:
     cpuModel=match.group("cpuModel")
     cpuFamily=match.group("cpuFamily")
     microarch=match.group("microarch")
-    
-    sql_query = """UPDATE environments AS e 
-                SET microarch = %(microarch)s 
-                FROM environments
-                INNER JOIN vendors AS v ON environments.vendor_id=v.vendor_id 
-                WHERE e.arch = %(arch)s  and v.name = %(vendor)s and e.family = %(cpuFamily)s and e.model = %(cpuModel)s;"""
-    sql_params = {'microarch': microarch, 'arch':arch, 'vendor': vendor, 'cpuFamily': cpuFamily, 'cpuModel' : cpuModel}
-  
+
+    if cpuFamily:
+      sql_query = """UPDATE environments AS e
+                  SET microarch = %(microarch)s
+                  FROM environments
+                  INNER JOIN vendors AS v ON environments.vendor_id=v.vendor_id
+                  WHERE e.arch = %(arch)s  and v.name = %(vendor)s and e.family = %(cpuFamily)s and e.model = %(cpuModel)s;"""
+      sql_params = {'microarch': microarch, 'arch':arch, 'vendor': vendor, 'cpuFamily' : cpuFamily, 'cpuModel' : cpuModel}
+    else:
+      sql_query = """UPDATE environments AS e
+                  SET microarch = %(microarch)s
+                  FROM environments
+                  INNER JOIN vendors AS v ON environments.vendor_id=v.vendor_id
+                  WHERE e.arch = %(arch)s  and v.name = %(vendor)s and e.model = %(cpuModel)s;"""
+      sql_params = {'microarch': microarch, 'arch':arch, 'vendor': vendor, 'cpuModel' : cpuModel}
+
     results = db.query(sql_query, sql_params)
