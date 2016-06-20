@@ -7,9 +7,72 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 
-# detect_env()
-# tries to detect environment configuration from /proc/cpuinfo, arch and kernel version from uname
-def detectEnv():
+def detectCPU_aarch64():
+  fileName = "/proc/cpuinfo"
+
+  regParseVariant = re.compile(r"""
+                            (?P<name>CPU\svariant)\s*:\s*
+                            (?P<value>[\da-fx]+)
+                            """, re.VERBOSE)
+
+  regParseRevision = re.compile(r"""
+                            (?P<name>CPU\srevision)\s*:\s*
+                            (?P<value>\d+)
+                            """, re.VERBOSE)
+
+  cpuModel=None        # model is used for variant here
+  cpuFamily=None       # we would like to use family for "armv7"
+  cpuStepping=None     # stepping is used for revision here
+  vendor="generic_ARM" # FIXME: we would like to detect APM/ARM/Qualcomm...
+
+  with open(fileName, 'r') as f:
+    for line in f:
+      match = regParseVariant.match(line)
+      if match:
+        cpuModel=int(match.group("value"), 0)
+      match = regParseRevision.match(line)
+      if match:
+        cpuStepping=match.group("value")
+
+      if cpuModel and cpuStepping:
+        break
+
+    f.close()
+
+  return cpuModel, cpuFamily, cpuStepping, vendor
+
+
+def detectCPU_ppc():
+  fileName = "/proc/cpuinfo"
+
+  regParseRevision = re.compile(r"""
+                            (?P<name>revision)\s*:\s*
+                            (?P<value>\d+\.\d+)\s+\(pvr\s+
+                            (?P<model>[\da-f]+)\s+
+                            (?P<rev>[\da-f]+)\)
+                            """, re.VERBOSE)
+
+  cpuModel=None	    # model will serve for model number (003f fo POWER7, etc.)
+  cpuFamily=None    # family is None here
+  cpuStepping=None  # stepping will serve for revision here
+  vendor="IBM"      # vendor is always IBM for ppc64
+
+  with open(fileName, 'r') as f:
+    for line in f:
+      match = regParseRevision.match(line)
+      if match:
+        cpuModel = int(match.group("model"), 16)
+        cpuStepping = int(match.group("rev"), 16)
+
+      if cpuModel and cpuStepping:
+        break
+
+    f.close()
+
+  return cpuModel, cpuFamily, cpuStepping, vendor
+
+
+def detectCPU_x86():
   fileName = "/proc/cpuinfo"
 
   regParseModel = re.compile(r"""
@@ -55,10 +118,23 @@ def detectEnv():
 
     f.close()
 
+  return cpuModel, cpuFamily, cpuStepping, vendor
+
+
+# tries to detect environment configuration from /proc/cpuinfo, arch and kernel version from uname
+def detectEnv():
   arch = os.popen('uname -m').read().rstrip()
   kernel = os.popen('uname -r').read().rstrip()
 
-  return arch, kernel, cpuModel, cpuFamily, cpuStepping, vendor
+  # CPU detection needs to be arch-specific
+  if arch == "aarch64":
+    r = detectCPU_aarch64()
+  elif arch == "ppc64" or arch == "ppc64le":
+    r = detectCPU_ppc()
+  elif arch == "i386" or arch == "x86_64":
+    r = detectCPU_x86()
+
+  return arch, kernel, r[0], r[1], r[2], r[3]
 
 
 # Get kernel id
@@ -134,7 +210,11 @@ def dbGetVirtId(db, virt):
 
 # Get environment id
 def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, idVirt):
-  sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and family = %(env_family)s and model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
+  if family:
+    familyStr = 'family = %(env_family)s and '
+  else:
+    familyStr = ''
+  sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and ' + familyStr + 'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
   sql_params = {'env_arch': arch, 'env_family': family, 'env_model': model, 'env_stepping' : stepping, 'kernel_id' : idKernel, 'vendor_id' : idVendor, 'virt_id' : idVirt}
 
   results = db.select(sql_query, sql_params)
@@ -279,7 +359,6 @@ fileName = m.inputCSV
 if fileName:
   try:
     f = open(fileName, 'r')
-    print f
   except IOError:
     print "Error: File %s can not be opened" % fileName
     sys.exit()
