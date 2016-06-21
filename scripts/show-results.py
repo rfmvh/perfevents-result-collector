@@ -66,7 +66,7 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     sql_params['eventGroup'] = results[0][0]
     
   if toolName and toolVersion:
-    sql_query_tool = 'SELECT tool_id FROM tools WHERE name = %(name)s and version %(version)s;'
+    sql_query_tool = 'SELECT tool_id FROM tools WHERE name = %(name)s and version = %(version)s;'
     sql_params_tool = {'name': toolName, 'version':toolVersion}
     
     results = db.select(sql_query_tool, sql_params_tool)
@@ -86,8 +86,8 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     if not results:
       sys.exit(0)
     
-    conditions+=" and r.tool_id = %(toolName)s "
-    sql_params['toolName'] = results[0][0]
+    conditions+=" and r.tool_id = ANY(%(toolSpec)s) "
+    sql_params['toolSpec'] = [i[0] for i in results]
     
   if experiment:
     sql_query_experiment = 'SELECT exp_id FROM experiments WHERE name = %(name)s;'
