@@ -348,7 +348,9 @@ virtId = dbGetVirtId(db, m.virt)
 environmentId = dbGetEnvironmentId(db, m.arch, m.cpuFamily, m.cpuModel, m.cpuStepping, kernelId, vendorId, virtId)
 experimentId = dbGetExperimentId(db, m.experiment)
 
-
+if not experimentId:
+  print "Error: Unknown experiment %s. You need to define it first (see rcl-add-experiment)." % m.experiment
+  sys.exit()
 
 regexp = prepareRegexpByTool(m.toolName)
 if not regexp:
