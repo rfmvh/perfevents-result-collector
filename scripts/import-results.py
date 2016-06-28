@@ -254,6 +254,12 @@ def prepareRegexpByTool(toolName):
                      (?P<value>\d+),
                       """, re.VERBOSE)
 
+  elif toolName == "papi":
+    return re.compile(r"""
+                     (?P<name>\w+);
+                     (?P<value>\d+)
+                      """, re.VERBOSE)
+
   else:
     return None
 
