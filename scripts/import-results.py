@@ -244,7 +244,7 @@ def dbGetEventId(db, event):
 def prepareRegexpByTool(toolName):
   if toolName == "perf":
     return re.compile(r"""
-                        (?P<value>\d+);;
+                        (?P<value>[\d\.]+);[^;]*;
                         (?P<name>[\w\/=,:\-]+);
                         """, re.VERBOSE)
 
