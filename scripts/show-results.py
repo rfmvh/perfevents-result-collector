@@ -36,6 +36,35 @@ optparser.add_option("", "--csv", action="store_true", default=False, dest="csv"
 # open DB
 db = DBConnection()
 
+def getEnvID(kernelID=None, vendorID=None, virtID=None, family=None, model=None, arch=None, microarch=None):
+  _conditions = "TRUE"
+  _sql_params = {}
+  if kernelID:
+    _conditions += " and kernel_id = %(kernelID)s "
+    _sql_params['kernelID'] = kernelID
+  if virtID:
+    _conditions += " and virt_id = %(kernelID)s "
+    _sql_params['kernelID'] = kernelID
+
+  if family:
+    _conditions += " and family = %(family)s "
+    _sql_params['family'] = family
+
+  if model:
+    _conditions += " and model = %(model)s "
+    _sql_params['model'] = model
+
+  if arch:
+    _conditions += " and arch = %(arch)s "
+    _sql_params['arch'] = arch
+
+  if microarch:
+    _conditions += " and microarch = %(microarch)s "
+    _sql_params['microarch'] = microarch
+
+  _sql_query = "SELECT env_id FROM environments WHERE " + _conditions + ";"
+  return db.select(_sql_query, _sql_params)
+
 
 def show_result(event, eventGroup, toolName, toolVersion, experiment, family, model, vendor, arch, microarch, kernel, virt, eventD, toolD, expD, envD, kernelD, virtD, csv):
   conditions=""
@@ -101,73 +130,11 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     conditions+=" and r.exp_id = %(experiment)s "
     sql_params['experiment'] = results[0][0]
     
-  if family:
-    sql_query_family = 'SELECT env_id FROM environments WHERE family = %(family)s;'
-    sql_params_family = {'family': family}
-    
-    results = db.select(sql_query_family, sql_params_family)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(family)s "
-    sql_params['family'] = results[0][0]
-    
-  if model:
-    sql_query_model = 'SELECT env_id FROM environments WHERE model = %(modelID)s;'
-    sql_params_model = {'modelID': model}
-    
-    results = db.select(sql_query_model, sql_params_model)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(model)s "
-    sql_params['model'] = results[0][0]
-    
-  if vendor:
-    sql_query_vendor1 = 'SELECT vendor_id FROM vendors WHERE name = %(name)s;'
-    sql_params_vendor1 = {'name': vendor}
-    results = db.select(sql_query_vendor1, sql_params_vendor1)
-    
-    if not results:
-      sys.exit(0)
-    
-    sql_query_vendor2 = 'SELECT env_id FROM environments WHERE vendor_id = %(vendor)s;'
-    sql_params_vendor2 = {'vendor': results[0][0]}
-    
-    results = db.select(sql_query_vendor2, sql_params_vendor2)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(vendorID)s "
-    sql_params['vendorID'] = results[0][0]
-  
-  if arch:
-    sql_query_arch = 'SELECT env_id FROM environments WHERE arch = %(arch)s;'
-    sql_params_arch = {'arch': arch}
-    
-    results = db.select(sql_query_arch, sql_params_arch)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(arch)s "
-    sql_params['arch'] = results[0][0]
-    
-  if microarch:
-    sql_query_microarch = 'SELECT env_id FROM environments WHERE microarch = %(microarch)s;'
-    sql_params_microarch = {'microarch': microarch}
-    
-    results = db.select(sql_query_microarch, sql_params_microarch)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(microarch)s "
-    sql_params['microarch'] = results[0][0]
-    
+  # environment
+  vendorID = None
+  kernelID = None
+  virtID = None
+
   if kernel:
     sql_query_kernel1 = 'SELECT kernel_id FROM kernels WHERE name = %(name)s;'
     sql_params_kernel1 = {'name': kernel}
@@ -175,18 +142,17 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     
     if not results:
       sys.exit(0)
-    
-    sql_query_kernel2 = 'SELECT env_id FROM environments WHERE kernel_id = %(kernel)s;'
-    sql_params_kernel2 = {'kernel': results[0][0]}
-    
-    results = db.select(sql_query_kernel2, sql_params_kernel2)
+    kernelID = results[0][0]
+
+  if vendor:
+    sql_query_vendor1 = 'SELECT vendor_id FROM vendors WHERE name = %(name)s;'
+    sql_params_vendor1 = {'name': vendor}
+    results = db.select(sql_query_vendor1, sql_params_vendor1)
     
     if not results:
       sys.exit(0)
-    
-    conditions+=" and r.env_id = %(kernelID)s "
-    sql_params['kernelID'] = results[0][0]
-    
+    vendorID = results[0][0]
+
   if virt:
     sql_query_virt1 = 'SELECT virt_id FROM virt WHERE name = %(name)s;'
     sql_params_virt1 = {'name': virt}
@@ -194,18 +160,14 @@ def show_result(event, eventGroup, toolName, toolVersion, experiment, family, mo
     
     if not results:
       sys.exit(0)
-    
-    sql_query_virt2 = 'SELECT env_id FROM environments WHERE virt_id = %(virt)s;'
-    sql_params_virt2 = {'virt': results[0][0]}
-    
-    results = db.select(sql_query_virt2, sql_params_virt2)
-    
-    if not results:
-      sys.exit(0)
-    
-    conditions+=" and r.env_id = %(virtID)s "
-    sql_params['virtID'] = results[0][0]
-    
+    virtID = results[0][0]
+
+  environmentID = getEnvID(kernelID, vendorID, virtID, family, model, arch, microarch)
+
+  if environmentID:
+    conditions += " and r.env_id = ANY(%(envID)s) "
+    sql_params['envID'] = [i[0] for i in environmentID]
+
                  
   sql_query = """ SELECT r.val, 
               events.name, events.evt_num, events.nmask, events.idgroup,
