@@ -245,12 +245,12 @@ def prepareRegexpByTool(toolName):
   if toolName == "perf":
     return re.compile(r"""
                         (?P<value>\d+);;
-                        (?P<name>[\w/=,:\-]+);
+                        (?P<name>[\w\/=,:\-]+);
                         """, re.VERBOSE)
 
   elif toolName == "oprofile":
     return re.compile(r"""
-                     (?P<name>\w+),
+                     (?P<name>[\w:]+),
                      (?P<value>\d+),
                       """, re.VERBOSE)
 
