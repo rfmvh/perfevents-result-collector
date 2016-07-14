@@ -36,7 +36,7 @@ CREATE SEQUENCE virt_id_seq INCREMENT 1 START 1;
 DROP TABLE IF EXISTS virt CASCADE;
 CREATE TABLE virt (
 	virt_id INTEGER NOT NULL DEFAULT nextval('virt_id_seq') PRIMARY KEY,
-	name VARCHAR(16) NOT NULL);
+	name VARCHAR(32) NOT NULL);
 ALTER SEQUENCE virt_id_seq OWNED BY virt.virt_id;
 
 
