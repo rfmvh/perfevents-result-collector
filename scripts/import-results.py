@@ -131,7 +131,7 @@ def detectEnv():
     r = detectCPU_aarch64()
   elif arch == "ppc64" or arch == "ppc64le":
     r = detectCPU_ppc()
-  elif arch == "i386" or arch == "x86_64":
+  elif arch == "i386" or arch == "i686" or arch == "x86_64":
     r = detectCPU_x86()
 
   return arch, kernel, r[0], r[1], r[2], r[3]
