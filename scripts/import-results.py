@@ -251,7 +251,7 @@ def prepareRegexpByTool(toolName):
   elif toolName == "oprofile":
     return re.compile(r"""
                      (?P<name>[\w:]+),
-                     (?P<value>\d+),
+                     (?P<value>\d+)
                       """, re.VERBOSE)
 
   elif toolName == "papi":
