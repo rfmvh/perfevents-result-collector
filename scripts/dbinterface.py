@@ -28,6 +28,7 @@ class DBConnection(object):
     @param use_localhost: set to True if you intent to connect to db running on localhost
     """
 
+
     self.dryrun = dryrun
     self.debug = debug
 
