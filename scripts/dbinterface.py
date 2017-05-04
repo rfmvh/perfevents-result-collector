@@ -4,12 +4,7 @@ import optparse
 import os
 import sys
 import psycopg2
-
-
-RESULTDB_HOST = '<IP>'
-RESULTDB_NAME = '<dbname>'
-RESULTDB_USER_RW = ('readwrite', 'passwd1')
-RESULTDB_USER_RO = ('readonly', 'passwd2')
+import ConfigParser
 
 try:
   from psycopg2.extras import DictCursor as CursorFactory
@@ -27,25 +22,28 @@ class DBConnection(object):
     @param rw: by default read-only connection is opened, set to True if you need write access
     @param use_localhost: set to True if you intent to connect to db running on localhost
     """
+    CONFIG = 'defaults.conf'
 
     self.dryrun = dryrun
     self.debug = debug
 
     self.conn = None
 
+    config = ConfigParser.ConfigParser()
+    config.readfp(open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, CONFIG))))
     conn_options = {
-        'dbname':   RESULTDB_NAME,
-        'user':     RESULTDB_USER_RO[0],
-        'password': RESULTDB_USER_RO[1],
-        'host':     RESULTDB_HOST
+        'dbname':   config.get('Defaults', 'RESULTDB_NAME'),
+        'user':     config.get('Defaults', 'RESULTDB_USER_RO_NAME'),
+        'password': config.get('Defaults', 'RESULTDB_USER_RO_PASSWORD'),
+        'host':     config.get('Defaults', 'RESULTDB_HOST')
     }
 
     if use_localhost:
       conn_options['host'] = 'localhost'
 
     if rw:
-      conn_options['user'] = RESULTDB_USER_RW[0]
-      conn_options['password'] = RESULTDB_USER_RW[1]
+      conn_options['user'] = config.get('Defaults', 'RESULTDB_USER_RW_NAME')
+      conn_options['password'] = config.get('Defaults', 'RESULTDB_USER_RW_PASSWORD')
 
     try:
       self.conn = psycopg2.connect('dbname={dbname} user={user} password={password} host={host}'.format(**conn_options))
