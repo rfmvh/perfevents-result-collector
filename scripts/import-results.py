@@ -124,7 +124,7 @@ def detectCPU_x86():
 # tries to detect environment configuration from /proc/cpuinfo, arch and kernel version from uname
 def detectEnv():
   arch = os.popen('uname -m').read().rstrip()
-  kernel = os.popen('uname -r').read().rstrip()
+  kernel = os.popen('uname -r').read().rstrip().replace('.' + arch, '')
 
   # CPU detection needs to be arch-specific
   if arch == "aarch64":
