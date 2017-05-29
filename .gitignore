@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+venv/
+>>>>>>> Stashed changes
 *.pyc
 *.pyo
 .idea/
