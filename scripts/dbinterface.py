@@ -39,7 +39,9 @@ class DBConnection(object):
     self.conn = None
 
     config = ConfigParser.ConfigParser()
-    config.readfp(open(db_config))
+    with open(db_config) as fd:
+      config.readfp(fd)
+
     conn_options = {
         'dbname':   config.get('Defaults', 'RESULTDB_NAME'),
         'user':     config.get('Defaults', 'RESULTDB_USER_RO_NAME'),
