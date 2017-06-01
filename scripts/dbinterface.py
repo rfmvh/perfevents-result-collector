@@ -11,10 +11,15 @@ try:
 except ImportError:
   CursorFactory = None
 
+PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+
 #
 # Database access
 #
 class DBConnection(object):
+  local = 'local.conf'
+  defaults = 'defaults.conf'
+
   def __init__(self, rw = True, use_localhost = False, dryrun = False, debug = False):
     """
     Open new connection to RESULT db.
@@ -22,7 +27,11 @@ class DBConnection(object):
     @param rw: by default read-only connection is opened, set to True if you need write access
     @param use_localhost: set to True if you intent to connect to db running on localhost
     """
-    CONFIG = 'defaults.conf'
+    local_path = os.path.join(PROJECT_PATH, self.local)
+    if(os.path.isfile(local_path)):
+      db_config = local_path
+    else:
+      db_config = os.path.join(PROJECT_PATH, self.defaults)
 
     self.dryrun = dryrun
     self.debug = debug
@@ -30,7 +39,7 @@ class DBConnection(object):
     self.conn = None
 
     config = ConfigParser.ConfigParser()
-    config.readfp(open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, CONFIG))))
+    config.readfp(open(db_config))
     conn_options = {
         'dbname':   config.get('Defaults', 'RESULTDB_NAME'),
         'user':     config.get('Defaults', 'RESULTDB_USER_RO_NAME'),
