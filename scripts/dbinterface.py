@@ -18,7 +18,7 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 # Database access
 #
 class DBConnection(object):
-  local = 'local.conf'
+  local = 'perfevents-result-collector.conf'
   defaults = 'defaults.conf'
   logger = logging.getLogger()
 
@@ -29,7 +29,7 @@ class DBConnection(object):
     @param rw: by default read-only connection is opened, set to True if you need write access
     @param use_localhost: set to True if you intent to connect to db running on localhost
     """
-    local_path = os.path.join(PROJECT_PATH, self.local)
+    local_path = os.path.expanduser(os.path.join('~', '.config', self.local))
     if(os.path.isfile(local_path)):
       db_config = local_path
     else:
