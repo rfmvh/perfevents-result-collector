@@ -71,17 +71,17 @@ assert_error $? "share path dir creation" "($SHARE_PATH/$TOOL_NAME already exist
 echo "rm -rf $SHARE_PATH/$TOOL_NAME" >> uninstall_helper.sh
 
 mkdir $SHARE_PATH/$TOOL_NAME/modules 2> /dev/null
-cp scripts/dbinterface.py $SHARE_PATH/$TOOL_NAME/modules/ 2> /dev/null
+cp perfresultcollector/dbinterface.py $SHARE_PATH/$TOOL_NAME/modules/ 2> /dev/null
 assert_error $? "installation of the DB interface" "(unable to copy dbinterface.py to $SHARE_PATH/$TOOL_NAME/modules)"
 
-to_be_installed=`ls scripts/*.py`
-to_be_installed=${to_be_installed/scripts\/dbinterface.py/}
+to_be_installed=`ls perfresultcollector/*.py`
+to_be_installed=${to_be_installed/perfresultcollector\/dbinterface.py/}
 
 # fix the python paths
 mkdir temp
 cp $to_be_installed temp/
 sed -i "4isys.path.append(\"$SHARE_PATH/$TOOL_NAME/modules\")" temp/*
-to_be_installed=`echo $to_be_installed | sed 's/scripts\//temp\//g'`
+to_be_installed=`echo $to_be_installed | sed 's/perfresultcollector\//temp\//g'`
 for script in $to_be_installed; do
 	BN=`basename $script .py`
 	cp $script $INSTALL_PATH/$TOOL_PREFIX-$BN
