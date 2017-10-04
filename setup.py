@@ -1,8 +1,8 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
     name = "perfevents-result-collector",
     packages = ["perfresultcollector"],
-    version = "1.0",
+    version = "1.0.0",
     description = "Collects benchmark data.",
     author = "Jan Smerda, Michael Petlan",
     author_email = "mpetlan@redhat.com",
@@ -16,8 +16,6 @@ setup(
         "Operating System :: OS Independent",
         ],
     long_description = """
-# perfevents-result-collector
-
 Authors: Jan Smerda, Michael Petlan
 
 This is a tool allowing to collect results from PERF and OProfile testing
