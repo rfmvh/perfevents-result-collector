@@ -53,6 +53,7 @@ class DBConnection(object):
     except psycopg2.DatabaseError as e:
       print "Error opening DB connection"
       print 'dbname={dbname} user={user} password={password} host={host}'.format(**conn_options)
+      raise e
 
   def close(self):
     if self.conn is None:
