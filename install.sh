@@ -90,5 +90,6 @@ for script in $to_be_installed; do
 done
 rm -rf temp
 
+# FINAL announcement that installation passed
 echo "INSTALLATION SUCCESSFUL. For uninstalling the tool use the uninstall.sh script."
 exit 0
