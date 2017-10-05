@@ -6,4 +6,7 @@ dist/
 local.conf
 MANIFEST
 
+/build
+/dist
+/*egg-info
 
