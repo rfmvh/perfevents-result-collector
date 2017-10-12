@@ -1,0 +1,9 @@
+venv/
+dist/
+*.pyc
+*.pyo
+.idea/
+local.conf
+MANIFEST
+
+

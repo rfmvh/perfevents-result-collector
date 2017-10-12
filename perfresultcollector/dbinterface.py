@@ -4,22 +4,24 @@ import optparse
 import os
 import sys
 import psycopg2
-
-
-RESULTDB_HOST = '<IP>'
-RESULTDB_NAME = '<dbname>'
-RESULTDB_USER_RW = ('readwrite', 'passwd1')
-RESULTDB_USER_RO = ('readonly', 'passwd2')
+import ConfigParser
+import logging
 
 try:
   from psycopg2.extras import DictCursor as CursorFactory
 except ImportError:
   CursorFactory = None
 
+PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+
 #
 # Database access
 #
 class DBConnection(object):
+  local = 'perfevents-result-collector.conf'
+  defaults = 'defaults.conf'
+  logger = logging.getLogger()
+
   def __init__(self, rw = True, use_localhost = False, dryrun = False, debug = False):
     """
     Open new connection to RESULT db.
@@ -27,25 +29,39 @@ class DBConnection(object):
     @param rw: by default read-only connection is opened, set to True if you need write access
     @param use_localhost: set to True if you intent to connect to db running on localhost
     """
+    local_path = os.path.expanduser(os.path.join('~', '.config', self.local))
+    if(os.path.isfile(local_path)):
+      db_config = local_path
+    else:
+      db_config = os.path.join(PROJECT_PATH, self.defaults)
 
     self.dryrun = dryrun
     self.debug = debug
 
     self.conn = None
 
+    stream_handler = logging.StreamHandler(sys.stderr)
+    formatter = logging.Formatter('%(asctime)s: %(levelname)s: %(message)s')
+    stream_handler.setFormatter(formatter)
+    self.logger.addHandler(stream_handler)
+
+    config = ConfigParser.ConfigParser()
+    with open(db_config) as fd:
+      config.readfp(fd)
+
     conn_options = {
-        'dbname':   RESULTDB_NAME,
-        'user':     RESULTDB_USER_RO[0],
-        'password': RESULTDB_USER_RO[1],
-        'host':     RESULTDB_HOST
+        'dbname':   config.get('Defaults', 'RESULTDB_NAME'),
+        'user':     config.get('Defaults', 'RESULTDB_USER_RO_NAME'),
+        'password': config.get('Defaults', 'RESULTDB_USER_RO_PASSWORD'),
+        'host':     config.get('Defaults', 'RESULTDB_HOST')
     }
 
     if use_localhost:
       conn_options['host'] = 'localhost'
 
     if rw:
-      conn_options['user'] = RESULTDB_USER_RW[0]
-      conn_options['password'] = RESULTDB_USER_RW[1]
+      conn_options['user'] = config.get('Defaults', 'RESULTDB_USER_RW_NAME')
+      conn_options['password'] = config.get('Defaults', 'RESULTDB_USER_RW_PASSWORD')
 
     try:
       self.conn = psycopg2.connect('dbname={dbname} user={user} password={password} host={host}'.format(**conn_options))
@@ -64,7 +80,8 @@ class DBConnection(object):
 
   def die(self, exc = None):
     if exc is not None:
-      sys.stderr.write('RESULTDB: An error appeared when communicating with the RESULTDB:\nError: %s\n' % str(exc.pgerror))
+      self.logger.error('RESULTDB: An error appeared when communicating with the RESULTDB:\nError: %s' % str(exc.pgerror))
+
 
     raise SystemExit(1)
 
@@ -109,8 +126,8 @@ class DBConnection(object):
       import time
 
     if debug:
-      sys.stderr.write('RESULTDB: SQL query template: %s\n' % sql_query)
-      sys.stderr.write('RESULTDB: SQL params: %s\n' % pprint.pformat(sql_params))
+      self.logger.debug('RESULTDB: SQL query template: %s' % sql_query)
+      self.logger.debug('RESULTDB: SQL params: %s' % pprint.pformat(sql_params))
 
     try:
       cur = self.conn.cursor(cursor_factory = CursorFactory)
@@ -122,10 +139,10 @@ class DBConnection(object):
         sql_query = cur.mogrify(sql_query)
 
       if debug:
-        sys.stderr.write('RESULTDB: SQL query: %s\n' % sql_query)
+        self.logger.debug('RESULTDB: SQL query: %s' % sql_query)
 
       if dryrun:
-        sys.stderr.write('RESULTDB: SQL dryrun mode enabled, quiting\n')
+        self.logger.info('RESULTDB: SQL dryrun mode enabled, quiting')
         return []
 
       if debug:
@@ -144,11 +161,11 @@ class DBConnection(object):
       if debug:
         time_end = time.time()
 
-        sys.stderr.write('RESULTDB: query result:\n')
+        self.logger.info('RESULTDB: query result:')
         if fetchall:
-          sys.stderr.write('%s\n' % pprint.pformat(result))
+            self.logger.info('%s' % pprint.pformat(result))
 
-        sys.stderr.write('RESULTDB: query took %.4f sec, fetching results took %.4f sec\n' % (time_query - time_start, time_end - time_query))
+        self.logger.info('RESULTDB: query took %.4f sec, fetching results took %.4f sec' % (time_query - time_start, time_end - time_query))
 
       return result
 
@@ -173,7 +190,7 @@ class DBConnection(object):
       self.conn.commit()
 
     except psycopg2.Error as e:
-      sys.stderr.write('RESULTDB: An error appeared when communicating with the RESULTDB during COMMIT:\n%s\n' % str(e.pgerror))
+      self.logger.error('RESULTDB: An error appeared when communicating with the RESULTDB during COMMIT:\n%s' % str(e.pgerror))
       sys.exit(1)
 
 if __name__ == '__main__':
