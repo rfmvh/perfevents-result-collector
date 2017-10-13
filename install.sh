@@ -74,6 +74,9 @@ mkdir $SHARE_PATH/$TOOL_NAME/modules 2> /dev/null
 cp perfresultcollector/dbinterface.py $SHARE_PATH/$TOOL_NAME/modules/ 2> /dev/null
 assert_error $? "installation of the DB interface" "(unable to copy dbinterface.py to $SHARE_PATH/$TOOL_NAME/modules)"
 
+cp defaults.conf $SHARE_PATH/$TOOL_NAME/
+assert_error $? "installation of the DB interface" "(unable to copy default configuration)"
+
 to_be_installed=`ls perfresultcollector/*.py`
 to_be_installed=${to_be_installed/perfresultcollector\/dbinterface.py/}
 
