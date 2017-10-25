@@ -33,6 +33,8 @@ assert_error $? "python-psycopg2" "is a hard requirement"
 test -d $INSTALL_PATH
 assert_error $? "installation path existence" "(installation path must exist)"
 
+
+
 # check if the installation path is in $PATH
 echo $PATH | grep -q $INSTALL_PATH:
 assert_warn $? "install path in PATH" "(installation path should be in PATH)"
