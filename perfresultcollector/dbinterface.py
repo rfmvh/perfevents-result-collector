@@ -126,59 +126,46 @@ class DBConnection(object):
             self.logger.debug('RESULTDB: SQL query template: %s' % sql_query)
             self.logger.debug('RESULTDB: SQL params: %s' % pprint.pformat(sql_params))
 
-        #try:
-        if True:
-            cur = self.conn.cursor(cursor_factory=CursorFactory)
+        cur = self.conn.cursor(cursor_factory=CursorFactory)
 
-            if sql_params:
-                sql_query = cur.mogrify(sql_query, sql_params)
+        if sql_params:
+            sql_query = cur.mogrify(sql_query, sql_params)
 
-            else:
-                sql_query = cur.mogrify(sql_query)
+        else:
+            sql_query = cur.mogrify(sql_query)
 
-            if debug:
-                self.logger.debug('RESULTDB: SQL query: %s' % sql_query)
+        if debug:
+            self.logger.debug('RESULTDB: SQL query: %s' % sql_query)
 
-            if dryrun:
-                self.logger.info('RESULTDB: SQL dryrun mode enabled, quiting')
-                return []
+        if dryrun:
+            self.logger.info('RESULTDB: SQL dryrun mode enabled, quiting')
+            return []
 
-            if debug:
-                time_start = time.time()
+        if debug:
+            time_start = time.time()
 
-            cur.execute(sql_query)
+        cur.execute(sql_query)
 
-            if debug:
-                time_query = time.time()
+        if debug:
+            time_query = time.time()
 
+        if fetchall:
+            result = cur.fetchall()
+        else:
+            result = self.conn.commit()
+
+        if debug:
+            time_end = time.time()
+
+            self.logger.info('RESULTDB: query result:')
             if fetchall:
-                result = cur.fetchall()
-            else:
-                result = self.conn.commit()
+                self.logger.info('%s' % pprint.pformat(result))
 
-            if debug:
-                time_end = time.time()
+            self.logger.info('RESULTDB: query took %.4f sec, fetching results took %.4f sec' % (
+                time_query - time_start, time_end - time_query))
 
-                self.logger.info('RESULTDB: query result:')
-                if fetchall:
-                    self.logger.info('%s' % pprint.pformat(result))
+        return result
 
-                self.logger.info('RESULTDB: query took %.4f sec, fetching results took %.4f sec' % (
-                    time_query - time_start, time_end - time_query))
-
-            return result
-
-        #except psycopg2.Error as e:
-        #    self.conn.rollback()
-
-        #    if on_sql_exception is None:
-        #        self.die(exc=e)
-
-        #    result = on_sql_exception(self, sql_query, sql_params, e, dryrun=dryrun, debug=debug)
-        #    if result is False:
-        #        self.die(exc=e)
-
-        #    return result
 
     def select(self, *args, **kwargs):
         kwargs['fetchall'] = True

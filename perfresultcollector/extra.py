@@ -14,7 +14,7 @@ def type_of_log(data, csv, head, table=False):
         ret.append(_head)
         for line in data:
             _data = ""
-            for index in range(1,len(line)):
+            for index in range(len(line)):
                 if index + 1 != len(line):
                     _data += str(line[index]) + clmn
                 else:
@@ -25,7 +25,7 @@ def type_of_log(data, csv, head, table=False):
         ret = [head]
         for line in data:
             _data = []
-            for index in range(1,len(line)):
+            for index in range(len(line)):
                 _data.append(str(line[index]))
             ret.append(_data)
         return ret

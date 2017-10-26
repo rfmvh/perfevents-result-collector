@@ -42,13 +42,25 @@ optparser.add_option("", "--table", action="store_true", default=False, dest="ta
 # open DB
 db = DBConnection()
 qr = Query("results")
-qr.set_select("results.val", "events.name", "events.evt_num", "events.nmask", "events.idgroup",
-              "tools.name, tools.version", "experiments.name",
-              "environments.arch", "environments.microarch", " environments.family", "environments.model",
-              "kernels.name", "virt.name")
+
+
+def get_select():
+    basic_details = {"events.evt_num": options.eventD, "events.nmask": options.eventD, "tools.name": options.toolD,
+                     "tools.version": options.toolD, "experiments.name": options.expD,
+                     "kernels.name": options.kernelD, "virt.name": options.virtD}
+    details=["results.val", "events.name", "events.idgroup"]
+    for index in basic_details:
+        if basic_details[index]:
+            details.append(index)
+    if options.envD=="1":
+        details+=["environments.arch","environments.microarch"]
+    elif options.envD=="2":
+        details+=["environments.arch","environments.microarch","environments.family","environments.model"]
+    return details
 
 
 def show_result(csv, table, **options):
+    qr.set_select(get_select())
     for option in options:
         if options[option]:
             qr.filter({option: options[option]})
@@ -62,6 +74,7 @@ def show_result(csv, table, **options):
     else:
         for line in type_of_log(data, csv, head):
             print line
+
 
 show_result(options.csv, options.table, events__name=options.event, events__idgroup=options.eventGroup,
             tools__name=options.toolName,

@@ -44,13 +44,14 @@ class Query(object):
 
     def set_select(self, *select):
         self._select = ""
+        if not type(select[0]) is str:
+            select=select[0]
         if len(select) == 0 or select[0] == "":
             self._select += "*"
         for index, item in enumerate(select):
             self._select += item
             if index != len(select) - 1:
                 self._select += ", "
-
     def filter(self, option=None, **kwargs):
         if option is None:
             option = {}
