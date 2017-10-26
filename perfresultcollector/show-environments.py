@@ -16,6 +16,7 @@ optparser.add_option("", "--virt", action="store", dest="virt")
 optparser.add_option("", "--kernel", action="store", dest="kernel")
 optparser.add_option("", "--vendor", action="store", dest="vendor")
 optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
+optparser.add_option("", "--table", action="store_true", default=False, dest="table")
 
 (options, args) = optparser.parse_args()
 
@@ -26,16 +27,22 @@ qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",
               "virt.name", "kernels.name", "vendors.name")
 
 
-def show_environment(csv, **options):
+def show_environment(csv, table, **options):
     for option in options:
         if options[option]:
             qr.filter({option: options[option]})
-    data = qr.execute()
     head = qr.get_select().split(", ")
-    for line in type_of_log(data, csv, head):
-        print line
+    data = qr.execute()
+    if table:
+        output_data = type_of_log(data, csv, head, table)
+        widths = [max(map(len, col)) for col in zip(*output_data)]
+        for row in output_data:
+            print " | ".join((val.ljust(width) for val, width in zip(row, widths)))
+    else:
+        for line in type_of_log(data, csv, head):
+            print line
 
 
-show_environment(options.csv, arch=options.arch, microarch=options.microarch, family=options.family,
-                 model=options.model, stepping=options.stepping, virt=options.virt,
-                 kernel=options.kernel, vendor=options.vendor)
+show_environment(options.csv, options.table, arch=options.arch, microarch=options.microarch, family=options.family,
+                 model=options.model, stepping=options.stepping, virt__name=options.virt,
+                 kernel__name=options.kernel, vendors__name=options.vendor)

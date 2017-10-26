@@ -9,12 +9,11 @@ from dbinterface import DBConnection
 db = DBConnection()
 
 
-class Query:
+class Query(object):
     def __init__(self, _from=""):
         self._select = "*"
         self.connection = ""
         self._from = _from
-        self._inner = ""
         self.sql_query_event = ""
         self._where = "WHERE True"
         self._conditions = ""
@@ -23,9 +22,9 @@ class Query:
     def set_from(self, _from):
         self._from = _from
 
-    def forigner_key(self):
+    def get_inner(self):
         if self._from == "results":
-            self._inner = """
+            inner = """
               INNER JOIN experiments ON results.exp_id=experiments.exp_id
               INNER JOIN tools ON results.tool_id=tools.tool_id
               INNER JOIN environments ON results.env_id=environments.env_id
@@ -35,10 +34,13 @@ class Query:
               INNER JOIN vendors ON environments.vendor_id=vendors.vendor_id
               """
         elif self._from == "environments":
-            self._inner = """
+            inner = """
               INNER JOIN virt ON environments.virt_id=virt.virt_id
               INNER JOIN kernels ON environments.kernel_id=kernels.kernel_id
               INNER JOIN vendors ON environments.vendor_id=vendors.vendor_id"""
+        else:
+            inner = ""
+        return inner
 
     def set_select(self, *select):
         self._select = ""
@@ -49,11 +51,14 @@ class Query:
             if index != len(select) - 1:
                 self._select += ", "
 
-    def filter(self, *dic_where, **where):
-        if where != {}:
-            _where = where
+    def filter(self, option=None, **kwargs):
+        if option is None:
+            option = {}
+
+        if kwargs != {}:
+            _where = kwargs
         else:
-            _where = dic_where
+            _where = option
         for index, item in enumerate(_where):
             s_item = item.split("__")
             operator = "="
@@ -65,7 +70,7 @@ class Query:
                         operator = ">="
                     elif it == "lt":
                         operator = "<="
-                    if it != "gt" and it != "lt" and it != "not":
+                    if it not in ["gt", "lt", "not"]:
                         fk = "." + it
                     if it == "not":
                         negation = "NOT "
@@ -74,47 +79,30 @@ class Query:
             self._where += "" + negation + s_item[0] + fk + " " + operator + " %(my_" + s_item[0] + str(index) + ")s"
             self.sql_parms_event["my_" + s_item[0] + str(index)] = _where[item]
 
-    def execute(self, operation="",column=""):
-        self.forigner_key()
-        if operation == "":
-            self._query = "SELECT " + self._select + " FROM " + self._from + "" + self._inner + " " + self._where
-        else:
-            self._query = "SELECT " + operation + "(" + column + ")" + " FROM " + self._from + "" + self._inner + " " + self._where
-        results = db.select(self._query, self.sql_parms_event)
-        return results
-
     def debug(self):
         for res in self.execute():
             print res
         print self._query
 
-    def save_data_to_excel(self):
-        from collections import OrderedDict
-        from pyexcel_ods import save_data
-        data = OrderedDict()
-        arra = []
-        for resp in self.execute():
-            help = []
-            for i in resp:
-                if i != None:
-                    help.append(i)
-                else:
-                    help.append("None")
-            arra.append(help)
-        data.update({"Sheet 1": arra})
-        save_data("data.ods", data)
+    def execute(self, operation="", column="*"):
+        if not operation:
+            self._query = "SELECT " + self._select + " FROM " + self._from + "" + self.get_inner() + " " + self._where
+        else:
+            self._query = "SELECT " + operation + "(" + column + ")" + " FROM " + self._from + "" + self.get_inner() + " " + self._where
+        results = db.select(self._query, self.sql_parms_event)
+        return results
 
-    def get_min(self,column):
-        return self.execute("min")
+    def get_min(self, column):
+        return self.execute("min", column)
 
-    def get_avg(self,column):
-        return self.execute("avg")
+    def get_avg(self, column):
+        return self.execute("avg", column)
 
-    def get_max(self,column):
-        return self.execute("max")
+    def get_max(self, column):
+        return self.execute("max", column)
 
-    def get_stddev(self,column):
-        return self.execute("stddev")
+    def get_stddev(self, column):
+        return self.execute("stddev", column)
 
     def get_select(self):
         return self._select

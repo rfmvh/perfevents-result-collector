@@ -67,7 +67,6 @@ class DBConnection(object):
         self.conn = psycopg2.connect(
             'dbname={dbname} user={user} password={password} host={host}'.format(**conn_options))
 
-        print 'dbname={dbname} user={user} password={password} host={host}'.format(**conn_options)
 
     def close(self):
         if self.conn is None:

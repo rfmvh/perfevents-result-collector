@@ -14,6 +14,7 @@ optparser.set_defaults(listmode=0)
 optparser.add_option("", "--name", action="store", dest="name")
 optparser.add_option("", "--version", action="store", dest="version")
 optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
+optparser.add_option("", "--table", action="store_true", default=False, dest="table")
 
 (options, args) = optparser.parse_args()
 
@@ -22,13 +23,19 @@ db = DBConnection()
 qr = Query("tools")
 
 
-def show_tool(csv, **options):
+def show_tool(csv, table, **options):
     for option in options:
         if options[option]:
             qr.filter({option: options[option]})
     head = ["name", "evt_num", "nmas", "idGroup"]
-    for line in type_of_log(qr.execute(), csv, head):
-        print line
+    data = qr.execute()
+    if table:
+        output_data = type_of_log(data, csv, head, table)
+        widths = [max(map(len, col)) for col in zip(*output_data)]
+        for row in output_data:
+            print " | ".join((val.ljust(width) for val, width in zip(row, widths)))
+    else:
+        for line in type_of_log(data, csv, head):
+            print line
 
-
-show_tool(options.csv, name=options.name, version=options.version)
+show_tool(options.csv, options.table, name=options.name, version=options.version)

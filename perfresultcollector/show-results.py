@@ -35,6 +35,7 @@ optparser.add_option("", "--kernel-details", action="store_true", default=False,
 optparser.add_option("", "--virt-details", action="store_true", default=False, dest="virtD")
 
 optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
+optparser.add_option("", "--table", action="store_true", default=False, dest="table")
 
 (options, args) = optparser.parse_args()
 
@@ -47,17 +48,23 @@ qr.set_select("results.val", "events.name", "events.evt_num", "events.nmask", "e
               "kernels.name", "virt.name")
 
 
-def show_result(csv, **options):
+def show_result(csv, table, **options):
     for option in options:
         if options[option]:
             qr.filter({option: options[option]})
-    data=qr.execute()
     head = qr.get_select().split(", ")
+    data = qr.execute()
+    if table:
+        output_data = type_of_log(data, csv, head, table)
+        widths = [max(map(len, col)) for col in zip(*output_data)]
+        for row in output_data:
+            print " | ".join((val.ljust(width) for val, width in zip(row, widths)))
+    else:
+        for line in type_of_log(data, csv, head):
+            print line
 
-    for line in type_of_log(data, csv, head):
-        print line
-
-show_result(options.csv, events__name=options.event, events__idgroup=options.eventGroup, tools__name=options.toolName,
+show_result(options.csv, options.table, events__name=options.event, events__idgroup=options.eventGroup,
+            tools__name=options.toolName,
             tools__version=options.toolVersion, experiments__name=options.experiment,
             environments__family=options.family, environments__model=options.model, vendors__name=options.vendor,
             environments__arch=options.arch, environments__microarch=options.microarch, kernels__name=options.kernel,

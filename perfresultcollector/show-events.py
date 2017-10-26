@@ -14,6 +14,7 @@ optparser.set_defaults(listmode=0)
 optparser.add_option("", "--name", action="store", dest="name")
 optparser.add_option("", "--idgroup", action="store", dest="idGroup")
 optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
+optparser.add_option("", "--table", action="store_true", default=False, dest="table")
 (options, args) = optparser.parse_args()
 
 # open DB
@@ -21,13 +22,20 @@ db = DBConnection()
 qr = Query("events")
 
 
-def show_event(csv, **options):
+def show_event(csv, table, **options):
     for option in options:
         if options[option]:
             qr.filter({option: options[option]})
     head = ["name", "evt_num", "nmas", "idGroup"]
-    for line in type_of_log(qr.execute(), csv, head):
-        print line
+    data = qr.execute()
+    if table:
+        output_data = type_of_log(data, csv, head, table)
+        widths = [max(map(len, col)) for col in zip(*output_data)]
+        for row in output_data:
+            print " | ".join((val.ljust(width) for val, width in zip(row, widths)))
+    else:
+        for line in type_of_log(data, csv, head):
+            print line
 
 
-show_event(options.csv, name=options.name, idGroup=options.idGroup)
+show_event(options.csv, options.table, name=options.name, idGroup=options.idGroup)
