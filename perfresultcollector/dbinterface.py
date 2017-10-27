@@ -67,7 +67,6 @@ class DBConnection(object):
         self.conn = psycopg2.connect(
             'dbname={dbname} user={user} password={password} host={host}'.format(**conn_options))
 
-
     def close(self):
         if self.conn is None:
             return
@@ -165,7 +164,6 @@ class DBConnection(object):
                 time_query - time_start, time_end - time_query))
 
         return result
-
 
     def select(self, *args, **kwargs):
         kwargs['fetchall'] = True

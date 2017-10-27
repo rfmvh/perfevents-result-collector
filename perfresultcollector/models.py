@@ -2,8 +2,6 @@
 
 from dbinterface import DBConnection
 
-# TODO vse krom... DONE
-# TODO stddev(standartni odchylka), avg, min, max - postgresql funkce DONE
 # TODO diff soubor pro... mail 2.1
 # open DB
 db = DBConnection()
@@ -44,14 +42,15 @@ class Query(object):
 
     def set_select(self, *select):
         self._select = ""
-        if not type(select[0]) is str:
-            select=select[0]
+        if type(select[0]) is list:
+            select = select[0]
         if len(select) == 0 or select[0] == "":
             self._select += "*"
         for index, item in enumerate(select):
             self._select += item
             if index != len(select) - 1:
                 self._select += ", "
+
     def filter(self, option=None, **kwargs):
         if option is None:
             option = {}
@@ -86,10 +85,17 @@ class Query(object):
         print self._query
 
     def execute(self, operation="", column="*"):
-        if not operation:
-            self._query = "SELECT " + self._select + " FROM " + self._from + "" + self.get_inner() + " " + self._where
+        if operation:
+            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation, column,
+                                                                                  table=self._from,
+                                                                                  join=self.get_inner(),
+                                                                                  where=self._where)
+
         else:
-            self._query = "SELECT " + operation + "(" + column + ")" + " FROM " + self._from + "" + self.get_inner() + " " + self._where
+            self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
+                                                                                join=self.get_inner(),
+                                                                                where=self._where)
+
         results = db.select(self._query, self.sql_parms_event)
         return results
 

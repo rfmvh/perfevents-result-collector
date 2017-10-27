@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# TODO add details
-# TODO recreate strucutre about heading
 import sys
 import re
 import os
@@ -9,7 +7,7 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 from models import Query
-from extra import type_of_log
+from format_data import type_of_log
 
 optparser = OptionParser()
 optparser.set_defaults(listmode=0)
@@ -48,22 +46,22 @@ def get_select():
     basic_details = {"events.evt_num": options.eventD, "events.nmask": options.eventD, "tools.name": options.toolD,
                      "tools.version": options.toolD, "experiments.name": options.expD,
                      "kernels.name": options.kernelD, "virt.name": options.virtD}
-    details=["results.val", "events.name", "events.idgroup"]
+    details = ["results.val", "events.name", "events.idgroup"]
     for index in basic_details:
         if basic_details[index]:
             details.append(index)
-    if options.envD=="1":
-        details+=["environments.arch","environments.microarch"]
-    elif options.envD=="2":
-        details+=["environments.arch","environments.microarch","environments.family","environments.model"]
+    if options.envD == "1":
+        details += ["environments.arch", "environments.microarch"]
+    elif options.envD == "2":
+        details += ["environments.arch", "environments.microarch", "environments.family", "environments.model"]
     return details
 
 
-def show_result(csv, table, **options):
+def show_result(csv, table, **kwargs):
     qr.set_select(get_select())
-    for option in options:
-        if options[option]:
-            qr.filter({option: options[option]})
+    for option in kwargs:
+        if kwargs[option]:
+            qr.filter({option: kwargs[option]})
     head = qr.get_select().split(", ")
     data = qr.execute()
     if table:
@@ -76,9 +74,11 @@ def show_result(csv, table, **options):
             print line
 
 
-show_result(options.csv, options.table, events__name=options.event, events__idgroup=options.eventGroup,
-            tools__name=options.toolName,
-            tools__version=options.toolVersion, experiments__name=options.experiment,
-            environments__family=options.family, environments__model=options.model, vendors__name=options.vendor,
-            environments__arch=options.arch, environments__microarch=options.microarch, kernels__name=options.kernel,
-            virt__name=options.virt)
+if __name__ == '__main__':
+    show_result(options.csv, options.table, events__name=options.event, events__idgroup=options.eventGroup,
+                tools__name=options.toolName,
+                tools__version=options.toolVersion, experiments__name=options.experiment,
+                environments__family=options.family, environments__model=options.model, vendors__name=options.vendor,
+                environments__arch=options.arch, environments__microarch=options.microarch,
+                kernels__name=options.kernel,
+                virt__name=options.virt)

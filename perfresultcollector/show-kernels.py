@@ -7,7 +7,7 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 from models import Query
-from extra import type_of_log
+from format_data import type_of_log
 
 optparser = OptionParser()
 optparser.set_defaults(listmode=0)
@@ -21,13 +21,14 @@ db = DBConnection()
 qr = Query("kernels")
 
 
-def show_kernel(csv, **options):
-    head = ["name", "evt_num", "nmas", "idGroup"]
-    for option in options:
-        if options[option]:
-            qr.filter({option: options[option]})
+def show_kernel(csv, **kwargs):
+    head = ["id", "name"]
+    for option in kwargs:
+        if kwargs[option]:
+            qr.filter({option: kwargs[option]})
     for line in type_of_log(qr.execute(), csv, head):
         print line
 
 
-show_kernel(options.csv, name=options.name)
+if __name__ == '__main__':
+    show_kernel(options.csv, name=options.name)

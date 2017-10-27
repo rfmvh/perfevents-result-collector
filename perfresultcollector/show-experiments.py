@@ -7,7 +7,7 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 from models import Query
-from extra import type_of_log
+from format_data import type_of_log
 
 optparser = OptionParser()
 optparser.set_defaults(listmode=0)
@@ -22,11 +22,11 @@ db = DBConnection()
 qr = Query("experiments")
 
 
-def show_experiment(csv, table, **options):
+def show_experiment(csv, table, **kwargs):
     head = ["id", "cmd", "description", "systemwide"]
-    for option in options:
-        if options[option]:
-            qr.filter({option: options[option]})
+    for option in kwargs:
+        if kwargs[option]:
+            qr.filter({option: kwargs[option]})
     data = qr.execute()
     if table:
         output_data = type_of_log(data, csv, head, table)
@@ -37,4 +37,6 @@ def show_experiment(csv, table, **options):
         for line in type_of_log(data, csv, head):
             print line
 
-show_experiment(options.csv, options.table, name=options.name)
+
+if __name__ == '__main__':
+    show_experiment(options.csv, options.table, name=options.name)
