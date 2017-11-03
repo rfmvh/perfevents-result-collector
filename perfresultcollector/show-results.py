@@ -62,7 +62,7 @@ def show_result(csv, table, **kwargs):
     for option in kwargs:
         if kwargs[option]:
             qr.filter({option: kwargs[option]})
-    head = qr.get_select().split(", ")
+    head = get_select()
     data = qr.execute()
     if table:
         output_data = type_of_log(data, csv, head, table)

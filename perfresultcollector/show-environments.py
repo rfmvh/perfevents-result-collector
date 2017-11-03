@@ -46,4 +46,4 @@ def show_environment(csv, table, **kwargs):
 if __name__ == '__main__':
     show_environment(options.csv, options.table, arch=options.arch, microarch=options.microarch, family=options.family,
                      model=options.model, stepping=options.stepping, virt__name=options.virt,
-                     kernel__name=options.kernel, vendors__name=options.vendor)
+                     kernels__name=options.kernel, vendors__name=options.vendor)

@@ -21,12 +21,11 @@ optparser.add_option("", "--table", action="store_true", default=False, dest="ta
 db = DBConnection()
 qr = Query("events")
 
-
 def show_event(csv, table, **kwargs):
     for option in kwargs:
         if kwargs[option]:
             qr.filter({option: kwargs[option]})
-    head = ["name", "evt_num", "nmas", "idGroup"]
+    head = ["id","name", "evt_num", "nmas", "idGroup"]
     data = qr.execute()
     if table:
         output_data = type_of_log(data, csv, head, table)

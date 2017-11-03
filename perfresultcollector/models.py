@@ -42,7 +42,7 @@ class Query(object):
 
     def set_select(self, *select):
         self._select = ""
-        if type(select[0]) is list:
+        if  type(select[0]) is list:
             select = select[0]
         if len(select) == 0 or select[0] == "":
             self._select += "*"
@@ -86,10 +86,10 @@ class Query(object):
 
     def execute(self, operation="", column="*"):
         if operation:
-            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation, column,
-                                                                                  table=self._from,
-                                                                                  join=self.get_inner(),
-                                                                                  where=self._where)
+            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation,column,
+                                                                                               table=self._from,
+                                                                                               join=self.get_inner(),
+                                                                                               where=self._where)
 
         else:
             self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
