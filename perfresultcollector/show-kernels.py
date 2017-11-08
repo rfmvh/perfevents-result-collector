@@ -4,7 +4,7 @@ import sys
 import re
 import os
 
-from dbinterface import *
+from old_dbinterface import *
 from optparse import OptionParser
 from models import Query
 from format_data import get_formatted_data

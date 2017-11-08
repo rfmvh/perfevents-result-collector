@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from new_dbinterface import *
+from dbinterface import *
 from optparse import OptionParser
 from models import Query
 from format_data import get_formatted_data
@@ -32,7 +32,9 @@ def show_environment(csv, table, **kwargs):
         if kwargs[option]:
             qr.filter({option: kwargs[option]})
     head = qr.get_select().split(", ")
+
     data = qr.execute()
+
     for line in get_formatted_data(data, csv, head, table):
         print line
 

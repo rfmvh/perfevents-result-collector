@@ -4,7 +4,7 @@ import sys
 import re
 import os
 
-from dbinterface import *
+from old_dbinterface import *
 
 reg_parse = re.compile(r"""
                       (?P<arch>\w+);
