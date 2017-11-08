@@ -1,12 +1,18 @@
-def type_of_log(data, csv, head, table=False):
+def get_formatted_data(data, csv, head, table=False):
     if table:
-        ret = [head]
+        response=[]
+        main = [head]
         for line in data:
             _data = []
             for index in range(len(line)):
                 _data.append(str(line[index]))
-            ret.append(_data)
-        return ret
+            main.append(_data)
+
+        widths = [max(map(len, column)) for column in zip(*main)]
+        for row in main:
+            response.append(" | ".join((val.ljust(width) for val, width in zip(row, widths))))
+        return response
+
     else:
         _head = "#"
         if csv:
@@ -15,12 +21,12 @@ def type_of_log(data, csv, head, table=False):
             clmn = " "
         for index, hl in enumerate(head):
             _head += hl + ";"
-        ret = [_head[:-1]]
+        main = [_head[:-1]]
 
         for line in data:
             _data = ""
             for index in range(len(line)):
                 _data += str(line[index]) + clmn
             _data = _data[:-1]
-            ret.append(_data)
-        return ret
+            main.append(_data)
+        return main

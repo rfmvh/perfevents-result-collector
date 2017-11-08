@@ -7,7 +7,7 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 from models import Query
-from format_data import type_of_log
+from format_data import get_formatted_data
 
 optparser = OptionParser()
 optparser.set_defaults(listmode=0)
@@ -29,14 +29,9 @@ def show_tool(csv, table, **kwargs):
             qr.filter({option: kwargs[option]})
     head = ["id", "evt_num", "nmas", "idGroup"]
     data = qr.execute()
-    if table:
-        output_data = type_of_log(data, csv, head, table)
-        widths = [max(map(len, col)) for col in zip(*output_data)]
-        for row in output_data:
-            print " | ".join((val.ljust(width) for val, width in zip(row, widths)))
-    else:
-        for line in type_of_log(data, csv, head):
-            print line
+    for line in get_formatted_data(data, csv, head, table):
+        print line
+
 
 
 if __name__ == '__main__':

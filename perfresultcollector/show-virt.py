@@ -7,7 +7,7 @@ import os
 from dbinterface import *
 from optparse import OptionParser
 from models import Query
-from format_data import type_of_log
+from format_data import get_formatted_data
 
 optparser = OptionParser()
 optparser.set_defaults(listmode=0)
@@ -26,7 +26,7 @@ def show_virt(csv, **kwargs):
     for option in kwargs:
         if kwargs[option]:
             qr.filter({option: kwargs[option]})
-    for line in type_of_log(qr.execute(), csv, head):
+    for line in get_formatted_data(qr.execute(), csv, head):
         print line
 
 
