@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from dbinterface import *
 from optparse import OptionParser
 from models import Query
 from format_data import get_formatted_data
@@ -20,8 +19,6 @@ optparser.add_option("", "--table", action="store_true", default=False, dest="ta
 
 (options, args) = optparser.parse_args()
 
-# open DB
-db = DBConnection()
 qr = Query("environments")
 qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",
               "virt.name", "kernels.name", "vendors.name")

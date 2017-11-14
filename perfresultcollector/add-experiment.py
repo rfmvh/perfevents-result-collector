@@ -4,7 +4,7 @@ import sys
 import re
 import os
 
-from old_dbinterface import *
+from dbinterface import *
 from optparse import OptionParser
 
 optparser = OptionParser()
@@ -30,7 +30,7 @@ def add(name, cmd, desc, systWide, force):
         sql_query = 'SELECT exp_id FROM experiments WHERE name = %(exp_name)s;'
         sql_params = {'exp_name': name}
 
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
         if not results:
             # Vlozeni do db

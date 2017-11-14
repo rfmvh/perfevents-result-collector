@@ -96,7 +96,7 @@ class Query(object):
                                                                                 join=self.get_inner(),
                                                                                 where=self._where)
 
-        results = db.select(self._query, self.sql_parms_event)
+        results = db.query(self._query, self.sql_parms_event)
         return results
 
     def get_min(self, column):

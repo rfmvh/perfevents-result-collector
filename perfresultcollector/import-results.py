@@ -4,7 +4,7 @@ import sys
 import re
 import os
 
-from old_dbinterface import *
+from dbinterface import *
 from optparse import OptionParser
 
 
@@ -143,11 +143,11 @@ def dbGetKernelId(db, kernel):
     sql_query = 'SELECT kernel_id FROM kernels WHERE name = %(kernel_name)s;'
     sql_params = {'kernel_name': kernel}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO kernels (name) VALUES (%(kernel_name)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 
@@ -157,11 +157,11 @@ def dbGetToolId(db, tool, version):
     sql_query = 'SELECT tool_id FROM tools WHERE name = %(tool_name)s AND version = %(tool_version)s;'
     sql_params = {'tool_name': tool, 'tool_version': version}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO tools (name, version) VALUES (%(tool_name)s, %(tool_version)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 
@@ -171,7 +171,7 @@ def dbGetExperimentId(db, name):
     sql_query = 'SELECT exp_id FROM experiments WHERE name = %(exp_name)s;'
     sql_params = {'exp_name': name}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         return None
 
@@ -183,11 +183,11 @@ def dbGetVendorId(db, vendor):
     sql_query = 'SELECT vendor_id FROM vendors WHERE name = %(vendor_name)s;'
     sql_params = {'vendor_name': vendor}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO vendors (name) VALUES (%(vendor_name)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 
@@ -200,11 +200,11 @@ def dbGetVirtId(db, virt):
     sql_query = 'SELECT virt_id FROM virt WHERE name = %(virt_name)s;'
     sql_params = {'virt_name': virt}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO virt (name) VALUES (%(virt_name)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 
@@ -219,11 +219,11 @@ def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, id
     sql_params = {'env_arch': arch, 'env_family': family, 'env_model': model, 'env_stepping': stepping,
                   'kernel_id': idKernel, 'vendor_id': idVendor, 'virt_id': idVirt}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO environments (arch, family, model, stepping, kernel_id, vendor_id, virt_id) VALUES (%(env_arch)s, %(env_family)s, %(env_model)s, %(env_stepping)s, %(kernel_id)s, %(vendor_id)s, %(virt_id)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 
@@ -233,11 +233,11 @@ def dbGetEventId(db, event):
     sql_query = 'SELECT event_id FROM events WHERE name = %(event_name)s;'
     sql_params = {'event_name': event}
 
-    results = db.select(sql_query, sql_params)
+    results = db.query(sql_query, sql_params)
     if not results:
         sql_query_insert = 'INSERT INTO events (name) VALUES (%(event_name)s);'
         db.query(sql_query_insert, sql_params)
-        results = db.select(sql_query, sql_params)
+        results = db.query(sql_query, sql_params)
 
     return results[0][0]
 

@@ -46,7 +46,7 @@ class DBConnection(object):
         self.conn = psycopg2.connect(
             'dbname={dbname} user={user} password={password} host={host}'.format(**self.get_user_parms()))
 
-    def select(self, query, parms=None):
+    def query(self, query, parms=None):
         if parms == None:
             parms = []
         if self.dryrun:

@@ -4,7 +4,6 @@ import sys
 import re
 import os
 
-from old_dbinterface import *
 from optparse import OptionParser
 from models import Query
 from format_data import get_formatted_data
@@ -18,8 +17,7 @@ optparser.add_option("", "--table", action="store_true", default=False, dest="ta
 
 (options, args) = optparser.parse_args()
 
-# open DB
-db = DBConnection()
+
 qr = Query("tools")
 
 
