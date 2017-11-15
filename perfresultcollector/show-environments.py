@@ -1,23 +1,24 @@
 #!/usr/bin/env python
 
-from optparse import OptionParser
-from models import Query
+import argparse
+
 from format_data import get_formatted_data
+from models import Query
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--arch", action="store", dest="arch")
-optparser.add_option("", "--microarch", action="store", dest="microarch")
-optparser.add_option("", "--family", action="store", dest="family")
-optparser.add_option("", "--model", action="store", dest="model")
-optparser.add_option("", "--stepping", action="store", dest="stepping")
-optparser.add_option("", "--virt", action="store", dest="virt")
-optparser.add_option("", "--kernel", action="store", dest="kernel")
-optparser.add_option("", "--vendor", action="store", dest="vendor")
-optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
-optparser.add_option("", "--table", action="store_true", default=False, dest="table")
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--arch", action="store", dest="arch")
+parser.add_argument("--microarch", action="store", dest="microarch")
+parser.add_argument("--family", action="store", dest="family")
+parser.add_argument("--model", action="store", dest="model")
+parser.add_argument("--stepping", action="store", dest="stepping")
+parser.add_argument("--virt", action="store", dest="virt")
+parser.add_argument("--kernel", action="store", dest="kernel")
+parser.add_argument("--vendor", action="store", dest="vendor")
+parser.add_argument("--csv", action="store_true", default=False, dest="csv")
+parser.add_argument("--table", action="store_true", default=False, dest="table")
 
-(options, args) = optparser.parse_args()
+options = parser.parse_args()
 
 qr = Query("environments")
 qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",

@@ -1,22 +1,18 @@
 #!/usr/bin/env python
 
-import sys
-import re
-import os
+import argparse
 
-from optparse import OptionParser
-from models import Query
 from format_data import get_formatted_data
+from models import Query
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--name", action="store", dest="name")
-optparser.add_option("", "--version", action="store", dest="version")
-optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
-optparser.add_option("", "--table", action="store_true", default=False, dest="table")
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--name", action="store", dest="name")
+parser.add_argument("--version", action="store", dest="version")
+parser.add_argument("--csv", action="store_true", default=False, dest="csv")
+parser.add_argument("--table", action="store_true", default=False, dest="table")
 
-(options, args) = optparser.parse_args()
-
+options = parser.parse_args()
 
 qr = Query("tools")
 
@@ -29,7 +25,6 @@ def show_tool(csv, table, **kwargs):
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):
         print line
-
 
 
 if __name__ == '__main__':

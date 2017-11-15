@@ -1,20 +1,17 @@
 #!/usr/bin/env python
 
-import sys
-import re
-import os
+import argparse
 
-from optparse import OptionParser
-from models import Query
 from format_data import get_formatted_data
+from models import Query
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--name", action="store", dest="name")
-optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
-optparser.add_option("", "--table", action="store_true", default=False, dest="table")
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--name", action="store", dest="name")
+parser.add_argument("--csv", action="store_true", default=False, dest="csv")
+parser.add_argument("--table", action="store_true", default=False, dest="table")
 
-(options, args) = optparser.parse_args()
+options = parser.parse_args()
 
 qr = Query("experiments")
 

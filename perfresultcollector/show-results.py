@@ -1,40 +1,37 @@
 #!/usr/bin/env python
 
-import sys
-import re
-import os
+import argparse
 
-from optparse import OptionParser
-from models import Query
 from format_data import get_formatted_data
+from models import Query
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--event", action="store", dest="event", help="name event")
-optparser.add_option("", "--event-group", action="store", dest="eventGroup")
-optparser.add_option("", "--tool-name", action="store", dest="toolName")
-optparser.add_option("", "--tool-version", action="store", dest="toolVersion")
-optparser.add_option("", "--experiment", action="store", dest="experiment")
-optparser.add_option("", "--cpu-family", action="store", dest="family")
-optparser.add_option("", "--cpu-model", action="store", dest="model")
-optparser.add_option("", "--cpu-vendor", action="store", dest="vendor")
-optparser.add_option("", "--cpu-arch", action="store", dest="arch")
-optparser.add_option("", "--cpu-microarch", action="store", dest="microarch")
-optparser.add_option("", "--kernel", action="store", dest="kernel")
-optparser.add_option("", "--virt", action="store", dest="virt")
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--event", action="store", dest="event", help="name event")
+parser.add_argument("--event-group", action="store", dest="eventGroup")
+parser.add_argument("--tool-name", action="store", dest="toolName")
+parser.add_argument("--tool-version", action="store", dest="toolVersion")
+parser.add_argument("--experiment", action="store", dest="experiment")
+parser.add_argument("--cpu-family", action="store", dest="family")
+parser.add_argument("--cpu-model", action="store", dest="model")
+parser.add_argument("--cpu-vendor", action="store", dest="vendor")
+parser.add_argument("--cpu-arch", action="store", dest="arch")
+parser.add_argument("--cpu-microarch", action="store", dest="microarch")
+parser.add_argument("--kernel", action="store", dest="kernel")
+parser.add_argument("--virt", action="store", dest="virt")
 
-optparser.add_option("", "--event-details", action="store_true", default=False, dest="eventD")
-optparser.add_option("", "--tool-details", action="store_true", default=False, dest="toolD")
-optparser.add_option("", "--experiment-details", action="store_true", default=False, dest="expD")
-optparser.add_option("", "--env-details", action="store", dest="envD",
-                     help="1 = arch, microarch; 2=arch, microarch, family, model")
-optparser.add_option("", "--kernel-details", action="store_true", default=False, dest="kernelD")
-optparser.add_option("", "--virt-details", action="store_true", default=False, dest="virtD")
+parser.add_argument("--event-details", action="store_true", default=False, dest="eventD")
+parser.add_argument("--tool-details", action="store_true", default=False, dest="toolD")
+parser.add_argument("--experiment-details", action="store_true", default=False, dest="expD")
+parser.add_argument("--env-details", action="store", dest="envD",
+                    help="1 = arch, microarch; 2=arch, microarch, family, model")
+parser.add_argument("--kernel-details", action="store_true", default=False, dest="kernelD")
+parser.add_argument("--virt-details", action="store_true", default=False, dest="virtD")
 
-optparser.add_option("", "--csv", action="store_true", default=False, dest="csv")
-optparser.add_option("", "--table", action="store_true", default=False, dest="table")
+parser.add_argument("--csv", action="store_true", default=False, dest="csv")
+parser.add_argument("--table", action="store_true", default=False, dest="table")
 
-(options, args) = optparser.parse_args()
+options = parser.parse_args()
 
 qr = Query("results")
 
@@ -63,7 +60,6 @@ def show_result(csv, table, **kwargs):
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):
         print line
-
 
 
 if __name__ == '__main__':
