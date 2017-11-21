@@ -12,10 +12,9 @@ parser.add_argument("--csv", action="store_true", default=False, dest="csv")
 
 options = parser.parse_args()
 
-qr = Query("vendors")
-
 
 def show_vendor(csv, **kwargs):
+    qr = Query("vendors")
     head = ["id", "name"]
     for key, value in kwargs.items():
         if value:

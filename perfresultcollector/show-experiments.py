@@ -13,10 +13,9 @@ parser.add_argument("--table", action="store_true", default=False, dest="table")
 
 options = parser.parse_args()
 
-qr = Query("experiments")
-
 
 def show_experiment(csv, table, **kwargs):
+    qr = Query("experiments")
     head = ["id", "cmd", "description", "systemwide"]
     for key, value in kwargs.items():
         if value:

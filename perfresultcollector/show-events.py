@@ -14,11 +14,12 @@ parser.add_argument("--csv", action="store_true", default=False, dest="csv")
 parser.add_argument("--table", action="store_true", default=False, dest="table")
 options = parser.parse_args()
 
+
 # open DB
-qr = Query("events")
 
 
 def show_event(csv, table, **kwargs):
+    qr = Query("events")
     for key, value in kwargs.items():
         if value:
             qr.filter({key: value})

@@ -20,12 +20,11 @@ parser.add_argument("--table", action="store_true", default=False, dest="table")
 
 options = parser.parse_args()
 
-qr = Query("environments")
-qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",
-              "virt.name", "kernels.name", "vendors.name")
-
 
 def show_environment(csv, table, **kwargs):
+    qr = Query("environments")
+    qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",
+                  "virt.name", "kernels.name", "vendors.name")
     for key, value in kwargs.items():
         if value:
             qr.filter({key: value})

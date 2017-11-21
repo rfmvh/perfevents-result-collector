@@ -12,10 +12,9 @@ parser.add_argument("--csv", action="store_true", default=False, dest="csv")
 
 options = parser.parse_args()
 
-qr = Query("kernels")
-
 
 def show_kernel(csv, **kwargs):
+    qr = Query("kernels")
     head = ["id", "name"]
     for key, value in kwargs.items():
         if value:

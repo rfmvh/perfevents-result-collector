@@ -33,8 +33,6 @@ parser.add_argument("--table", action="store_true", default=False, dest="table")
 
 options = parser.parse_args()
 
-qr = Query("results")
-
 
 def get_select():
     basic_details = {"events.evt_num": options.eventD, "events.nmask": options.eventD, "tools.name": options.toolD,
@@ -52,6 +50,7 @@ def get_select():
 
 
 def show_result(csv, table, **kwargs):
+    qr = Query("results")
     qr.set_select(get_select())
     for key, value in kwargs.items():
         if value:

@@ -14,10 +14,9 @@ parser.add_argument("--table", action="store_true", default=False, dest="table")
 
 options = parser.parse_args()
 
-qr = Query("tools")
-
 
 def show_tool(csv, table, **kwargs):
+    qr = Query("tools")
     for key, value in kwargs.items():
         if value:
             qr.filter({key: value})
