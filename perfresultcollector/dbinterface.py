@@ -14,7 +14,7 @@ except ImportError:
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
-LOGGER = logging.getLogger()
+LOGGER = logging.getLogger(__name__)
 
 
 class DBConnection(object):
@@ -28,7 +28,7 @@ class DBConnection(object):
         defaults = 'defaults.conf'
         local_path = os.path.expanduser(os.path.join('~', '.config', local))
 
-        if (os.path.isfile(local_path)):
+        if os.path.isfile(local_path):
             db_config = local_path
         else:
             db_config = os.path.join(PROJECT_PATH, defaults)
@@ -49,9 +49,11 @@ class DBConnection(object):
     def query(self, query, parms=None):
         if parms == None:
             parms = []
+
+        LOGGER.info('RESULTDB: SQL dryrun mode enabled, quiting')
         if self.dryrun:
-            LOGGER.info('RESULTDB: SQL dryrun mode enabled, quiting')
             return []
+        
         cur = self.conn.cursor()
         sql_quert = cur.mogrify(query, parms)
         cur.execute(sql_quert)
