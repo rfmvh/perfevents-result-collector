@@ -2,7 +2,7 @@
 
 import argparse
 
-from format_data import get_formatted_data
+from . import format_output
 from models import Query
 
 parser = argparse.ArgumentParser()
@@ -19,7 +19,7 @@ def show_virt(csv, **kwargs):
     for key, value in kwargs.items():
         if value:
             qr.filter({key: value})
-    for line in get_formatted_data(qr.execute(), csv, head):
+    for line in format_output(qr.execute(), csv, head):
         print line
 
 

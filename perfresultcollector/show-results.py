@@ -2,7 +2,7 @@
 
 import argparse
 
-from format_data import get_formatted_data
+from . import format_output
 from models import Query
 
 parser = argparse.ArgumentParser()
@@ -57,7 +57,7 @@ def show_result(csv, table, **kwargs):
             qr.filter({key: value})
     head = get_select()
     data = qr.execute()
-    for line in get_formatted_data(data, csv, head, table):
+    for line in format_output(data, csv, head, table):
         print line
 
 
