@@ -5,17 +5,18 @@ import re
 import os
 
 from dbinterface import *
-from optparse import OptionParser
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--name", action="store", dest="name")
-optparser.add_option("", "--cmd", action="store", dest="cmd")
-optparser.add_option("", "--description", action="store", dest="description")
-optparser.add_option("", "--systemwide", action="store_true", default=False, dest="systemwide")
-optparser.add_option("", "--force", action="store_true", default=False, dest="force")
+import argparse
 
-(options, args) = optparser.parse_args()
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--name", action="store", dest="name")
+parser.add_argument("--cmd", action="store", dest="cmd")
+parser.add_argument("--description", action="store", dest="description")
+parser.add_argument("--systemwide", action="store_true", default=False, dest="systemwide")
+parser.add_argument("--force", action="store_true", default=False, dest="force")
+
+options = parser.parse_args()
 
 # open DB
 db = DBConnection()

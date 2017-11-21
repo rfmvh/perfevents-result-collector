@@ -321,23 +321,23 @@ class Main:
             sys.exit(1)
 
 
-### FIXME parse args
+import argparse
 
-optparser = OptionParser()
-optparser.set_defaults(listmode=0)
-optparser.add_option("", "--arch", action="store", dest="arch", help="architecture cpu")
-optparser.add_option("", "--vendor", action="store", dest="vendor", help="cpu vendor")
-optparser.add_option("", "--cpu-model", action="store", dest="cpuModel", help="model cpu")
-optparser.add_option("", "--cpu-family", action="store", dest="cpuFamily", help="family cpu")
-optparser.add_option("", "--cpu-stepping", action="store", dest="cpuStepping", help="steping cpu")
-optparser.add_option("", "--kernel", action="store", dest="kernel", help="kernel")
-optparser.add_option("", "--virt", action="store", dest="virt", help="virtual pc")
-optparser.add_option("", "--microarch", action="store", dest="microarch", help="microarchitecture cpu")
-optparser.add_option("", "--tool", action="store", dest="tool", help="tool (perf)")
-optparser.add_option("", "--input", action="store", dest="inputCSV", help="input csv")
-optparser.add_option("", "--experiment", action="store", dest="experiment", help="experiment name")
+parser = argparse.ArgumentParser()
+parser.set_defaults(listmode=0)
+parser.add_argument("--arch", action="store", dest="arch", help="architecture cpu")
+parser.add_argument("--vendor", action="store", dest="vendor", help="cpu vendor")
+parser.add_argument("--cpu-model", action="store", dest="cpuModel", help="model cpu")
+parser.add_argument("--cpu-family", action="store", dest="cpuFamily", help="family cpu")
+parser.add_argument("--cpu-stepping", action="store", dest="cpuStepping", help="steping cpu")
+parser.add_argument("--kernel", action="store", dest="kernel", help="kernel")
+parser.add_argument("--virt", action="store", dest="virt", help="virtual pc")
+parser.add_argument("--microarch", action="store", dest="microarch", help="microarchitecture cpu")
+parser.add_argument("--tool", action="store", dest="tool", help="tool (perf)")
+parser.add_argument("--input", action="store", dest="inputCSV", help="input csv")
+parser.add_argument("--experiment", action="store", dest="experiment", help="experiment name")
 
-(options, args) = optparser.parse_args()
+options = parser.parse_args()
 
 m = Main(options)
 
