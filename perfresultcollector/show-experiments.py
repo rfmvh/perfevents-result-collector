@@ -18,9 +18,9 @@ qr = Query("experiments")
 
 def show_experiment(csv, table, **kwargs):
     head = ["id", "cmd", "description", "systemwide"]
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):
         print line

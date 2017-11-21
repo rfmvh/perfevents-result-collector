@@ -26,9 +26,9 @@ qr.set_select("env_id", "arch", "microarch", "family", "model", "stepping",
 
 
 def show_environment(csv, table, **kwargs):
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     head = qr.get_select().split(", ")
 
     data = qr.execute()

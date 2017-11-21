@@ -19,9 +19,9 @@ qr = Query("events")
 
 
 def show_event(csv, table, **kwargs):
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     head = ["id", "name", "evt_num", "nmas", "idGroup"]
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):

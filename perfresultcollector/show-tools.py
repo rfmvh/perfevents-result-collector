@@ -18,9 +18,9 @@ qr = Query("tools")
 
 
 def show_tool(csv, table, **kwargs):
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     head = ["id", "evt_num", "nmas", "idGroup"]
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):

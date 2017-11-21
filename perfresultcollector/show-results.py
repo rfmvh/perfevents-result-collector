@@ -53,9 +53,9 @@ def get_select():
 
 def show_result(csv, table, **kwargs):
     qr.set_select(get_select())
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     head = get_select()
     data = qr.execute()
     for line in get_formatted_data(data, csv, head, table):

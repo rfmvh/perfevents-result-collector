@@ -17,9 +17,9 @@ qr = Query("virt")
 
 def show_virt(csv, **kwargs):
     head = ["id", "name"]
-    for option in kwargs:
-        if kwargs[option]:
-            qr.filter({option: kwargs[option]})
+    for key, value in kwargs.items():
+        if value:
+            qr.filter({key: value})
     for line in get_formatted_data(qr.execute(), csv, head):
         print line
 
