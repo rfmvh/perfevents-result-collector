@@ -60,7 +60,7 @@ def show_result(csv, table, debug, **kwargs):
     if debug:
         print qr.execute(debug=debug)
     else:
-        data = qr.execute(debug=debug)
+        data = qr.execute()
         for line in format_output(data, csv, head, table):
             print line
 
