@@ -2,7 +2,7 @@
 
 import argparse
 
-from . import format_output
+from tools import format_output
 from models import Query
 
 parser = argparse.ArgumentParser()
