@@ -2,8 +2,8 @@
 
 import argparse
 
-from tools import format_output
 from models import Query
+from tools import format_output
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -30,6 +30,7 @@ parser.add_argument("--virt-details", action="store_true", default=False, dest="
 
 parser.add_argument("--csv", action="store_true", default=False, dest="csv")
 parser.add_argument("--table", action="store_true", default=False, dest="table")
+parser.add_argument("--debug", action="store_true", default=False, dest="debug")
 
 options = parser.parse_args()
 
@@ -49,20 +50,24 @@ def get_select():
     return details
 
 
-def show_result(csv, table, **kwargs):
+def show_result(csv, table, debug, **kwargs):
     qr = Query("results")
     qr.set_select(get_select())
     for key, value in kwargs.items():
         if value:
             qr.filter({key: value})
     head = get_select()
-    data = qr.execute()
-    for line in format_output(data, csv, head, table):
-        print line
+    if debug:
+        print qr.execute(debug=debug)
+    else:
+        data = qr.execute(debug=debug)
+        for line in format_output(data, csv, head, table):
+            print line
 
 
 if __name__ == '__main__':
-    show_result(options.csv, options.table, events__name=options.event, events__idgroup=options.eventGroup,
+    show_result(options.csv, options.table, options.debug, events__name=options.event,
+                events__idgroup=options.eventGroup,
                 tools__name=options.toolName,
                 tools__version=options.toolVersion, experiments__name=options.experiment,
                 environments__family=options.family, environments__model=options.model, vendors__name=options.vendor,

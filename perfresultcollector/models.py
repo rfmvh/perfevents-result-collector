@@ -79,25 +79,22 @@ class Query(object):
             self._where += "" + negation + s_item[0] + fk + " " + operator + " %(my_" + s_item[0] + str(index) + ")s"
             self.sql_parms_event["my_" + s_item[0] + str(index)] = _where[item]
 
-    def debug(self):
-        for res in self.execute():
-            print res
-        print self._query
+    def execute(self, operation="", column="*", debug=False):
 
-    def execute(self, operation="", column="*"):
         if operation:
             self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation,column,
                                                                                                table=self._from,
                                                                                                join=self.get_inner(),
                                                                                                where=self._where)
-
         else:
             self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
                                                                                 join=self.get_inner(),
                                                                                 where=self._where)
-
-        results = db.query(self._query, self.sql_parms_event)
-        return results
+        if debug:
+            return self._query
+        else:
+            results = db.query(self._query, self.sql_parms_event)
+            return results
 
     def get_min(self, column):
         return self.execute("min", column)
