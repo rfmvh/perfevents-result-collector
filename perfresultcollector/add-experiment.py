@@ -14,11 +14,11 @@ parser.add_argument("--force", action="store_true", default=False, dest="force")
 
 options = parser.parse_args()
 
-# open DB
-db = DBConnection()
 
 
 def add(name, cmd, desc, syst_wide, force):
+    # open DB
+    db = DBConnection()
     if not name:
         print "Error: Insert the name of the experiment"
         sys.exit(1)
