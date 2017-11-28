@@ -19,7 +19,7 @@ def show_virt(csv, debug, **kwargs):
     head = ["id", "name"]
     for key, value in kwargs.items():
         if value:
-            qr.filter({key: value})
+            qr.filter(**{key: value})
     if debug:
         print qr.execute(debug=debug)
     else:

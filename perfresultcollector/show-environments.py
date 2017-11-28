@@ -28,7 +28,7 @@ def show_environment(csv, table, debug, **kwargs):
                   "virt.name", "kernels.name", "vendors.name")
     for key, value in kwargs.items():
         if value:
-            qr.filter({key: value})
+            qr.filter(**{key: value})
     head = qr.get_select().split(", ")
     if debug:
         print qr.execute(debug=debug)

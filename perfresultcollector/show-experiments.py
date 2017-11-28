@@ -20,7 +20,7 @@ def show_experiment(csv, table, debug, **kwargs):
     head = ["id", "cmd", "description", "systemwide"]
     for key, value in kwargs.items():
         if value:
-            qr.filter({key: value})
+            qr.filter(**{key: value})
     if debug:
         print qr.execute(debug=debug)
     else:

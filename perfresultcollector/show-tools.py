@@ -20,7 +20,7 @@ def show_tool(csv, table, debug, **kwargs):
     qr = Query("tools")
     for key, value in kwargs.items():
         if value:
-            qr.filter({key: value})
+            qr.filter(**{key: value})
     head = ["id", "evt_num", "nmas", "idGroup"]
     if debug:
         print qr.execute(debug=debug)

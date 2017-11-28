@@ -11,11 +11,13 @@ class Query(object):
     def __init__(self, _from=""):
         self._select = "*"
         self.connection = ""
+        self.counter = 0
         self._from = _from
         self.sql_query_event = ""
         self._where = "WHERE True"
         self._conditions = ""
         self.sql_parms_event = {}
+        self.last_filter_name = ""
 
     def set_from(self, _from):
         self._from = _from
@@ -42,7 +44,7 @@ class Query(object):
 
     def set_select(self, *select):
         self._select = ""
-        if  type(select[0]) is list:
+        if type(select[0]) is list:
             select = select[0]
         if len(select) == 0 or select[0] == "":
             self._select += "*"
@@ -51,21 +53,14 @@ class Query(object):
             if index != len(select) - 1:
                 self._select += ", "
 
-    def filter(self, option=None, **kwargs):
-        if option is None:
-            option = {}
-
-        if kwargs != {}:
-            _where = kwargs
-        else:
-            _where = option
-        for index, item in enumerate(_where):
-            s_item = item.split("__")
+    def filter(self, **kwargs):
+        for index, item in enumerate(kwargs):
+            split_item = item.split("__")
             operator = "="
             fk = ""
             negation = ""
-            if len(s_item) > 1:
-                for it in s_item:
+            if len(split_item) > 1:
+                for it in split_item:
                     if it == "gt":
                         operator = ">="
                     elif it == "lt":
@@ -75,17 +70,24 @@ class Query(object):
                     if it == "not":
                         negation = "NOT "
 
-            self._where += " and "
-            self._where += "" + negation + s_item[0] + fk + " " + operator + " %(my_" + s_item[0] + str(index) + ")s"
-            self.sql_parms_event["my_" + s_item[0] + str(index)] = _where[item]
+            self.counter += 1
+            if self.last_filter_name == item:
+                self._where += " or "
+            else:
+                self.last_filter_name = item
+                self._where += " and "
+
+            self._where += "" + negation + split_item[0] + fk + " " + operator + " %(my_" + split_item[0] + str(
+                self.counter) + ")s"
+            self.sql_parms_event["my_" + split_item[0] + str(self.counter)] = kwargs[item]
 
     def execute(self, operation="", column="*", debug=False):
 
         if operation:
-            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation,column,
-                                                                                               table=self._from,
-                                                                                               join=self.get_inner(),
-                                                                                               where=self._where)
+            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation, column,
+                                                                                  table=self._from,
+                                                                                  join=self.get_inner(),
+                                                                                  where=self._where)
         else:
             self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
                                                                                 join=self.get_inner(),

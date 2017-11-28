@@ -16,14 +16,11 @@ parser.add_argument("--table", action="store_true", default=False, dest="table")
 options = parser.parse_args()
 
 
-# open DB
-
-
 def show_event(csv, table, debug, **kwargs):
     qr = Query("events")
     for key, value in kwargs.items():
         if value:
-            qr.filter({key: value})
+            qr.filter(**{key: value})
     head = ["id", "name", "evt_num", "nmas", "idGroup"]
     if debug:
         print qr.execute(debug=debug)
