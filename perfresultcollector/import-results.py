@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 
-import sys
 import re
-import os
 
 from dbinterface import *
-from optparse import OptionParser
 
 
 def detectCPU_aarch64():

@@ -3,7 +3,7 @@
 import argparse
 
 from models import Query
-from tools import format_output
+from formatter import format_output
 
 parser = argparse.ArgumentParser()
 
