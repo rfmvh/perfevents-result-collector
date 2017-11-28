@@ -2,14 +2,14 @@
 
 import argparse
 
-from models import Query
 from formatter import format_output
+from models import Query
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
-parser.add_argument("--name", action="store", dest="name")
-parser.add_argument("--csv", action="store_true", default=False, dest="csv")
-parser.add_argument("--debug", action="store_true", default=False, dest="debug")
+parser.add_argument("--name", action="store")
+parser.add_argument("--csv", action="store_true", default=False)
+parser.add_argument("--debug", action="store_true", default=False)
 
 options = parser.parse_args()
 

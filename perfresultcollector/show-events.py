@@ -2,17 +2,17 @@
 
 import argparse
 
-from models import Query
 from formatter import format_output
+from models import Query
 
 parser = argparse.ArgumentParser()
 
 parser.set_defaults(listmode=0)
-parser.add_argument("--name", action="store", dest="name")
-parser.add_argument("--idgroup", action="store", dest="idGroup")
-parser.add_argument("--debug", action="store_true", default=False, dest="debug")
-parser.add_argument("--csv", action="store_true", default=False, dest="csv")
-parser.add_argument("--table", action="store_true", default=False, dest="table")
+parser.add_argument("--name", action="store")
+parser.add_argument("--id_group", action="store")
+parser.add_argument("--debug", action="store_true", default=False)
+parser.add_argument("--csv", action="store_true", default=False)
+parser.add_argument("--table", action="store_true", default=False)
 options = parser.parse_args()
 
 
@@ -31,4 +31,4 @@ def show_event(csv, table, debug, **kwargs):
 
 
 if __name__ == '__main__':
-    show_event(options.csv, options.table, options.debug, name=options.name, idGroup=options.idGroup)
+    show_event(options.csv, options.table, options.debug, name=options.name, idGroup=options.id_group)

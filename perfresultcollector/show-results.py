@@ -2,75 +2,76 @@
 
 import argparse
 
-from models import Query
 from formatter import format_output
+from models import Query
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
-parser.add_argument("--event", action="store", dest="event", help="name event")
-parser.add_argument("--event-group", action="store", dest="eventGroup")
-parser.add_argument("--tool-name", action="store", dest="toolName")
-parser.add_argument("--tool-version", action="store", dest="toolVersion")
-parser.add_argument("--experiment", action="store", dest="experiment")
-parser.add_argument("--cpu-family", action="store", dest="family")
-parser.add_argument("--cpu-model", action="store", dest="model")
-parser.add_argument("--cpu-vendor", action="store", dest="vendor")
-parser.add_argument("--cpu-arch", action="store", dest="arch")
-parser.add_argument("--cpu-microarch", action="store", dest="microarch")
-parser.add_argument("--kernel", action="store", dest="kernel")
-parser.add_argument("--virt", action="store", dest="virt")
+parser.add_argument("--event", action="append", help="name event")
+parser.add_argument("--event-group", action="append")
+parser.add_argument("--tool-name", action="append")
+parser.add_argument("--tool-version", action="append")
+parser.add_argument("--experiment", action="append")
+parser.add_argument("--cpu-family", action="append")
+parser.add_argument("--cpu-model", action="append")
+parser.add_argument("--cpu-vendor", action="append")
+parser.add_argument("--cpu-arch", action="append")
+parser.add_argument("--cpu-microarch", action="append")
+parser.add_argument("--kernel", action="append")
+parser.add_argument("--virt", action="append")
 
-parser.add_argument("--event-details", action="store_true", default=False, dest="eventD")
-parser.add_argument("--tool-details", action="store_true", default=False, dest="toolD")
-parser.add_argument("--experiment-details", action="store_true", default=False, dest="expD")
-parser.add_argument("--env-details", action="store", dest="envD",
+parser.add_argument("--event-details", action="store_true", default=False)
+parser.add_argument("--tool-details", action="store_true", default=False)
+parser.add_argument("--experiment-details", action="store_true", default=False)
+parser.add_argument("--env-details", action="store",
                     help="1 = arch, microarch; 2=arch, microarch, family, model")
-parser.add_argument("--kernel-details", action="store_true", default=False, dest="kernelD")
-parser.add_argument("--virt-details", action="store_true", default=False, dest="virtD")
+parser.add_argument("--kernel-details", action="store_true", default=False)
+parser.add_argument("--virt-details", action="store_true", default=False)
 
-parser.add_argument("--csv", action="store_true", default=False, dest="csv")
-parser.add_argument("--table", action="store_true", default=False, dest="table")
-parser.add_argument("--debug", action="store_true", default=False, dest="debug")
+parser.add_argument("--csv", action="store_true", default=False)
+parser.add_argument("--table", action="store_true", default=False)
+parser.add_argument("--debug", action="store_true", default=False)
 
 options = parser.parse_args()
 
 
-def get_select():
-    basic_details = {"events.evt_num": options.eventD, "events.nmask": options.eventD, "tools.name": options.toolD,
-                     "tools.version": options.toolD, "experiments.name": options.expD,
-                     "kernels.name": options.kernelD, "virt.name": options.virtD}
+def show_result(csv, table, debug, **kwargs):
+    qr = Query("results")
+    basic_details = {"events.evt_num": options.event_details, "events.nmask": options.event_details,
+                     "tools.name": options.tool_details,
+                     "tools.version": options.tool_details, "experiments.name": options.experiment_details,
+                     "kernels.name": options.kernel_details, "virt.name": options.virt_details}
     details = ["results.val", "events.name", "events.idgroup"]
     for index in basic_details:
         if basic_details[index]:
             details.append(index)
-    if options.envD == "1":
+    if options.env_details == "1":
         details += ["environments.arch", "environments.microarch"]
-    elif options.envD == "2":
+    elif options.env_details == "2":
         details += ["environments.arch", "environments.microarch", "environments.family", "environments.model"]
-    return details
 
+    qr.set_select(details)
 
-def show_result(csv, table, debug, **kwargs):
-    qr = Query("results")
-    qr.set_select(get_select())
-    for key, value in kwargs.items():
-        if value:
-            qr.filter({key: value})
-    head = get_select()
+    for key, list_of_values in kwargs.items():
+        if not list_of_values:
+            continue
+        for value in list_of_values:
+            if value:
+                qr.filter(**{key: value})
     if debug:
         print qr.execute(debug=debug)
     else:
         data = qr.execute()
-        for line in format_output(data, csv, head, table):
+        for line in format_output(data, csv, details, table):
             print line
 
 
 if __name__ == '__main__':
     show_result(options.csv, options.table, options.debug, events__name=options.event,
-                events__idgroup=options.eventGroup,
-                tools__name=options.toolName,
-                tools__version=options.toolVersion, experiments__name=options.experiment,
-                environments__family=options.family, environments__model=options.model, vendors__name=options.vendor,
-                environments__arch=options.arch, environments__microarch=options.microarch,
-                kernels__name=options.kernel,
-                virt__name=options.virt)
+                events__idgroup=options.event_group,
+                tools__name=options.tool_name,
+                tools__version=options.tool_version, experiments__name=options.experiment,
+                environments__family=options.cpu_family, environments__model=options.cpu_model,
+                vendors__name=options.cpu_vendor,
+                environments__arch=options.cpu_arch, environments__microarch=options.cpu_microarch,
+                kernels__name=options.kernel, virt__name=options.virt)

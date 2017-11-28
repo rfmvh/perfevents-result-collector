@@ -2,22 +2,22 @@
 
 import argparse
 
-from models import Query
 from formatter import format_output
+from models import Query
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
-parser.add_argument("--arch", action="store", dest="arch")
-parser.add_argument("--microarch", action="store", dest="microarch")
-parser.add_argument("--family", action="store", dest="family")
-parser.add_argument("--model", action="store", dest="model")
-parser.add_argument("--stepping", action="store", dest="stepping")
-parser.add_argument("--virt", action="store", dest="virt")
-parser.add_argument("--kernel", action="store", dest="kernel")
-parser.add_argument("--vendor", action="store", dest="vendor")
-parser.add_argument("--debug", action="store_true", default=False, dest="debug")
-parser.add_argument("--csv", action="store_true", default=False, dest="csv")
-parser.add_argument("--table", action="store_true", default=False, dest="table")
+parser.add_argument("--arch", action="store")
+parser.add_argument("--microarch", action="store")
+parser.add_argument("--family", action="store")
+parser.add_argument("--model", action="store")
+parser.add_argument("--stepping", action="store")
+parser.add_argument("--virt", action="store")
+parser.add_argument("--kernel", action="store")
+parser.add_argument("--vendor", action="store")
+parser.add_argument("--debug", action="store_true", default=False)
+parser.add_argument("--csv", action="store_true", default=False)
+parser.add_argument("--table", action="store_true", default=False)
 
 options = parser.parse_args()
 
