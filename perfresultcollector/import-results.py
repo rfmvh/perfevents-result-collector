@@ -2,6 +2,8 @@
 
 import re
 
+import sys
+
 from dbinterface import *
 
 

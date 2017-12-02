@@ -45,7 +45,7 @@ class DBConnection(object):
         self.conn = psycopg2.connect(
             'dbname={dbname} user={user} password={password} host={host}'.format(**self.get_user_parms()))
 
-    def query(self, query, parms=None):
+    def query(self, query, parms=None,fetchall=True):
         if parms == None:
             parms = []
 
@@ -56,7 +56,12 @@ class DBConnection(object):
         cur = self.conn.cursor()
         sql_quert = cur.mogrify(query, parms)
         cur.execute(sql_quert)
-        result = cur.fetchall()
+
+        if fetchall:
+            result = cur.fetchall()
+        else:
+            result = self.conn.commit()
+
         cur.close()
 
         return result
