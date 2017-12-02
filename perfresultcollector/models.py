@@ -112,3 +112,17 @@ class Query(object):
 
     def get_select(self):
         return self._select
+
+    def inserte(self,column, **kwargs):
+        columns="("
+        values="("
+        for index, item in enumerate(kwargs):
+            columns += item
+            values += "%("+item+")s"
+            if not index==len(kwargs)-1:
+                columns +=", "
+                values+=", "
+        columns+=")"
+        values+=")"
+        sql_query_insert='INSERT INTO '+column+" "+columns+" VALUES "+values
+        db.query(sql_query_insert, kwargs)
