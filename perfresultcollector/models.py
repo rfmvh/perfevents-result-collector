@@ -53,10 +53,23 @@ class Query(object):
             if index != len(select) - 1:
                 self._select += ", "
 
+    def getID_or_create(self, column, **kwargs):
+        #returns ID
+        self._select=column
+        self.filter(**kwargs)
+        results = self.execute()
+        if not results:
+            self.inserte(self._from,**kwargs)
+            results = self.execute()
+        return results[0][0]
+
     def filter(self, **kwargs):
         for index, item in enumerate(kwargs):
             split_item = item.split("__")
-            operator = "="
+            if kwargs[item]==None:
+                operator = "IS"
+            else:
+                operator = "="
             fk = ""
             negation = ""
             if len(split_item) > 1:
@@ -116,7 +129,14 @@ class Query(object):
     def inserte(self,column, **kwargs):
         columns="("
         values="("
+        kwargs_values={}
         for index, item in enumerate(kwargs):
+            if len(item.split("__"))>1:
+                other_table_item=item.split("__")[1]
+                kwargs_values[other_table_item]=kwargs[item]
+                item=other_table_item
+            else:
+                kwargs_values[item]=kwargs[item]
             columns += item
             values += "%("+item+")s"
             if not index==len(kwargs)-1:
@@ -125,4 +145,4 @@ class Query(object):
         columns+=")"
         values+=")"
         sql_query_insert='INSERT INTO '+column+" "+columns+" VALUES "+values
-        db.query(sql_query_insert, kwargs)
+        db.query(sql_query_insert, kwargs_values,fetchall=False)

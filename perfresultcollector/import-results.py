@@ -125,7 +125,7 @@ def detectCPU_x86():
 def detectEnv():
     arch = os.popen('uname -m').read().rstrip()
     kernel = os.popen('uname -r').read().rstrip()
-
+    print arch
     # CPU detection needs to be arch-specific
     if arch == "aarch64":
         r = detectCPU_aarch64()
