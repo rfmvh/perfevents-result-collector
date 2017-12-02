@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-import optparse
-import os
-import sys
-import psycopg2
 import ConfigParser
 import logging
+import os
+
+import psycopg2
 
 try:
     from psycopg2.extras import DictCursor as CursorFactory
