@@ -54,19 +54,22 @@ class Query(object):
                 self._select += ", "
 
     def getID_or_create(self, column, **kwargs):
-        #returns ID
-        self._select=column
+        # returns ID
+        self._select = column
         self.filter(**kwargs)
         results = self.execute()
         if not results:
-            self.inserte(self._from,**kwargs)
+            if self._from == "experiments":
+                return None
+            self.inserte(**kwargs)
             results = self.execute()
+
         return results[0][0]
 
     def filter(self, **kwargs):
         for index, item in enumerate(kwargs):
             split_item = item.split("__")
-            if kwargs[item]==None:
+            if kwargs[item] == None:
                 operator = "IS"
             else:
                 operator = "="
@@ -126,23 +129,37 @@ class Query(object):
     def get_select(self):
         return self._select
 
-    def inserte(self,column, **kwargs):
-        columns="("
-        values="("
-        kwargs_values={}
-        for index, item in enumerate(kwargs):
-            if len(item.split("__"))>1:
-                other_table_item=item.split("__")[1]
-                kwargs_values[other_table_item]=kwargs[item]
-                item=other_table_item
-            else:
-                kwargs_values[item]=kwargs[item]
-            columns += item
-            values += "%("+item+")s"
-            if not index==len(kwargs)-1:
-                columns +=", "
-                values+=", "
-        columns+=")"
-        values+=")"
-        sql_query_insert='INSERT INTO '+column+" "+columns+" VALUES "+values
-        db.query(sql_query_insert, kwargs_values,fetchall=False)
+    def inserte(self, table="", **kwargs):
+        if table == "":
+            table = self._from
+        columns = "("
+        kwargs_values = {}
+        values = ""
+
+        if type(kwargs.values()[0]) == list:
+            val = kwargs.values()[0]
+        else:
+            val = [kwargs.values()]
+        for index in range(len(val)):
+            my_values = ""
+            counter = 0
+            for key, value in kwargs.items():
+                if not type(value) == list:
+                    value = [value]
+                name = key + str(index)
+                kwargs_values[name] = value[index]
+                my_values += "%(" + name + ")s"
+                if not counter == len(kwargs.items()) - 1:
+                    my_values += ","
+                counter += 1
+
+            values += "(" + my_values + ")"
+            if not index == len(val) - 1:
+                values += ", "
+        for index, key in enumerate(kwargs.keys()):
+            columns += key
+            if not index == len(kwargs.keys()) - 1:
+                columns += ", "
+        columns += ")"
+        sql_query_insert = 'INSERT INTO ' + table + " " + columns + " VALUES " + values
+        db.query(sql_query_insert, kwargs_values, fetchall=False)

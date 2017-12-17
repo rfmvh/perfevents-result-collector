@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import argparse
+import argparse, sys
 
 from dbinterface import *
 

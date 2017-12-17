@@ -1,26 +1,11 @@
 #!/usr/bin/env python
 
 import argparse
+import re
+import sys
+import os
+
 from models import Query
-
-
-def detect(name=""):
-    pass
-
-def get_env_details(**kwargs):
-    query_environments = Query("environments")
-    query_environments.set_select("env_id", "virt.virt_id", "vendors.vendor_id", "kernels.kernel_id")
-    query_environments.getID_or_create("kernel_id", name=10000)
-    for option in kwargs:
-        pass
-
-
-def get_results_details(**kwargs):
-    query_environments = Query("results")
-    query_environments.set_select("env_id", "virt.virt_id", "vendors.vendor_id", "kernels.kernel_id")
-
-    for option in kwargs:
-        query_environments.filter()
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -38,9 +23,12 @@ parser.add_argument("--experiment", action="store", dest="experiment", help="exp
 
 options = parser.parse_args()
 
-kernel_id = Query("kernels").getID_or_create("kernel_id", name="3.10.0-637.el7.ppc64le4")
-toolId = Query("tools").getID_or_create("tool_id", name="perf", version="1.1.0")
-virtId = Query("virt").getID_or_create("virt_id", name="kvm")
-experimentId= Query("experiments").getID_or_create("exp_id", name="sleep 0.1")
-environmentId= Query("environments").getID_or_create("env_id", arch="aarch64", family=None, model="1", stepping="0", kernels__kernel_id=10033, vendors__vendor_id=15, virt__virt_id=1)
-print environmentId
+tool_id = Query("tools").getID_or_create("tool_id", name="perf", version="1.1.0")
+virt_id = Query("virt").getID_or_create("virt_id", name="kvm")
+vendor_id = Query("vendors").getID_or_create("vendor_id", name="IBM")
+experiment_id = Query("experiments").getID_or_create("exp_id", name="sleep 0.1")
+
+Query("kernels").inserte(name=["3e010105","3e101017","3e101019"])
+
+kernel_id = Query("kernels").getID_or_create("kernel_id", name="3e51110100")
+print kernel_id
