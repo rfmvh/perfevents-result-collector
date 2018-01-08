@@ -214,7 +214,8 @@ def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, id
         familyStr = 'family = %(env_family)s and '
     else:
         familyStr = ''
-    sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and ' + familyStr + 'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
+    sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and ' + familyStr + \
+        'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
     sql_params = {'env_arch': arch, 'env_family': family, 'env_model': model, 'env_stepping': stepping,
                   'kernel_id': idKernel, 'vendor_id': idVendor, 'virt_id': idVirt}
 
@@ -324,17 +325,25 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
-parser.add_argument("--arch", action="store", dest="arch", help="architecture cpu")
-parser.add_argument("--vendor", action="store", dest="vendor", help="cpu vendor")
-parser.add_argument("--cpu-model", action="store", dest="cpuModel", help="model cpu")
-parser.add_argument("--cpu-family", action="store", dest="cpuFamily", help="family cpu")
-parser.add_argument("--cpu-stepping", action="store", dest="cpuStepping", help="steping cpu")
+parser.add_argument("--arch", action="store",
+                    dest="arch", help="architecture cpu")
+parser.add_argument("--vendor", action="store",
+                    dest="vendor", help="cpu vendor")
+parser.add_argument("--cpu-model", action="store",
+                    dest="cpuModel", help="model cpu")
+parser.add_argument("--cpu-family", action="store",
+                    dest="cpuFamily", help="family cpu")
+parser.add_argument("--cpu-stepping", action="store",
+                    dest="cpuStepping", help="steping cpu")
 parser.add_argument("--kernel", action="store", dest="kernel", help="kernel")
 parser.add_argument("--virt", action="store", dest="virt", help="virtual pc")
-parser.add_argument("--microarch", action="store", dest="microarch", help="microarchitecture cpu")
+parser.add_argument("--microarch", action="store",
+                    dest="microarch", help="microarchitecture cpu")
 parser.add_argument("--tool", action="store", dest="tool", help="tool (perf)")
-parser.add_argument("--input", action="store", dest="inputCSV", help="input csv")
-parser.add_argument("--experiment", action="store", dest="experiment", help="experiment name")
+parser.add_argument("--input", action="store",
+                    dest="inputCSV", help="input csv")
+parser.add_argument("--experiment", action="store",
+                    dest="experiment", help="experiment name")
 
 options = parser.parse_args()
 
@@ -351,7 +360,8 @@ kernelId = dbGetKernelId(db, m.kernel)
 toolId = dbGetToolId(db, m.toolName, m.toolVersion)
 vendorId = dbGetVendorId(db, m.vendor)
 virtId = dbGetVirtId(db, m.virt)
-environmentId = dbGetEnvironmentId(db, m.arch, m.cpuFamily, m.cpuModel, m.cpuStepping, kernelId, vendorId, virtId)
+environmentId = dbGetEnvironmentId(
+    db, m.arch, m.cpuFamily, m.cpuModel, m.cpuStepping, kernelId, vendorId, virtId)
 experimentId = dbGetExperimentId(db, m.experiment)
 
 if not experimentId:

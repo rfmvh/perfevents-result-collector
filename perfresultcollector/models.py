@@ -95,10 +95,10 @@ class Query(object):
 
             self._where += "" + negation + split_item[0] + fk + " " + operator + " %(my_" + split_item[0] + str(
                 self.counter) + ")s"
-            self.sql_parms_event["my_" + split_item[0] + str(self.counter)] = kwargs[item]
+            self.sql_parms_event["my_" + split_item[0] +
+                                 str(self.counter)] = kwargs[item]
 
     def execute(self, operation="", column="*", debug=False):
-
         if operation:
             self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation, column,
                                                                                   table=self._from,
