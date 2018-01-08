@@ -61,7 +61,7 @@ class Query(object):
         if not results:
             if self._from == "experiments":
                 return None
-            self.inserte(**kwargs)
+            self.insert(**kwargs)
             results = self.execute()
 
         return results[0][0]
@@ -129,7 +129,9 @@ class Query(object):
     def get_select(self):
         return self._select
 
-    def inserte(self, table="", **kwargs):
+    def insert(self, table="", **kwargs):
+        #kwargs contains name of columns which you want to import and value
+        #and if you want import multiple values you can put array
         if table == "":
             table = self._from
         columns = "("
@@ -157,6 +159,7 @@ class Query(object):
             if not index == len(val) - 1:
                 values += ", "
         for index, key in enumerate(kwargs.keys()):
+            key=key.replace("__", ".")
             columns += key
             if not index == len(kwargs.keys()) - 1:
                 columns += ", "
