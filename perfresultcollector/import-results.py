@@ -23,7 +23,8 @@ def detectCPU_aarch64():
     cpuModel = None  # model is used for variant here
     cpuFamily = None  # we would like to use family for "armv7"
     cpuStepping = None  # stepping is used for revision here
-    vendor = "generic_ARM"  # FIXME: we would like to detect APM/ARM/Qualcomm...
+    # FIXME: we would like to detect APM/ARM/Qualcomm...
+    vendor = "generic_ARM"
 
     with open(fileName, 'r') as f:
         for line in f:
@@ -389,6 +390,7 @@ for line in f:
     if match:
         eventId = dbGetEventId(db, match.group("name"))
         value = match.group("value")
+        print value
         dbAddResult(db, experimentId, toolId, environmentId, eventId, value)
 
 if f != sys.stdin:
