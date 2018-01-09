@@ -13,8 +13,8 @@ class Logger(object):
 
     def refresh_logger(self):
         log_level = self.config.get("Defaults", "logging_level")
-        logging.basicConfig(filename='../logger_out.log',
-                            level=getattr(logging, str(log_level.upper())))
+        #filename='../logger_out.log'
+        logging.basicConfig(level=getattr(logging, str(log_level.upper())))
         self.LOGGER = logging.getLogger(self.name)
 
     def set_logger_level(self, level=""):

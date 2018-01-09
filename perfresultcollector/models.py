@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 from dbinterface import DBConnection
-
+from logger import Logger
 # TODO diff soubor pro... mail 2.1
 # open DB
 db = DBConnection()
 
+LOGGER=Logger(__name__)
 
 class Query(object):
     def __init__(self, _from=""):
@@ -109,8 +110,10 @@ class Query(object):
                                                                                 join=self.get_inner(),
                                                                                 where=self._where)
         if debug:
+            LOGGER.set_logger_level("debug")
             return self._query
         else:
+            LOGGER.set_logger_level("warning")
             results = db.query(self._query, self.sql_parms_event)
             return results
 

@@ -183,6 +183,7 @@ parser.add_argument("--input", action="store",
                     dest="inputCSV", help="input csv")
 parser.add_argument("--experiment", action="store",
                     dest="experiment", help="experiment name")
+parser.add_argument("--debug", action="store_true", default=False)
 
 options = parser.parse_args()
 
@@ -191,7 +192,6 @@ options = parser.parse_args()
 
 
 if __name__ == "__main__":
-    LOGGER = Logger(__name__)
     arch = options.arch
     kernel = options.kernel
     cpu_model = options.cpu_model
@@ -202,6 +202,11 @@ if __name__ == "__main__":
     experiment = options.experiment
     inputCSV = options.inputCSV
     virt = options.virt
+    LOGGER = Logger(__name__)
+    if options.debug:
+        LOGGER.set_logger_level("debug")
+    else:
+        LOGGER.set_logger_level("warning")
 
     if not virt:
         virt = "none"
