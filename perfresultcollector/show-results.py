@@ -3,7 +3,6 @@
 import argparse
 
 from formatter import format_output
-
 from models import Query
 
 parser = argparse.ArgumentParser()

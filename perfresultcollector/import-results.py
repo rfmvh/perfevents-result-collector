@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import re
-
 import sys
 
 from dbinterface import *
@@ -216,7 +215,7 @@ def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, id
     else:
         familyStr = ''
     sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and ' + familyStr + \
-        'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
+                'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
     sql_params = {'env_arch': arch, 'env_family': family, 'env_model': model, 'env_stepping': stepping,
                   'kernel_id': idKernel, 'vendor_id': idVendor, 'virt_id': idVirt}
 

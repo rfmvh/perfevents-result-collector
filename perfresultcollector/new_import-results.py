@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
 import argparse
+import os
 import re
 import sys
-import os
 
+from logger import Logger
 from models import Query
 
 
@@ -128,7 +129,6 @@ def detectCPU_x86():
 def detectEnv():
     arch = os.popen('uname -m').read().rstrip()
     kernel = os.popen('uname -r').read().rstrip()
-    print arch
     # CPU detection needs to be arch-specific
     if arch == "aarch64":
         r = detectCPU_aarch64()
@@ -191,6 +191,7 @@ options = parser.parse_args()
 
 
 if __name__ == "__main__":
+    LOGGER = Logger(__name__)
     arch = options.arch
     kernel = options.kernel
     cpu_model = options.cpu_model
@@ -211,11 +212,13 @@ if __name__ == "__main__":
     if arch and kernel and vendor:
         pass
     else:
-        print "Error: The environment must be either specified or not. Nothing in between."
+        LOGGER.warning(
+            "Error: The environment must be either specified or not. Nothing in between.")
         sys.exit(1)
 
     if not tool:
-        print "Error: The tool must be always specified (e.g. --tool=perf-4.5.0)"
+        LOGGER.warning(
+            "Error: The tool must be always specified (e.g. --tool=perf-4.5.0)")
         sys.exit(1)
 
     regParseToolNameVersion = re.compile(r"""
@@ -225,24 +228,26 @@ if __name__ == "__main__":
 
     match = regParseToolNameVersion.match(tool)
     if not match:
-        print "Error: The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)"
+        LOGGER.warning(
+            "Error: The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)")
     toolName = match.group("name")
     toolVersion = match.group("value")
 
     if not experiment:
-        print "Error: The experiment must be always specified (e.g. --experiment=\"linpack1000d\")"
+        LOGGER.warning(
+            "Error: The experiment must be always specified (e.g. --experiment=\"linpack1000d\")")
         sys.exit(1)
 
     regexp = prepareRegexpByTool(toolName)
     if not regexp:
-        print "Error"
+        LOGGER.warning("Error")
 
-    if inputCSV:
-        try:
-            f = open(inputCSV, 'r')
-        except IOError:
-            print "Error: File %s can not be opened" % inputCSV
-            sys.exit()
+        if inputCSV:
+            try:
+                f = open(inputCSV, 'r')
+            except IOError:
+                LOGGER.warning("Error: File %s can not be opened" % inputCSV)
+                sys.exit()
     else:
         f = sys.stdin
     event_ids = []

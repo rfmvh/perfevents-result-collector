@@ -1,5 +1,5 @@
-import logging
 import ConfigParser
+import logging
 
 
 class Logger(object):
@@ -39,9 +39,3 @@ class Logger(object):
         self.refresh_logger()
         self.LOGGER.warning(text)
 
-
-loger = Logger(__name__)
-loger.debug("texit")
-loger.set_logger_level("info")
-loger.debug("asdasd")
-loger.warning("random")

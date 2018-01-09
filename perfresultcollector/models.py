@@ -130,28 +130,25 @@ class Query(object):
         return self._select
 
     def insert(self, table="", **kwargs):
-            #kwargs contains name of columns which you want to import and value
-            #and if you want import multiple values you can put array
-            if table == "":
-                table = self._from
-            kwargs_values = {}
-            values = ""
+        # kwargs contains name of columns which you want to import and value
+        # and if you want import multiple values you can put array
+        if table == "":
+            table = self._from
+        kwargs_values = {}
+        values = ""
 
-            if type(kwargs.values()[0]) == list:
-                val = kwargs.values()[0]
-            else:
-                val = [kwargs.values()]
-            for index in range(len(val)):
-                my_values = ""
-                counter = 0
-                x=kwargs.keys()
-                values+= "("+','.join(map(lambda x: " %("+ str(x)+str(index)+")s",x))+")"
-                if index<len(val)-1:
-                    values+=","
-                for key,value in kwargs.items():
-                    kwargs_values[str(key)+str(index)] = value[index]
-            values+=""
-            columns="("+", ".join(kwargs.keys())+")"
-            sql_query_insert = 'INSERT INTO ' + table + " " + columns + " VALUES " + values
-            db.query(sql_query_insert, kwargs_values, fetchall=False)
-
+        if type(kwargs.values()[0]) == list:
+            val = kwargs.values()[0]
+        else:
+            val = [kwargs.values()]
+        for index in range(len(val)):
+            x = kwargs.keys()
+            values += "(" + ','.join(map(lambda x: " %(" + str(x) + str(index) + ")s", x)) + ")"
+            if index < len(val) - 1:
+                values += ","
+            for key, value in kwargs.items():
+                kwargs_values[str(key) + str(index)] = value[index]
+        values += ""
+        columns = "(" + ", ".join(kwargs.keys()) + ")"
+        sql_query_insert = 'INSERT INTO ' + table + " " + columns + " VALUES " + values
+        db.query(sql_query_insert, kwargs_values, fetchall=False)
