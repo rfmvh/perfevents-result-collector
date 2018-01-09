@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 
+import argparse
+import os
 import re
 import sys
 
-from dbinterface import *
+from logger import Logger
+from models import Query
 
 
 def detectCPU_aarch64():
-    fileName = "/proc/cpuinfo"
+    inputCSV = "/proc/cpuinfo"
 
     regParseVariant = re.compile(r"""
                             (?P<name>CPU\svariant)\s*:\s*
@@ -19,31 +22,31 @@ def detectCPU_aarch64():
                             (?P<value>\d+)
                             """, re.VERBOSE)
 
-    cpuModel = None  # model is used for variant here
-    cpuFamily = None  # we would like to use family for "armv7"
-    cpuStepping = None  # stepping is used for revision here
-    # FIXME: we would like to detect APM/ARM/Qualcomm...
+    cpu_model = None  # model is used for variant here
+    cpu_family = None  # we would like to use family for "armv7"
+    cpu_stepping = None  # stepping is used for revision here
+    # FIXME: we would like to detect APM/ARM/Qualcom ..
     vendor = "generic_ARM"
 
-    with open(fileName, 'r') as f:
+    with open(inputCSV, 'r') as f:
         for line in f:
             match = regParseVariant.match(line)
             if match:
-                cpuModel = int(match.group("value"), 0)
+                cpu_model = int(match.group("value"), 0)
             match = regParseRevision.match(line)
             if match:
-                cpuStepping = match.group("value")
+                cpu_stepping = match.group("value")
 
-            if cpuModel and cpuStepping:
+            if cpu_model and cpu_stepping:
                 break
 
         f.close()
 
-    return cpuModel, cpuFamily, cpuStepping, vendor
+    return cpu_model, cpu_family, cpu_stepping, vendor
 
 
 def detectCPU_ppc():
-    fileName = "/proc/cpuinfo"
+    inputCSV = "/proc/cpuinfo"
 
     regParseRevision = re.compile(r"""
                             (?P<name>revision)\s*:\s*
@@ -52,40 +55,41 @@ def detectCPU_ppc():
                             (?P<rev>[\da-f]+)\)
                             """, re.VERBOSE)
 
-    cpuModel = None  # model will serve for model number (003f fo POWER7, etc.)
-    cpuFamily = None  # family is None here
-    cpuStepping = None  # stepping will serve for revision here
+    # model will serve for model number (003f fo POWER7, etc.)
+    cpu_model = None
+    cpu_family = None  # family is None here
+    cpu_stepping = None  # stepping will serve for revision here
     vendor = "IBM"  # vendor is always IBM for ppc64
 
-    with open(fileName, 'r') as f:
+    with open(inputCSV, 'r') as f:
         for line in f:
             match = regParseRevision.match(line)
             if match:
-                cpuModel = int(match.group("model"), 16)
-                cpuStepping = int(match.group("rev"), 16)
+                cpu_model = int(match.group("model"), 16)
+                cpu_stepping = int(match.group("rev"), 16)
 
-            if cpuModel and cpuStepping:
+            if cpu_model and cpu_stepping:
                 break
 
         f.close()
 
-    return cpuModel, cpuFamily, cpuStepping, vendor
+    return cpu_model, cpu_family, cpu_stepping, vendor
 
 
 def detectCPU_x86():
-    fileName = "/proc/cpuinfo"
+    inputCSV = "/proc/cpuinfo"
 
-    regParseModel = re.compile(r"""
+    regParse_model = re.compile(r"""
                             (?P<name>model)\s*:\s*
                             (?P<value>\d+)
                             """, re.VERBOSE)
 
-    regParseFamily = re.compile(r"""
+    regParse_family = re.compile(r"""
                             (?P<name>cpu\sfamily)\s*:\s*
                             (?P<value>\d+)
                             """, re.VERBOSE)
 
-    regParseStepping = re.compile(r"""
+    regParse_stepping = re.compile(r"""
                             (?P<name>stepping)\s*:\s*
                             (?P<value>[\da-fx]+)
                             """, re.VERBOSE)
@@ -94,38 +98,37 @@ def detectCPU_x86():
                             (?P<name>vendor_id)\s*:\s*
                             (?P<value>\w+)
                             """, re.VERBOSE)
-    cpuModel = None
-    cpuFamily = None
-    cpuStepping = None
+    cpu_model = None
+    cpu_family = None
+    cpu_stepping = None
     vendor = None
 
-    with open(fileName, 'r') as f:
+    with open(inputCSV, 'r') as f:
         for line in f:
-            match = regParseModel.match(line)
+            match = regParse_model.match(line)
             if match:
-                cpuModel = match.group("value")
-            match = regParseFamily.match(line)
+                cpu_model = match.group("value")
+            match = regParse_family.match(line)
             if match:
-                cpuFamily = match.group("value")
-            match = regParseStepping.match(line)
+                cpu_family = match.group("value")
+            match = regParse_stepping.match(line)
             if match:
-                cpuStepping = match.group("value")
+                cpu_stepping = match.group("value")
             match = regParseVendor.match(line)
             if match:
                 vendor = match.group("value")
-            if cpuFamily and cpuModel and cpuStepping and vendor:
+            if cpu_family and cpu_model and cpu_stepping and vendor:
                 break
 
         f.close()
 
-    return cpuModel, cpuFamily, cpuStepping, vendor
+    return cpu_model, cpu_family, cpu_stepping, vendor
 
 
 # tries to detect environment configuration from /proc/cpuinfo, arch and kernel version from uname
 def detectEnv():
     arch = os.popen('uname -m').read().rstrip()
     kernel = os.popen('uname -r').read().rstrip()
-    print arch
     # CPU detection needs to be arch-specific
     if arch == "aarch64":
         r = detectCPU_aarch64()
@@ -135,111 +138,6 @@ def detectEnv():
         r = detectCPU_x86()
 
     return arch, kernel, r[0], r[1], r[2], r[3]
-
-
-# Get kernel id
-def dbGetKernelId(db, kernel):
-    sql_query = 'SELECT kernel_id FROM kernels WHERE name = %(kernel_name)s;'
-    sql_params = {'kernel_name': kernel}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO kernels (name) VALUES (%(kernel_name)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
-
-
-# Get tool id
-def dbGetToolId(db, tool, version):
-    sql_query = 'SELECT tool_id FROM tools WHERE name = %(tool_name)s AND version = %(tool_version)s;'
-    sql_params = {'tool_name': tool, 'tool_version': version}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO tools (name, version) VALUES (%(tool_name)s, %(tool_version)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
-
-
-# Get experiment id
-def dbGetExperimentId(db, name):
-    sql_query = 'SELECT exp_id FROM experiments WHERE name = %(exp_name)s;'
-    sql_params = {'exp_name': name}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        return None
-
-    return results[0][0]
-
-
-# Get vendor id
-def dbGetVendorId(db, vendor):
-    sql_query = 'SELECT vendor_id FROM vendors WHERE name = %(vendor_name)s;'
-    sql_params = {'vendor_name': vendor}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO vendors (name) VALUES (%(vendor_name)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
-
-
-# Get virt id
-def dbGetVirtId(db, virt):
-    if not virt:
-        virt = "none"
-
-    sql_query = 'SELECT virt_id FROM virt WHERE name = %(virt_name)s;'
-    sql_params = {'virt_name': virt}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO virt (name) VALUES (%(virt_name)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
-
-
-# Get environment id
-def dbGetEnvironmentId(db, arch, family, model, stepping, idKernel, idVendor, idVirt):
-    if family:
-        familyStr = 'family = %(env_family)s and '
-    else:
-        familyStr = ''
-    sql_query = 'SELECT env_id FROM environments WHERE arch = %(env_arch)s and ' + familyStr + \
-                'model = %(env_model)s and stepping = %(env_stepping)s and kernel_id = %(kernel_id)s and vendor_id = %(vendor_id)s and virt_id = %(virt_id)s;'
-    sql_params = {'env_arch': arch, 'env_family': family, 'env_model': model, 'env_stepping': stepping,
-                  'kernel_id': idKernel, 'vendor_id': idVendor, 'virt_id': idVirt}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO environments (arch, family, model, stepping, kernel_id, vendor_id, virt_id) VALUES (%(env_arch)s, %(env_family)s, %(env_model)s, %(env_stepping)s, %(kernel_id)s, %(vendor_id)s, %(virt_id)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
-
-
-# Get event id
-def dbGetEventId(db, event):
-    sql_query = 'SELECT event_id FROM events WHERE name = %(event_name)s;'
-    sql_params = {'event_name': event}
-
-    results = db.query(sql_query, sql_params)
-    if not results:
-        sql_query_insert = 'INSERT INTO events (name) VALUES (%(event_name)s);'
-        db.query(sql_query_insert, sql_params)
-        results = db.query(sql_query, sql_params)
-
-    return results[0][0]
 
 
 def prepareRegexpByTool(toolName):
@@ -260,68 +158,9 @@ def prepareRegexpByTool(toolName):
                      (?P<name>\w+);
                      (?P<value>\d+)
                       """, re.VERBOSE)
-
     else:
         return None
 
-
-# Add results to DB
-def dbAddResult(db, experimentId, toolId, environmentId, eventId, value):
-    sql_query_insert = 'INSERT INTO results (exp_id, tool_id, env_id, event_id, val) VALUES (%(experiment_id)s, %(tool_id)s, %(environment_id)s, %(event_id)s, %(value)s);'
-    sql_params = {'experiment_id': experimentId, 'tool_id': toolId, 'environment_id': environmentId,
-                  'event_id': eventId, 'value': value}
-    db.query(sql_query_insert, sql_params)
-
-
-#################
-
-#
-# main
-#
-
-class Main:
-    def __init__(self, options):
-        self.arch = options.arch
-        self.kernel = options.kernel
-        self.cpuModel = options.cpuModel
-        self.cpuFamily = options.cpuFamily
-        self.cpuStepping = options.cpuStepping
-        self.vendor = options.vendor
-        self.tool = options.tool
-        self.virt = options.virt
-        self.inputCSV = options.inputCSV
-        self.experiment = options.experiment
-
-        # environment
-        if self.arch == None and self.kernel == None and self.cpuModel == None and self.cpuFamily == None and self.cpuStepping == None and self.vendor == None:
-            self.arch, self.kernel, self.cpuModel, self.cpuFamily, self.cpuStepping, self.vendor = detectEnv()
-        elif self.arch and self.kernel and self.cpuModel and self.cpuFamily and self.cpuStepping and self.vendor:
-            pass
-        else:
-            print "Error: The environment must be either specified or not. Nothing in between."
-            sys.exit(1)
-
-        if not self.tool:
-            print "Error: The tool must be always specified (e.g. --tool=perf-4.5.0)"
-            sys.exit(1)
-
-        regParseToolNameVersion = re.compile(r"""
-                            (?P<name>\w+)\-
-                            (?P<value>\d[\w\.\-\:\+]*)
-                            """, re.VERBOSE)
-
-        match = regParseToolNameVersion.match(self.tool)
-        if not match:
-            print "Error: The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)"
-        self.toolName = match.group("name")
-        self.toolVersion = match.group("value")
-
-        if not self.experiment:
-            print "Error: The experiment must be always specified (e.g. --experiment=\"linpack1000d\")"
-            sys.exit(1)
-
-
-import argparse
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -330,11 +169,11 @@ parser.add_argument("--arch", action="store",
 parser.add_argument("--vendor", action="store",
                     dest="vendor", help="cpu vendor")
 parser.add_argument("--cpu-model", action="store",
-                    dest="cpuModel", help="model cpu")
+                    dest="cpu_model", help="model cpu")
 parser.add_argument("--cpu-family", action="store",
-                    dest="cpuFamily", help="family cpu")
+                    dest="cpu_family", help="family cpu")
 parser.add_argument("--cpu-stepping", action="store",
-                    dest="cpuStepping", help="steping cpu")
+                    dest="cpu_stepping", help="steping cpu")
 parser.add_argument("--kernel", action="store", dest="kernel", help="kernel")
 parser.add_argument("--virt", action="store", dest="virt", help="virtual pc")
 parser.add_argument("--microarch", action="store",
@@ -344,53 +183,108 @@ parser.add_argument("--input", action="store",
                     dest="inputCSV", help="input csv")
 parser.add_argument("--experiment", action="store",
                     dest="experiment", help="experiment name")
+parser.add_argument("--debug", action="store_true", default=False)
 
 options = parser.parse_args()
 
-m = Main(options)
+# Query("kernels").insert(name=["3e010105", "3e101017", "3e101019"])
+# kernel_id = Query("kernels").getID_or_create("kernel_id", name="3e51110100")
 
-# open DB
-db = DBConnection()
 
-# FIXME
+if __name__ == "__main__":
+    arch = options.arch
+    kernel = options.kernel
+    cpu_model = options.cpu_model
+    cpu_family = options.cpu_family
+    cpu_stepping = options.cpu_stepping
+    vendor = options.vendor
+    tool = options.tool
+    experiment = options.experiment
+    inputCSV = options.inputCSV
+    virt = options.virt
+    LOGGER = Logger(__name__)
+    if options.debug:
+        LOGGER.set_logger_level("debug")
+    else:
+        LOGGER.set_logger_level("warning")
 
-# same pro virt, ktery bude mit defaultne hodnotu id = 0
+    if not virt:
+        virt = "none"
 
-kernelId = dbGetKernelId(db, m.kernel)
-toolId = dbGetToolId(db, m.toolName, m.toolVersion)
-vendorId = dbGetVendorId(db, m.vendor)
-virtId = dbGetVirtId(db, m.virt)
-environmentId = dbGetEnvironmentId(
-    db, m.arch, m.cpuFamily, m.cpuModel, m.cpuStepping, kernelId, vendorId, virtId)
-experimentId = dbGetExperimentId(db, m.experiment)
+    if not (arch and kernel and cpu_model and cpu_family and cpu_stepping):
+        arch, kernel, cpu_model, cpu_family, cpu_stepping, vendor = detectEnv()
 
-if not experimentId:
-    print "Error: Unknown experiment %s. You need to define it first (see rcl-add-experiment)." % m.experiment
-    sys.exit()
+    if arch and kernel and vendor:
+        pass
+    else:
+        LOGGER.warning(
+            "Error: The environment must be either specified or not. Nothing in between.")
+        sys.exit(1)
 
-regexp = prepareRegexpByTool(m.toolName)
-if not regexp:
-    print "Error"
+    if not tool:
+        LOGGER.warning(
+            "Error: The tool must be always specified (e.g. --tool=perf-4.5.0)")
+        sys.exit(1)
 
-fileName = m.inputCSV
+    regParseToolNameVersion = re.compile(r"""
+                        (?P<name>\w+)\-
+                        (?P<value>\d[\w\.\-\:\+]*)
+                        """, re.VERBOSE)
 
-if fileName:
-    try:
-        f = open(fileName, 'r')
-    except IOError:
-        print "Error: File %s can not be opened" % fileName
-        sys.exit()
+    match = regParseToolNameVersion.match(tool)
+    if not match:
+        LOGGER.warning(
+            "Error: The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)")
+    toolName = match.group("name")
+    toolVersion = match.group("value")
 
-else:
-    f = sys.stdin
+    if not experiment:
+        LOGGER.warning(
+            "Error: The experiment must be always specified (e.g. --experiment=\"linpack1000d\")")
+        sys.exit(1)
 
-for line in f:
-    match = regexp.search(line)
-    if match:
-        eventId = dbGetEventId(db, match.group("name"))
-        value = match.group("value")
-        print value
-        dbAddResult(db, experimentId, toolId, environmentId, eventId, value)
+    regexp = prepareRegexpByTool(toolName)
+    if not regexp:
+        LOGGER.warning("Error")
 
-if f != sys.stdin:
-    f.close()
+        if inputCSV:
+            try:
+                f = open(inputCSV, 'r')
+            except IOError:
+                LOGGER.warning("Error: File %s can not be opened" % inputCSV)
+                sys.exit()
+    else:
+        f = sys.stdin
+    event_ids = []
+    values = []
+    experiment_ids = []
+    tool_ids = []
+    env_ids = []
+
+    tool_id = Query("tools").getID_or_create(
+        "tool_id", name=toolName, version=toolVersion)
+    virt_id = Query("virt").getID_or_create("virt_id", name=virt)
+    vendor_id = Query("vendors").getID_or_create(
+        "vendor_id", name=vendor)
+    kernel_id = Query("kernels").getID_or_create(
+        "kernel_id", name=kernel)
+    experiment_id = Query("experiments").getID_or_create(
+        "exp_id", name=experiment)
+    environment_id = Query("environments").getID_or_create(
+        "env_id", arch=arch, family=cpu_family, model=cpu_model, stepping=cpu_stepping)
+
+    for line in f:
+        match = regexp.search(line)
+        if match:
+            event_ids.append(Query("events").getID_or_create(
+                "event_id", name=match.group("name")))
+            values.append(match.group("value"))
+
+            experiment_ids.append(experiment_id)
+            env_ids.append(environment_id)
+            tool_ids.append(tool_id)
+
+    Query("results").insert(exp_id=experiment_ids, tool_id=tool_ids,
+                            event_id=event_ids, env_id=env_ids, val=values)
+    if f != sys.stdin:
+        f.close()

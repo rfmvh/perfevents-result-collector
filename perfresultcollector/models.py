@@ -107,13 +107,13 @@ class Query(object):
                                                                                   where=self._where)
         else:
             self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
-                                                                                join=self.get_inner(),
-                                                                                where=self._where)
+                                                                                join=self.get_inner(), where=self._where)
+
+        LOGGER.set_logger_level("warning")
         if debug:
             LOGGER.set_logger_level("debug")
             return self._query
         else:
-            LOGGER.set_logger_level("warning")
             results = db.query(self._query, self.sql_parms_event)
             return results
 
