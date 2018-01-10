@@ -10,6 +10,7 @@ class Logger(object):
         self.config = ConfigParser.ConfigParser()
         self.config.read(self.path_to_conf_file)
         self.refresh_logger()
+        self.set_logger_level("warning")
 
     def refresh_logger(self):
         log_level = self.config.get("Defaults", "logging_level")

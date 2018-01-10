@@ -205,8 +205,6 @@ if __name__ == "__main__":
     LOGGER = Logger(__name__)
     if options.debug:
         LOGGER.set_logger_level("debug")
-    else:
-        LOGGER.set_logger_level("warning")
 
     if not virt:
         virt = "none"
@@ -283,7 +281,6 @@ if __name__ == "__main__":
             experiment_ids.append(experiment_id)
             env_ids.append(environment_id)
             tool_ids.append(tool_id)
-
     Query("results").insert(exp_id=experiment_ids, tool_id=tool_ids,
                             event_id=event_ids, env_id=env_ids, val=values)
     if f != sys.stdin:
