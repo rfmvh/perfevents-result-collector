@@ -5,6 +5,7 @@ dist/
 .idea/
 local.conf
 MANIFEST
+*.swp
 
 /build
 /dist
