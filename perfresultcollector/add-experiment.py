@@ -24,7 +24,7 @@ def add(name, cmd, desc, syst_wide, force):
     # open DB
     db = DBConnection()
     if not name:
-        print "Error: Insert the name of the experiment"
+        log.warning("Insert the name of the experiment")
         sys.exit(1)
 
     sql_query = 'SELECT exp_id FROM experiments WHERE name = %(exp_name)s;'
@@ -33,7 +33,7 @@ def add(name, cmd, desc, syst_wide, force):
 
     if results:
         if not force:
-            print "Error: Name exists"
+            log.warning("Name exists")
             sys.exit(1)
         sql_query_update = 'UPDATE experiments SET cmd = %(exp_cmd)s, description = %(exp_desc)s,' \
                            ' systemwide = %(exp_systemwide)s WHERE name=%(exp_name)s;'

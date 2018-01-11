@@ -4,7 +4,9 @@ import argparse
 import os
 import re
 import sys
+import logging
 
+from perfresultcollector import set_logger_level
 from logger import Logger
 from models import Query
 

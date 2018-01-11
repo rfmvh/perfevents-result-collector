@@ -111,7 +111,6 @@ class Query(object):
             self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
                                                                                 join=self.get_inner(), where=self._where)
 
-
         if debug:
             return self._query
         else:
@@ -134,6 +133,7 @@ class Query(object):
         return self._select
 
     def insert_one(self, table="", **kwargs):
+        # when you want to insert only one line
         for name, item in kwargs.items():
             kwargs[name] = [item]
         self.insert(table, **kwargs)
