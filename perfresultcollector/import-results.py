@@ -203,9 +203,9 @@ if __name__ == "__main__":
     inputCSV = options.inputCSV
     virt = options.virt
     LOGGER = Logger(__name__)
+    LOGGER.set_logger_level("warning")
     if options.debug:
         LOGGER.set_logger_level("debug")
-
     if not virt:
         virt = "none"
 

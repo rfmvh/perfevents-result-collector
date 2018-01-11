@@ -50,8 +50,8 @@ class DBConnection(object):
         if parms == None:
             parms = []
 
-        LOGGER.info('RESULTDB: SQL dryrun mode enabled, quiting')
         if self.dryrun:
+            LOGGER.info('RESULTDB: SQL dryrun mode enabled, quiting')
             return []
 
         cur = self.conn.cursor()

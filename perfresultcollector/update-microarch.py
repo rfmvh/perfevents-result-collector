@@ -47,4 +47,4 @@ for line in sys.stdin:
               WHERE e.arch = %(arch)s  and v.name = %(vendor)s and e.model = %(cpuModel)s;"""
         sql_params = {'microarch': microarch, 'arch': arch, 'vendor': vendor, 'cpuModel': cpuModel}
 
-    results = db.query(sql_query, sql_params)
+    results = db.query(sql_query, sql_params,fetchall=False)
