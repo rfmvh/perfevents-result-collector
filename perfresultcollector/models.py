@@ -64,7 +64,7 @@ class Query(object):
         if not results:
             if self._from == "experiments":
                 return None
-            self.insert(**kwargs)
+            self.insert_one(**kwargs)
             results = self.execute()
 
         return results[0][0]
@@ -132,6 +132,11 @@ class Query(object):
 
     def get_select(self):
         return self._select
+
+    def insert_one(self, table="", **kwargs):
+        for name, item in kwargs.items():
+            kwargs[name] = [item]
+        self.insert(table, **kwargs)
 
     def insert(self, table="", **kwargs):
         # kwargs contains name of columns which you want to import and value
