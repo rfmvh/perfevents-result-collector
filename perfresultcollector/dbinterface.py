@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-
 import ConfigParser
 import os
-
+import logging
 import psycopg2
 
-from logger import Logger
+from perfresultcollector import set_logger_level
 
 try:
     from psycopg2.extras import DictCursor as CursorFactory
@@ -14,8 +12,7 @@ except ImportError:
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
-LOGGER = Logger(__name__)
-
+log = logging.getLogger(__name__)
 
 class DBConnection(object):
     def __init__(self, dryrun=False):
@@ -51,7 +48,7 @@ class DBConnection(object):
             parms = []
 
         if self.dryrun:
-            LOGGER.info('RESULTDB: SQL dryrun mode enabled, quiting')
+            log.info('SQL dryrun mode enabled, quiting')
             return []
 
         cur = self.conn.cursor()

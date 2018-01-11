@@ -2,7 +2,9 @@
 
 import argparse
 import sys
+import logging
 
+from perfresultcollector import set_logger_level
 from dbinterface import *
 
 parser = argparse.ArgumentParser()
@@ -17,7 +19,7 @@ parser.add_argument("--force", action="store_true",
 
 options = parser.parse_args()
 
-
+log = logging.getLogger(__name__)
 def add(name, cmd, desc, syst_wide, force):
     # open DB
     db = DBConnection()

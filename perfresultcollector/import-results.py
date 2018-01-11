@@ -190,6 +190,7 @@ options = parser.parse_args()
 # Query("kernels").insert(name=["3e010105", "3e101017", "3e101019"])
 # kernel_id = Query("kernels").getID_or_create("kernel_id", name="3e51110100")
 
+log=logging.getLogger(__name__)
 
 if __name__ == "__main__":
     arch = options.arch
@@ -202,10 +203,8 @@ if __name__ == "__main__":
     experiment = options.experiment
     inputCSV = options.inputCSV
     virt = options.virt
-    LOGGER = Logger(__name__)
-    LOGGER.set_logger_level("warning")
     if options.debug:
-        LOGGER.set_logger_level("debug")
+        set_logger_level(logging.DEBUG)
     if not virt:
         virt = "none"
 
@@ -215,13 +214,13 @@ if __name__ == "__main__":
     if arch and kernel and vendor:
         pass
     else:
-        LOGGER.warning(
-            "Error: The environment must be either specified or not. Nothing in between.")
+        log.warning(
+            "The environment must be either specified or not. Nothing in between.")
         sys.exit(1)
 
     if not tool:
-        LOGGER.warning(
-            "Error: The tool must be always specified (e.g. --tool=perf-4.5.0)")
+        log.warning(
+            "The tool must be always specified (e.g. --tool=perf-4.5.0)")
         sys.exit(1)
 
     regParseToolNameVersion = re.compile(r"""
@@ -231,26 +230,26 @@ if __name__ == "__main__":
 
     match = regParseToolNameVersion.match(tool)
     if not match:
-        LOGGER.warning(
-            "Error: The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)")
+        log.warning(
+            "The tool format is incorrect, we need tool-version (e.g. --tool=perf-4.5.0)")
     toolName = match.group("name")
     toolVersion = match.group("value")
 
     if not experiment:
-        LOGGER.warning(
-            "Error: The experiment must be always specified (e.g. --experiment=\"linpack1000d\")")
+        log.warning(
+            "The experiment must be always specified (e.g. --experiment=\"linpack1000d\")")
         sys.exit(1)
 
     regexp = prepareRegexpByTool(toolName)
     if not regexp:
-        LOGGER.warning("Error")
+        log.warning("Error")
 
-        if inputCSV:
-            try:
-                f = open(inputCSV, 'r')
-            except IOError:
-                LOGGER.warning("Error: File %s can not be opened" % inputCSV)
-                sys.exit()
+    if inputCSV:
+        try:
+            f = open(inputCSV, 'r')
+        except IOError:
+            log.warning("File %s can not be opened" % inputCSV)
+            sys.exit()
     else:
         f = sys.stdin
     event_ids = []
