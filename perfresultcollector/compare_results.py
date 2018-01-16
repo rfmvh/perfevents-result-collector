@@ -51,7 +51,7 @@ parser.add_argument("--kernel-details", action="store_true", default=False)
 parser.add_argument("--virt-details", action="store_true", default=False)
 
 parser.add_argument("--avg", action="store_true", default=False)
-parser.add_argument("--stdev", action="store_true", default=False)
+parser.add_argument("--stddev", action="store_true", default=False)
 parser.add_argument("--group", action="store")
 
 parser.add_argument("--csv", action="store_true", default=False)
@@ -106,19 +106,20 @@ def compare(**kwargs):
             for value in list_of_values:
                 if value:
                     qr1.filter(**{key + negation1: value})
+    details = details[1:]
     if options.group:
         qr1.set_group(details)
         qr2.set_group(details)
     if options.avg:
-        qr2.get_avg(details[1:])
-        qr1.get_avg(details[1:])
-    if options.stdev:
-        qr1.get_stddev(details[1:])
-        qr2.get_stddev(details[1:])
-    qr1.set_details(details[1:])
-    qr2.set_details(details[1:])
-    data1 = qr1.execute(options.avg or options.stdev)
-    data2 = qr2.execute(options.avg or options.stdev)
+        qr2.get_avg(details)
+        qr1.get_avg(details)
+    if options.stddev:
+        qr1.get_stddev(details)
+        qr2.get_stddev(details)
+    qr1.set_details(details)
+    qr2.set_details(details)
+    data1 = qr1.execute(options.avg or options.stddev)
+    data2 = qr2.execute(options.avg or options.stddev)
 
     for line in compare_data_fromat(data1, data2):
         print line
