@@ -23,6 +23,7 @@ class Query(object):
         self.last_filter_name = ""
         self.group = ""
         self.details = ""
+        self.clmn_operation = []
 
     def set_from(self, _from):
         self._from = _from
@@ -49,7 +50,7 @@ class Query(object):
 
     def set_select(self, *select):
         self._select = ""
-        if type(select[0]) is list:
+        if isinstance(select[0], list):
             select = select[0]
         if len(select) == 0 or select[0] == "":
             self._select += "*"
@@ -74,7 +75,7 @@ class Query(object):
     def filter(self, **kwargs):
         for index, item in enumerate(kwargs):
             split_item = item.split("__")
-            if kwargs[item] == None:
+            if kwargs[item] is None:
                 operator = "IS"
             else:
                 operator = "="
@@ -98,20 +99,27 @@ class Query(object):
                 self.last_filter_name = item
                 self._where += " and "
 
-            self._where += "" + negation + split_item[0] + fk + " " + operator + " %(my_" + split_item[0] + str(
-                self.counter) + ")s"
+            self._where += "" + negation + \
+                split_item[0] + fk + " " + operator + " %(my_" + split_item[0] + str(self.counter) + ")s"
             self.sql_parms_event["my_" + split_item[0] +
                                  str(self.counter)] = kwargs[item]
 
-    def execute(self, operation="", column="results.val", debug=False):
+    def execute(self, operation=False, column="results.val", debug=False):
         if operation:
-            self._query = "SELECT {0} ( {1} ) {details} FROM {table} {join} {where} {group}" .format(operation, column, group=self.group,
-                                                                                                     table=self._from,
-                                                                                                     join=self.get_inner(),
-                                                                                                     where=self._where, details=self.details)
+            self._query = "SELECT {column_operation} {details} FROM {table} {join} {where} {group}" .format(
+                column_operation=",".join(self.clmn_operation),
+                group=self.group,
+                table=self._from,
+                join=self.get_inner(),
+                where=self._where,
+                details=self.details)
         else:
-            self._query = "SELECT {columns} FROM {table} {join} {where} {group}".format(columns=self._select, group=self.group, table=self._from,
-                                                                                        join=self.get_inner(), where=self._where)
+            self._query = "SELECT {columns} FROM {table} {join} {where} {group}".format(
+                columns=self._select,
+                group=self.group,
+                table=self._from,
+                join=self.get_inner(),
+                where=self._where)
 
         print self._query
         if debug:
@@ -125,28 +133,24 @@ class Query(object):
             self.group = "GROUP BY " + ",".join(group)
 
     def get_min(self, details, column="results.val"):
-        if details:
-            self.set_group(details)
-            self.details = ","+",".join(details)
-        return self.execute("min", column)
+        self.set_group(details)
+        self.clmn_operation.append("MIN(" + column + ")")
 
     def get_avg(self, details, column="results.val"):
+        self.set_group(details)
+        self.clmn_operation.append("AVG(" + column + ")")
+
+    def set_details(self, details):
         if details:
-            self.set_group(details)
-            self.details =  ","+",".join(details)
-        return self.execute("avg", column)
+            self.details = "," + ",".join(details)
 
     def get_max(self, details, column="results.val"):
-        if details:
-            self.set_group(details)
-            self.details =  ","+",".join(details)
-        return self.execute("max", column)
+        self.set_group(details)
+        self.clmn_operation.append("MAX(" + column + ")")
 
     def get_stddev(self, details, column="results.val"):
-        if details:
-            self.set_group(details)
-            self.details =  ","+",".join(details)
-        return self.execute("stddev", column)
+        self.set_group(details)
+        self.clmn_operation.append("STDDEV(" + column + ")")
 
     def get_select(self):
         return self._select
@@ -165,7 +169,7 @@ class Query(object):
         kwargs_values = {}
         values = ""
 
-        if type(kwargs.values()[0]) == list:
+        if isinstance(kwargs.values()[0], list):
             val = kwargs.values()[0]
         else:
             val = [kwargs.values()]

@@ -99,17 +99,18 @@ def compare(**kwargs):
                 if value:
                     qr1.filter(**{key + negation1: value})
     if options.group:
-        qr1.set_group(details[1:])
-        qr2.set_group(details[1:])
+        qr1.set_group(details)
+        qr2.set_group(details)
     if options.avg:
-        data2 = qr2.get_avg(details[1:])
-        data1 = qr1.get_avg(details[1:])
-    elif options.stdev:
-        data1 = qr1.get_stddev(details[1:])
-        data2 = qr2.get_stddev(details[1:])
-    else:
-        data1= qr1.execute()
-        data2 = qr2.execute()
+        qr2.get_avg(details[1:])
+        qr1.get_avg(details[1:])
+    if options.stdev:
+        qr1.get_stddev(details[1:])
+        qr2.get_stddev(details[1:])
+    qr1.set_details(details[1:])
+    qr2.set_details(details[1:])
+    data1 = qr1.execute(options.avg or options.stdev)
+    data2 = qr2.execute(options.avg or options.stdev)
 
     for line in compare_data_fromat(data1, data2):
         print line
