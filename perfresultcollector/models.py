@@ -21,6 +21,8 @@ class Query(object):
         self._conditions = ""
         self.sql_parms_event = {}
         self.last_filter_name = ""
+        self.group = ""
+        self.details = ""
 
     def set_from(self, _from):
         self._from = _from
@@ -101,32 +103,49 @@ class Query(object):
             self.sql_parms_event["my_" + split_item[0] +
                                  str(self.counter)] = kwargs[item]
 
-    def execute(self, operation="", column="*", debug=False):
+    def execute(self, operation="", column="results.val", debug=False):
         if operation:
-            self._query = "SELECT {0} ( {1} ) FROM {table} {join} {where}".format(operation, column,
-                                                                                  table=self._from,
-                                                                                  join=self.get_inner(),
-                                                                                  where=self._where)
+            self._query = "SELECT {0} ( {1} ) {details} FROM {table} {join} {where} {group}" .format(operation, column, group=self.group,
+                                                                                                     table=self._from,
+                                                                                                     join=self.get_inner(),
+                                                                                                     where=self._where, details=self.details)
         else:
-            self._query = "SELECT {columns} FROM {table} {join} {where}".format(columns=self._select, table=self._from,
-                                                                                join=self.get_inner(), where=self._where)
+            self._query = "SELECT {columns} FROM {table} {join} {where} {group}".format(columns=self._select, group=self.group, table=self._from,
+                                                                                        join=self.get_inner(), where=self._where)
 
+        print self._query
         if debug:
             return self._query
         else:
             results = db.query(self._query, self.sql_parms_event)
             return results
 
-    def get_min(self, column):
+    def set_group(self, group):
+        if group:
+            self.group = "GROUP BY " + ",".join(group)
+
+    def get_min(self, details, column="results.val"):
+        if details:
+            self.set_group(details)
+            self.details = ","+",".join(details)
         return self.execute("min", column)
 
-    def get_avg(self, column):
+    def get_avg(self, details, column="results.val"):
+        if details:
+            self.set_group(details)
+            self.details =  ","+",".join(details)
         return self.execute("avg", column)
 
-    def get_max(self, column):
+    def get_max(self, details, column="results.val"):
+        if details:
+            self.set_group(details)
+            self.details =  ","+",".join(details)
         return self.execute("max", column)
 
-    def get_stddev(self, column):
+    def get_stddev(self, details, column="results.val"):
+        if details:
+            self.set_group(details)
+            self.details =  ","+",".join(details)
         return self.execute("stddev", column)
 
     def get_select(self):
