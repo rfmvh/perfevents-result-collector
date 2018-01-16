@@ -43,8 +43,10 @@ parser.add_argument("--event-basic", action="store_true", default=False)
 parser.add_argument("--event-details", action="store_true", default=False)
 parser.add_argument("--tool-details", action="store_true", default=False)
 parser.add_argument("--experiment-details", action="store_true", default=False)
-parser.add_argument("--env-details", action="store",
-                    help="1 = arch, microarch; 2=arch, microarch, family, model")
+parser.add_argument(
+    "--env-details",
+    action="store",
+    help="1 = arch, microarch; 2=arch, microarch, family, model")
 parser.add_argument("--kernel-details", action="store_true", default=False)
 parser.add_argument("--virt-details", action="store_true", default=False)
 
@@ -61,10 +63,16 @@ options = parser.parse_args()
 
 
 def compare(**kwargs):
-    basic_details = {"events.evt_num": options.event_details, "events.nmask": options.event_details,
-                     "tools.name": options.tool_details,
-                     "tools.version": options.tool_details, "experiments.name": options.experiment_details,
-                     "kernels.name": options.kernel_details, "events.name": options.event_basic, "events.idgroup": options.event_basic, "virt.name": options.virt_details}
+    basic_details = {
+        "events.evt_num": options.event_details,
+        "events.nmask": options.event_details,
+        "tools.name": options.tool_details,
+        "tools.version": options.tool_details,
+        "experiments.name": options.experiment_details,
+        "kernels.name": options.kernel_details,
+        "events.name": options.event_basic,
+        "events.idgroup": options.event_basic,
+        "virt.name": options.virt_details}
     details = ["results.val"]
     for index in basic_details:
         if basic_details[index]:
@@ -90,7 +98,7 @@ def compare(**kwargs):
             negation2 = "__not"
         if options.not1:
             negation1 = "__not"
-        if key[-1]=="2":
+        if key[-1] == "2":
             for value in list_of_values:
                 if value:
                     qr2.filter(**{key[:-1] + negation2: value})
