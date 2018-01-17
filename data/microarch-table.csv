@@ -28,6 +28,7 @@ x86_64;GenuineIntel;6;87;KNL
 x86_64;GenuineIntel;6;92;GLM
 x86_64;GenuineIntel;6;94;SKL-S
 x86_64;GenuineIntel;6;95;GLM_DNV
+x86_64;GenuineIntel;6;122;GLP
 x86_64;GenuineIntel;6;133;KNM
 x86_64;GenuineIntel;6;142;KBL-UY
 x86_64;GenuineIntel;6;158;KBL-HS
@@ -60,6 +61,7 @@ i386;GenuineIntel;6;87;KNL
 i386;GenuineIntel;6;92;GLM
 i386;GenuineIntel;6;94;SKL-S
 i386;GenuineIntel;6;95;GLM_DNV
+i386;GenuineIntel;6;122;GLP
 i386;GenuineIntel;6;133;KNM
 i386;GenuineIntel;6;142;KBL-UY
 i386;GenuineIntel;6;158;KBL-HS
