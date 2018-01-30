@@ -1,9 +1,10 @@
 import ConfigParser
-import os
 import logging
+import os
 import psycopg2
 
 from perfresultcollector import set_logger_level
+
 
 try:
     from psycopg2.extras import DictCursor as CursorFactory
@@ -70,3 +71,4 @@ class DBConnection(object):
 
         self.conn.close()
         self.conn = None
+

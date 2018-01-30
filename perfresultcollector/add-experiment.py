@@ -5,7 +5,7 @@ import sys
 import logging
 
 from perfresultcollector import set_logger_level
-from dbinterface import *
+from perfresultcollector.dbinterface import *
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -56,3 +56,4 @@ def add(name, cmd, desc, syst_wide, force):
 if __name__ == '__main__':
     add(options.name, options.cmd, options.description,
         options.systemwide, options.force)
+

@@ -1,4 +1,5 @@
 import logging
+
 logger = logging.getLogger("")
 logger.setLevel(logging.DEBUG)
 ch = logging.StreamHandler()
@@ -13,8 +14,7 @@ ch.setFormatter(formatter)
 # add ch to logger
 logger.addHandler(ch)
 
+
 def set_logger_level(level):
     logger.setLevel(level)
-
-
 

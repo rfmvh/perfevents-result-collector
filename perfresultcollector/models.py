@@ -1,7 +1,8 @@
-from dbinterface import DBConnection
+import logging
+
+from perfresultcollector.dbinterface import DBConnection
 from perfresultcollector import set_logger_level
 
-import logging
 
 # TODO diff soubor pro... mail 2.1
 # open DB
@@ -185,3 +186,4 @@ class Query(object):
         columns = "(" + ", ".join(kwargs.keys()) + ")"
         sql_query_insert = 'INSERT INTO ' + table + " " + columns + " VALUES " + values
         db.query(sql_query_insert, kwargs_values, fetchall=False)
+

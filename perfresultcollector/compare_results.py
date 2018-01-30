@@ -1,11 +1,9 @@
 #!/usr/bin/env python
-
+import argparse
 import logging
 
-import argparse
-from formatter import compare_data_fromat
-
-from models import Query
+from perfresultcollector.formatter import compare_data_fromat
+from perfresultcollector.models import Query
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -151,3 +149,4 @@ if __name__ == "__main__":
         environments__arch2=options.cpu_arch2,
         environments__microarch2=options.cpu_microarch2,
         kernels__name2=options.kernel2, virt__name2=options.virt2)
+

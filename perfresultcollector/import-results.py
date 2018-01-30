@@ -1,13 +1,12 @@
 #!/usr/bin/env python
-
 import argparse
+import logging
 import os
 import re
 import sys
-import logging
 
 from perfresultcollector import set_logger_level
-from models import Query
+from perfresultcollector.models import Query
 
 
 def detectCPU_aarch64():
@@ -285,3 +284,4 @@ if __name__ == "__main__":
                             event_id=event_ids, env_id=env_ids, val=values)
     if f != sys.stdin:
         f.close()
+

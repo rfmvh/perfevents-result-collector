@@ -2,8 +2,9 @@
 
 import argparse
 
-from formatter import format_output
-from models import Query
+from perfresultcollector.formatter import format_output
+from perfresultcollector.models import Query
+
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -43,3 +44,4 @@ if __name__ == '__main__':
                      family=options.family,
                      model=options.model, stepping=options.stepping, virt__name=options.virt,
                      kernels__name=options.kernel, vendors__name=options.vendor)
+

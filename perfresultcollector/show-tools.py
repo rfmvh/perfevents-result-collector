@@ -2,8 +2,9 @@
 
 import argparse
 
-from formatter import format_output
-from models import Query
+from perfresultcollector.formatter import format_output
+from perfresultcollector.models import Query
+
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -32,3 +33,4 @@ def show_tool(csv, table, debug, **kwargs):
 
 if __name__ == '__main__':
     show_tool(options.csv, options.table, options.debug, name=options.name, version=options.version)
+

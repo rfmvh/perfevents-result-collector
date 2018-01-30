@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-import sys
-import re
 import os
+import re
+import sys
 
-from dbinterface import *
+from perfresultcollector.dbinterface import *
+
 
 reg_parse = re.compile(r"""
                       (?P<arch>\w+);
@@ -48,3 +49,4 @@ for line in sys.stdin:
         sql_params = {'microarch': microarch, 'arch': arch, 'vendor': vendor, 'cpuModel': cpuModel}
 
     results = db.query(sql_query, sql_params,fetchall=False)
+

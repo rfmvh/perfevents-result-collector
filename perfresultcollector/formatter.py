@@ -45,4 +45,3 @@ def compare_data_fromat(data1,data2):
         response.append(" |~| ".join((val.ljust(width) for val, width in zip(row, widths))))
     return response
 
-
