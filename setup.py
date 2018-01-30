@@ -17,6 +17,18 @@ setup(
     url="https://github.com/rfmvh/perfevents-result-collector",
     download_url="https://github.com/rfmvh/perfevents-result-collector",
     keywords=["data", "collect", "benchmark"],
+    scripts=[
+        'scripts/rcl-add-experiment',
+        'scripts/rcl-import-results',
+        'scripts/rcl-show-environments',
+        'scripts/rcl-show-events',
+        'scripts/rcl-show-experiments',
+        'scripts/rcl-show-kernels',
+        'scripts/rcl-show-results',
+        'scripts/rcl-show-tools',
+        'scripts/rcl-show-vendors',
+        'scripts/rcl-show-virt',
+    ],
     classifiers = [
         "Programming Language :: Python",
         "Intended Audience :: Developers",
