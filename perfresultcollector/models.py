@@ -105,6 +105,8 @@ class Query(object):
             self.sql_parms_event["my_" + split_item[0] +
                                  str(self.counter)] = kwargs[item]
 
+    # TODO: 'debug' arg has inproper meaning to implementation.
+    # It should be renamed to 'dryrun'=False
     def execute(self, operation=False, column="results.val", debug=False):
         if operation:
             self._query = "SELECT {column_operation} {details} FROM {table} {join} {where} {group}" .format(
@@ -122,12 +124,13 @@ class Query(object):
                 join=self.get_inner(),
                 where=self._where)
 
-        print self._query
+        log.debug(self._query)
+
         if debug:
             return self._query
-        else:
-            results = db.query(self._query, self.sql_parms_event)
-            return results
+
+        results = db.query(self._query, self.sql_parms_event)
+        return results
 
     def set_group(self, group):
         if group:
