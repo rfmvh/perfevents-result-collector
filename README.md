@@ -43,3 +43,37 @@ The tool consists of a PostgreSQL database and a Python API/wrapper that
 would take care of the queries and importing data in it. Thus a testcase
 could report its results to the DB along with the environment data.
 
+## Developer guide
+
+Clone repository:
+```bash
+git clone https://github.com/rfmvh/perfevents-result-collector/
+```
+
+Checkout `develop` branch for bleeding edge changes:
+```bash
+git checkout develop
+```
+
+Install dependencies:
+```bash
+# system wide RPM package
+dnf install python-psycopg2
+
+# OR
+
+# via pip
+pip install psycopg2
+```
+
+Setup your credentials for database:
+```bash
+cp defaults.conf ~/.config/perfevents-result-collector.conf
+# edit ~/.config/perfevents-result-collector.conf accordingly
+```
+
+Update your `PYTHONPATH` environment variable. It's recommended to put this line into `~/.bashrc` (or `~/.zshrc` or any other file like that - depends on your shell)
+```bash
+export PYTHONPATH=$PYTHONPATH:$PWD
+```
+
