@@ -3,13 +3,6 @@ import logging
 import os
 import psycopg2
 
-from perfresultcollector import set_logger_level
-
-
-try:
-    from psycopg2.extras import DictCursor as CursorFactory
-except ImportError:
-    CursorFactory = None
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
