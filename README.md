@@ -64,6 +64,13 @@ dnf install python-psycopg2
 
 # via pip
 pip install psycopg2
+
+# OR
+
+# using virtualenv
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 Setup your credentials for database:
@@ -72,8 +79,10 @@ cp defaults.conf ~/.config/perfevents-result-collector.conf
 # edit ~/.config/perfevents-result-collector.conf accordingly
 ```
 
-Update your `PYTHONPATH` environment variable. It's recommended to put this line into `~/.bashrc` (or `~/.zshrc` or any other file like that - depends on your shell)
+Update your `PYTHONPATH` environment variable. It's recommended to put this line into `~/.bashrc` (or `~/.zshrc` or any other file like that - depends on your shell) to have it persistent.
 ```bash
+# within just cloned repo, so current working directory should contains
+# directory 'perfresultcollector', 'README.md' and so on.
 export PYTHONPATH=$PYTHONPATH:$PWD
 ```
 
