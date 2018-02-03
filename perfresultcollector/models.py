@@ -121,12 +121,11 @@ class Query(object):
                 table=self._from,
                 join=self.get_inner(),
                 where=self._where)
-
-        log.debug(self._query)
-
         if dryrun:
-            return self._query
-
+            return self._query 
+        else:
+            log.debug(self._query)
+        
         results = db.query(self._query, self.sql_parms_event)
         return results
 
