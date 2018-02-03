@@ -4,6 +4,7 @@ import logging
 
 from perfresultcollector.formatter import format_output
 from perfresultcollector.models import Query
+from perfresultcollector import set_logger_level
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -17,13 +18,15 @@ logger = logging.getLogger(__name__)
 
 
 def show_virt(csv, debug=False, **kwargs):
+    if debug:
+        set_logger_level(logging.DEBUG)
+    
     qr = Query("virt")
     head = ["id", "name"]
     for key, value in kwargs.items():
         if value:
-            qr.filter(**{key: value})
-
-    data = qr.execute(debug=debug)
+            qr.filter(**{key: value})    
+    data = qr.execute()
     logger.debug(data)
 
     for line in format_output(data, csv, head):
