@@ -3,7 +3,7 @@ import logging
 logger = logging.getLogger("")
 logger.setLevel(logging.ERROR)
 ch = logging.StreamHandler()
-ch.setLevel(logging.ERROR)
+ch.setLevel(logging.DEBUG)
 
 # create formatter
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
