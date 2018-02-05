@@ -33,13 +33,14 @@ parser.add_argument("--virt-details", action="store_true", default=False)
 parser.add_argument("--csv", action="store_true", default=False)
 parser.add_argument("--table", action="store_true", default=False)
 parser.add_argument("--debug", action="store_true", default=False)
+parser.add_argument("--dryrun", action="store_true", default=False)
 
 options = parser.parse_args()
 
 logger = logging.getLogger(__name__)
 
 def show_result(csv, table, debug, **kwargs):
-    if debug:
+    if debug or options.dryrun:
         set_logger_level(logging.DEBUG)
     qr = Query("results")
     basic_details = {"events.evt_num": options.event_details, "events.nmask": options.event_details,
@@ -63,10 +64,11 @@ def show_result(csv, table, debug, **kwargs):
         for value in list_of_values:
             if value:
                 qr.filter(**{key: value})
-    data = qr.execute()
+    data = qr.execute(dryrun=options.dryrun)
     logger.debug(data)
-    for line in format_output(data, csv, details, table):
-        print line
+    if not options.dryrun:
+        for line in format_output(data, csv, details, table):
+            print line
 
 
 if __name__ == '__main__':
