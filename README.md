@@ -47,7 +47,9 @@ could report its results to the DB along with the environment data.
 
 Clone repository:
 ```bash
+# example of working directory: /home/user/
 git clone https://github.com/rfmvh/perfevents-result-collector/
+cd perfevents-result-collector
 ```
 
 Checkout `develop` branch for bleeding edge changes:
@@ -83,6 +85,10 @@ Update your `PYTHONPATH` environment variable. It's recommended to put this line
 ```bash
 # within just cloned repo, so current working directory should contains
 # directory 'perfresultcollector', 'README.md' and so on.
+# example of working directory: /home/user/perfevents-result-collector
 export PYTHONPATH=$PYTHONPATH:$PWD
-```
 
+# verify the PYTHONPATH (example)
+echo $PYTHONPATH
+:/home/user/perfevents-result-collector
+```
