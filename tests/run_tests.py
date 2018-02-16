@@ -2,12 +2,15 @@
 
 import subprocess
 from optparse import OptionParser
+import os
+
+logdir = "logs"
  
 tools={}
 tools['rcl-show-environments']=['', '--arch=ppc64', '--vendor=GenuineIntel', '--microarch=IVB', '--family=, --model=45', '--family=6 --model=45 --stepping=7', '--virt=kvm', '--kernel=3.10.0-693.el7', '--microarch=IVB --csv']
 tools['rcl-show-events'] = ['', '--name cpu-cycles', '--csv']
 tools['rcl-show-experiments'] = ['', '--name linpack1000d', '--csv']
-tools['rcl-show-kernels'] = ['', '--name ???', '--csv']  
+tools['rcl-show-kernels'] = ['', '--name 4.14.0-6.el7a', '--csv']
 tools['rcl-show-tools'] = ['', '--name oprofile', '--name papi', '--name perf --version 2.6.32-696.el6']
 tools['rcl-show-vendors'] = ['', '--name GenuineIntel', '--csv']
 tools['rcl-show-virt'] = ['', '--name kvm', '--csv']
@@ -30,16 +33,26 @@ if args:
 else:
 	tool_list = tools.keys()
 
+if not os.path.exists(logdir):
+	os.makedirs(logdir)
+
 for tool in tool_list:
 	try:			
-		for opt in tool_list:
+		if not os.path.exists(logdir + "/" + tool):
+			os.makedirs(logdir + "/" + tool)
+		log = 0
+		print "Running %s ..." % tool
+		for opt in tools[tool]:
 			p = subprocess.Popen(tool + ' ' + opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			f = open(logdir + "/" + tool + "/" + str(log).zfill(2), "w")
 			for line in p.stdout.readlines():
-				print line,
+				f.write(line)
 			retval = p.wait()
+			f.close()
 			if retval == 0:
-				print "Probehlo OK"
+				print "   [OK] %s %s" % (tool, opt)
 			else:
-				print "Chyba nastala"
+				print "   [!!] %s %s" % (tool, opt)
+			log += 1
 	except KeyError:
-		pass			
+		pass
