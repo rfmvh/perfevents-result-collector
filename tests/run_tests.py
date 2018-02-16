@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 import subprocess
-
+from optparse import OptionParser
+ 
 tools={}
 tools['rcl-show-environments']=['', '--arch=ppc64', '--vendor=GenuineIntel', '--microarch=IVB', '--family=, --model=45', '--family=6 --model=45 --stepping=7', '--virt=kvm', '--kernel=3.10.0-693.el7', '--microarch=IVB --csv']
 tools['rcl-show-events'] = ['', '--name cpu-cycles', '--csv']
@@ -19,15 +20,26 @@ tools['rcl-show-results'] = ['--event=cpu-cycles', '--event=instructions --exper
 '--event=instructions --cpu-arch=x86_64 --cpu-model=58 --kernel=4.14.0-6.el7a', '--cpu-arch=ppc64le --cpu-microarch=POWER9 --kernel=4.14.0-6.el7a'
 '--event=instructions --cpu-arch=x86_64 --cpu-model=87 --experiment=simple', '--cpu-arch=ppc64le --virt=ibm_power-kvm --experiment=simple']    
 
-command = 'rcl-show-environments'
-options = ['', '--vendor=GenuineIntel', '--microarch=IVB', '--family=6 --model=45', ]
+optparser = OptionParser()
 
-for opt in options:
-	p = subprocess.Popen(command + ' ' + opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-	for line in p.stdout.readlines():
-		print line,
-	retval = p.wait()
-	if retval == 0:
-		print "Probehlo OK"
-	else:
-		print "Chyba nastala"
+(options, args) = optparser.parse_args()
+
+#use arguments if are given
+if args:
+	tool_list = args
+else:
+	tool_list = tools.keys()
+
+for tool in tool_list:
+	try:			
+		for opt in tool_list:
+			p = subprocess.Popen(tool + ' ' + opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			for line in p.stdout.readlines():
+				print line,
+			retval = p.wait()
+			if retval == 0:
+				print "Probehlo OK"
+			else:
+				print "Chyba nastala"
+	except KeyError:
+		pass			
