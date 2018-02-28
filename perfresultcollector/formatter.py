@@ -8,7 +8,7 @@ def format_output(data, csv, head, table=False):
                 _data.append(str(index))
             main.append(_data)
 
-        widths = [max(map(len, column)) for column in zip(*main)]
+        widths = [max(map(len, column))  for column in zip(*main) ]
         for row in main:
             response.append(" | ".join((val.ljust(width) for val, width in zip(row, widths))))
         return response
@@ -30,18 +30,8 @@ def format_output(data, csv, head, table=False):
             _data = _data[:-1]
             main.append(_data)
         return main
-
-def compare_data_fromat(data1,data2):
+def join_data(data1, data2):
     response = []
-    main = []
-    for index in range(max(len(data2),len(data1))):
-        main.append([""])
-    for index, line in enumerate(data1):
-        main[index]=[" | ".join(map(str, line))]
-    for index, line in enumerate(data2):
-        main[index].append(" | ".join(map(str, line)))
-    widths = [max(map(len, column)) for column in zip(*main)]
-    for row in main:
-        response.append(" |~| ".join((val.ljust(width) for val, width in zip(row, widths))))
+    for line, line2 in zip(data1,data2):
+        response.append(line+line2)
     return response
-
