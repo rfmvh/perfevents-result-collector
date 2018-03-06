@@ -4,6 +4,7 @@ import copy
 
 from perfresultcollector import set_logger_level
 from perfresultcollector.dbinterface import DBConnection
+from perfresultcollector.formatter import format_output
 
 db = DBConnection()
 
@@ -40,12 +41,12 @@ query="""
  INNER JOIN events ON results.event_id=events.event_id {format}
  GROUP BY experiments.exp_id, events.event_id  
 """
-query_format=""
 
 
 def compare(**kwargs):
     IDS=2
     COLUMNS=3
+    query_format=""
     def lookup_line_in_table(line, table):
         for i in range(len(table)):
             if line[0] == table[i][0] and line[1] == table[i][1]:
@@ -88,8 +89,8 @@ def compare(**kwargs):
             resp[i][-COLUMNS:]=save_resp[i][IDS:IDS+COLUMNS]
 
     resp=sorted(resp, key=lambda x: x[0])
-
-    for line in resp:
+    head=["experiments.name","events.name", "AVG(A)", "STDDEV(A)", "COUNT(A)", "AVG(B)", "STDDEV(B)", "COUNT(B)"]
+    for line in format_output(resp, options.csv, head,options.table):
         print(line)
 
 if __name__ == "__main__":
