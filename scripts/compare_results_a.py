@@ -1,10 +1,11 @@
-#!/usr/bin/env python
 import argparse
 import logging
+import copy
 
-from perfresultcollector.formatter import format_output, join_data
-from perfresultcollector.models import Query
 from perfresultcollector import set_logger_level
+from perfresultcollector.dbinterface import DBConnection
+
+db = DBConnection()
 
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
@@ -30,52 +31,75 @@ options = parser.parse_args()
 
 log = logging.getLogger(__name__)
 
+
+query="""
+ SELECT experiments.name,events.name, AVG(results.val), STDDEV(results.val), COUNT(results.val) FROM results
+ INNER JOIN experiments ON results.exp_id=experiments.exp_id
+ INNER JOIN tools ON results.tool_id=tools.tool_id
+ INNER JOIN environments ON results.env_id=environments.env_id
+ INNER JOIN events ON results.event_id=events.event_id {format}
+ GROUP BY experiments.exp_id, events.event_id  
+"""
+query_format=""
+
+
 def compare(**kwargs):
+    IDS=2
+    COLUMNS=3
+    def lookup_line_in_table(line, table):
+        for i in range(len(table)):
+            if line[0] == table[i][0] and line[1] == table[i][1]:
+                return table[i]+line[IDS:]
+
     if options.debug:
         set_logger_level(logging.DEBUG)
-    group_by=["experiments.name","events.name"]
-    header = ["AVG(results.val)","STDDEV(results.val)","COUNT(results.val)"]
+    format1="WHERE true"
+    format2="WHERE true"
+    for key, val in kwargs.items():
+        if val:
+            condition=".".join(key.split("__")[1:])
+            if key.split("__")[0]=="A":
+                format1 += " AND "+condition+" = '"+ val[0]+"'"
+            else:
+                format2 += " AND "+condition+" = '"+ val[0]+"'"
 
-    qr1 = Query("results")
-    qr1.set_select(group_by+header)
-    negation1 = ""
+    out1=db.query(query.format(format=format1),{})
+    out2=db.query(query.format(format=format2),{})
 
-    qr2 = Query("results")
-    qr2.set_select(header)
-    negation2 = ""
+    main=out2
+    out=out1
+    resp=[]
+    switch=False
 
-    if options.not2:
-        negation2 = "__not"
-    if options.not1:
-        negation1 = "__not"
-    for key, value in kwargs.items():
-        if not value:
-            continue
-        if key[-1] == "2":
-            for value in value:
-                if value:
-                    qr2.filter(**{key[:-1] + negation2: value})
-        else:
-            for value in value:
-                if value:
-                    qr1.filter(**{key + negation1: value})
-    qr1.set_group(group_by)
-    qr2.set_group(group_by)
-    try:
-        data=join_data(qr1.execute(),qr2.execute())
-    except Exception as e:
-        print(e)
-    for line in format_output(data,options.csv,group_by+["AVG(A)","STDDEV(A)","N(A)","AVG(B)","STDDEV(B)","N(B)"],options.table):
+    if len(out1)>len(out2):
+        main=out1
+        switch=True
+        out=out2
+
+    for line in out:
+        line=lookup_line_in_table(line,main)
+        if line:
+            resp.append(line)
+    if switch:
+        save_resp = copy.copy(resp)
+        for i in range(len(resp)):
+            resp[i]=list(resp[i])
+            resp[i][IDS:IDS+COLUMNS]=resp[i][-COLUMNS:]
+            resp[i][-COLUMNS:]=save_resp[i][IDS:IDS+COLUMNS]
+
+    resp=sorted(resp, key=lambda x: x[0])
+
+    for line in resp:
         print(line)
 
 if __name__ == "__main__":
     compare(
-        tools__name=options.tool_name1,
-        tools__version=options.tool_version1,
-        tools__name2=options.tool_name2,
-        tools__version2=options.tool_version2,
-        environments__arch=options.cpu_arch,
-        environments__microarch=options.cpu_microarch,
-        environments__arch2=options.cpu_arch,
-        environments__microarch2=options.cpu_microarch)
+        A__tools__name=options.tool_name1,
+        A__tools__version=options.tool_version1,
+        B__tools__name=options.tool_name2,
+        B__tools__version=options.tool_version2,
+        A__environments__arch=options.cpu_arch,
+        A__environments__microarch=options.cpu_microarch,
+        B__environments__arch=options.cpu_arch,
+        B__environments__microarch=options.cpu_microarch)
 
