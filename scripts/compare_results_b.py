@@ -14,16 +14,25 @@ parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
 
 
-parser.add_argument("--tool-name1", action="append",required=True)
-parser.add_argument("--tool-version1", action="append",required=True)
-parser.add_argument("--not1", action="store_true", default=False)
+parser.add_argument("--cpu-arch1", action="append")
+parser.add_argument("--cpu-microarch1", action="append")
+parser.add_argument("--not1", action="store_true")
 
-parser.add_argument("--tool-name2", action="append",required=True)
-parser.add_argument("--tool-version2", action="append",required=True)
-parser.add_argument("--not2", action="store_true", default=False)
+parser.add_argument("--cpu-arch2", action="append")
+parser.add_argument("--cpu-microarch2", action="append")
+parser.add_argument("--not2", action="store_true")
 
-parser.add_argument("--cpu-arch", action="append")
-parser.add_argument("--cpu-microarch", action="append")
+
+parser.add_argument("--kernel1", action="append")
+parser.add_argument("--vendor1", action="append")
+parser.add_argument("--virt1", action="store_true")
+
+parser.add_argument("--kernel2", action="append")
+parser.add_argument("--vendor2", action="append")
+parser.add_argument("--virt2", action="store_true")
+
+parser.add_argument("--tool-name", action="append")
+parser.add_argument("--tool-version", action="append")
 
 parser.add_argument("--csv", action="store_true", default=False)
 parser.add_argument("--table", action="store_true", default=False)
@@ -40,7 +49,11 @@ query="""
  INNER JOIN experiments ON results.exp_id=experiments.exp_id
  INNER JOIN tools ON results.tool_id=tools.tool_id
  INNER JOIN environments ON results.env_id=environments.env_id
- INNER JOIN events ON results.event_id=events.event_id {format}
+ INNER JOIN events ON results.event_id=events.event_id
+ INNER JOIN virt ON environments.virt_id=virt.virt_id
+ INNER JOIN kernels ON environments.kernel_id=kernels.kernel_id
+ INNER JOIN vendors ON environments.vendor_id=vendors.vendor_id
+ {format}
  GROUP BY experiments.exp_id, events.event_id  
 """
 
@@ -97,12 +110,20 @@ def compare(**kwargs):
 
 if __name__ == "__main__":
     compare(
-        A__tools__name=options.tool_name1,
-        A__tools__version=options.tool_version1,
-        B__tools__name=options.tool_name2,
-        B__tools__version=options.tool_version2,
-        A__environments__arch=options.cpu_arch,
-        A__environments__microarch=options.cpu_microarch,
-        B__environments__arch=options.cpu_arch,
-        B__environments__microarch=options.cpu_microarch)
+        A__tools__name=options.tool_name,
+        A__tools__version=options.tool_version,
+        B__tools__name=options.tool_name,
+        B__tools__version=options.tool_version,
+        A__environments__arch=options.cpu_arch1,
+        A__environments__microarch=options.cpu_microarch1,
+        B__environments__arch=options.cpu_arch2,
+        B__environments__microarch=options.cpu_microarch2,
+
+        A__kernels__name=options.cpu_microarch2,
+        B__kernels__name=options.cpu_microarch2,
+        A__vendors__name=options.cpu_microarch2,
+        B__vendors__name=options.cpu_microarch2,
+        A__virt__name=options.cpu_microarch2,
+        B__virt__name=options.cpu_microarch2
+    )
 

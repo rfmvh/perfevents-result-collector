@@ -23,14 +23,14 @@ def show_experiment(csv, table, debug, **kwargs):
     if debug:
         set_logger_level(logging.DEBUG)
     qr = Query("experiments")
-    head = ["id", "cmd", "description", "systemwide"]
+    head = ["id", "cmd", "description", "systemwide","name"]
     for key, value in kwargs.items():
         if value:
             qr.filter(**{key: value})    
     data = qr.execute()
     logger.debug(data)
 
-    for line in format_output(data, csv, head):
+    for line in format_output(data, csv, head,options.table):
         print line
 
 
