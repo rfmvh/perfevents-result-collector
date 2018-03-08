@@ -56,7 +56,7 @@ def compare(**kwargs):
     def lookup_row_in_table(row, table):
         # This function is going to iterate whole table until it will find same ID and it will return row on which it is.
         for i in range(len(table)):
-            if row[0] == table[i][0] and row[1] == table[i][1]:
+            if row[0] == table[i][0]:
                 return table[i]
 
     if options.debug:
