@@ -57,7 +57,6 @@ def show_result(csv, table, debug, **kwargs):
         details += ["environments.arch", "environments.microarch", "environments.family", "environments.model"]
 
     qr.set_select(details)
-
     for key, list_of_values in kwargs.items():
         if not list_of_values:
             continue
