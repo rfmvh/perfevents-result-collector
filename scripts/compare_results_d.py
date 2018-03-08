@@ -53,10 +53,11 @@ def compare(**kwargs):
     IDS = 2
     COLUMNS = 3
 
-    def lookup_line_in_table(line, table):
+    def lookup_row_in_table(row, table):
+        # This function is going to iterate whole table until it will find same ID and it will return row on which it is.
         for i in range(len(table)):
-            if line[0] == table[i][0] and line[1] == table[i][1]:
-                return table[i] + line[IDS:]
+            if row[0] == table[i][0] and row[1] == table[i][1]:
+                return table[i]
 
     if options.debug:
         set_logger_level(logging.DEBUG)
@@ -81,7 +82,7 @@ def compare(**kwargs):
     log.debug(query.format(format=format2))
     result_A = db.query(query.format(format=format1), {})
     result_B = db.query(query.format(format=format2), {})
-
+    # smaller = results with less rows and bigger with more rows
     results_bigger = result_B
     results_smaller = result_A
     resp = []
@@ -91,16 +92,16 @@ def compare(**kwargs):
         results_bigger = result_A
         switch = True
         results_smaller = result_B
-    for line in results_smaller:
-        line = lookup_line_in_table(line, results_bigger)
-        if line:
-            resp.append(line)
+    for row_smaller in results_smaller:
+        row_bigger = lookup_row_in_table(row_smaller, results_bigger)
+        if row_bigger:
+            resp.append(row_bigger + row_smaller[IDS:])
     if switch:
         save_resp = copy.copy(resp)
-        for i in range(len(resp)):
-            resp[i] = list(resp[i])
-            resp[i][IDS:IDS + COLUMNS] = resp[i][-COLUMNS:]
-            resp[i][-COLUMNS:] = save_resp[i][IDS:IDS + COLUMNS]
+        for index, row in enumerate(resp):
+            row = list(row)
+            row[IDS:IDS + COLUMNS] = row[-COLUMNS:]
+            row[-COLUMNS:] = save_resp[index][IDS:IDS + COLUMNS]
 
     resp = sorted(resp, key=lambda x: x[0])
     head = ["experiments.name", "events.name", "AVG(A)", "STDDEV(A)", "COUNT(A)", "AVG(B)", "STDDEV(B)", "COUNT(B)"]
