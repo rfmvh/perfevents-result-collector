@@ -13,16 +13,16 @@ db = DBConnection()
 parser = argparse.ArgumentParser()
 parser.set_defaults(listmode=0)
 
-parser.add_argument("--cpu-arch1", action="append")
-parser.add_argument("--cpu-microarch1", action="append")
-parser.add_argument("--not1", action="store_true")
+parser.add_argument("--cpu-arch-A", action="append")
+parser.add_argument("--cpu-microarch-A", action="append")
+parser.add_argument("--not-A", action="store_true")
 
-parser.add_argument("--cpu-arch2", action="append")
-parser.add_argument("--cpu-microarch2", action="append")
-parser.add_argument("--not2", action="store_true")
+parser.add_argument("--cpu-arch-B", action="append")
+parser.add_argument("--cpu-microarch-B", action="append")
+parser.add_argument("--not-B", action="store_true")
 
-parser.add_argument("--experiment1", action="append")
-parser.add_argument("--experiment2", action="append")
+parser.add_argument("--experiment-A", action="append")
+parser.add_argument("--experiment-B", action="append")
 
 parser.add_argument("--tool-name", action="append")
 parser.add_argument("--tool-version", action="append")
@@ -61,38 +61,38 @@ def compare(**kwargs):
     if options.debug:
         set_logger_level(logging.DEBUG)
 
+    _not_A = " "
+    _not_B = " "
+    if options.not_A:
+        _not_A += "!"
+    if options.not_B:
+        _not_B += "!"
+
     format1 = "WHERE true"
     format2 = "WHERE true"
-    _not1 = " "
-    _not2 = " "
-    if options.not1:
-        _not1 += "!"
-    if options.not2:
-        _not1 += "!"
-
     for key, val in kwargs.items():
         if val:
             condition = ".".join(key.split("__")[1:])
             if key.split("__")[0] == "A":
-                format1 += " AND " + condition + _not1 + "= '" + val[0] + "'"
+                format1 += " AND " + condition + _not_A + "= '" + val[0] + "'"
             else:
-                format2 += " AND " + condition + _not2 + "= '" + val[0] + "'"
+                format2 += " AND " + condition + _not_B + "= '" + val[0] + "'"
     log.debug(query.format(format=format1))
     log.debug(query.format(format=format2))
-    out1 = db.query(query.format(format=format1), {})
-    out2 = db.query(query.format(format=format2), {})
+    result_A = db.query(query.format(format=format1), {})
+    result_B = db.query(query.format(format=format2), {})
 
-    main = out2
-    out = out1
+    results_bigger = result_B
+    results_smaller = result_A
     resp = []
     switch = False
 
-    if len(out1) > len(out2):
-        main = out1
+    if len(result_A) > len(result_B):
+        results_bigger = result_A
         switch = True
-        out = out2
-    for line in out:
-        line = lookup_line_in_table(line, main)
+        results_smaller = result_B
+    for line in results_smaller:
+        line = lookup_line_in_table(line, results_bigger)
         if line:
             resp.append(line)
     if switch:
@@ -102,6 +102,7 @@ def compare(**kwargs):
             resp[i][IDS:IDS + COLUMNS] = resp[i][-COLUMNS:]
             resp[i][-COLUMNS:] = save_resp[i][IDS:IDS + COLUMNS]
 
+    resp = sorted(resp, key=lambda x: x[0])
     head = ["events.name", "AVG(A)", "STDDEV(A)", "COUNT(A)", "AVG(B)", "STDDEV(B)", "COUNT(B)"]
     resp = sorted(resp, key=lambda x: x[0])
     for line in format_output(resp, options.csv, head, options.table):
@@ -114,10 +115,10 @@ if __name__ == "__main__":
         A__tools__version=options.tool_version,
         B__tools__name=options.tool_name,
         B__tools__version=options.tool_version,
-        A__environments__arch=options.cpu_arch1,
-        A__environments__microarch=options.cpu_microarch1,
-        B__environments__arch=options.cpu_arch2,
-        B__environments__microarch=options.cpu_microarch2,
-        A__experiments__name=options.experiment1,
-        B__experiments__name=options.experiment2
+        A__environments__arch=options.cpu_arch_A,
+        A__environments__microarch=options.cpu_microarch_A,
+        B__environments__arch=options.cpu_arch_B,
+        B__environments__microarch=options.cpu_microarch_B,
+        A__experiments__name=options.experiment_A,
+        B__experiments__name=options.experiment_B
     )
