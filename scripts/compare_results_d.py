@@ -50,7 +50,7 @@ query = """
 
 
 def compare(**kwargs):
-    IDS = 2
+    IDS = 1
     COLUMNS = 3
 
     def lookup_row_in_table(row, table):
