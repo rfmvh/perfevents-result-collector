@@ -42,7 +42,7 @@ def show_environment(csv, table, debug, **kwargs):
     data = qr.execute(dryrun=options.dryrun)
     logger.debug(data)
     if not options.dryrun:
-        for line in format_output(data, csv, head):
+        for line in format_output(data, csv, head,options.table):
             print line
 
 
