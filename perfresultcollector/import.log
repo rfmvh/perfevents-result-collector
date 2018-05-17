@@ -1,0 +1,3937 @@
+dbname='resultdb_stage' user='readwrite' password='readwrite123' host='10.37.162.13'
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5581;;L1-dcache-load-misses;263660;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 141518;;L1-dcache-loads;256716;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4206;;L1-dcache-prefetches;265098;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 32271;;L1-dcache-store-misses;359084;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6098;;L1-icache-load-misses;255854;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 169281;;L1-icache-loads;237680;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10749;;L1-icache-prefetches;225884;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 172;;LLC-load-misses;226930;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2933;;LLC-loads;238458;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16460;;LLC-prefetches;236744;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6604;;LLC-store-misses;227630;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 46168;;LLC-stores;228134;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 105498;;branch-instructions;227044;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4265;;branch-load-misses;230710;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 102883;;branch-loads;313978;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4284;;branch-misses;227328;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5474;;cache-misses;233502;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 141655;;cache-references;234338;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 849032;;cpu-cycles;231482;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 46;;dTLB-load-misses;232176;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;iTLB-load-misses;232038;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 538996;;instructions;227982;100.00;;;;;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 508048;;stalled-cycles-backend;229050;100.00;0.00;backend cycles idle
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 67683;;stalled-cycles-frontend;224560;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_dl2l3_mod;227148;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_dl2l3_shr;234740;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_data_from_dl4;227268;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2035;;pm_data_from_l2;225106;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 45;;pm_data_from_l2_disp_conflict_ldhitst;230372;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 34;;pm_data_from_l2_disp_conflict_other;227438;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_l2_mepf;237572;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1938;;pm_data_from_l2_no_conflict;256450;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2885;;pm_data_from_l2miss;288408;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3044;;pm_data_from_l2miss_mod;269232;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2642;;pm_data_from_l3;239696;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 538;;pm_data_from_l3_disp_conflict;233746;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 63;;pm_data_from_l3_mepf;285058;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2205;;pm_data_from_l3_no_conflict;276092;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 258;;pm_data_from_l3miss;248086;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 257;;pm_data_from_l3miss_mod;240150;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_data_from_ll4;263928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5;;pm_data_from_off_chip_cache;232522;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 192;;pm_data_from_on_chip_cache;227398;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_rl2l3_mod;231070;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_from_rl2l3_shr;230956;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 43348;;pm_data_tablewalk_cyc;238396;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7;;pm_dpteg_from_l3miss;232460;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 531;;pm_dslb_miss;233676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4777;;pm_l1_dcache_reload_valid;228690;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8105;;pm_l1_dcache_reloaded_all;230350;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5563;;pm_ld_miss_l1;254652;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 141147;;pm_ld_ref_l1;231438;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 31844;;pm_st_miss_l1;232676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 78049;;pm_fxu_busy;231518;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 606147;;pm_fxu_idle;232158;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16625;;pm_back_br_cmpl;233846;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12705;;pm_br_2path;230544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 86661;;pm_br_cmpl;230034;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4325;;pm_br_mpred_cmpl;232040;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 47305;;pm_br_taken_cmpl;236678;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 105732;;pm_bru_fin;231750;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 97982;;pm_ic_demand_cyc;238514;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 299;;pm_ierat_reload;261286;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ierat_reload_16m;235446;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 73;;pm_ierat_reload_4k;364912;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 181;;pm_ierat_reload_64k;274312;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 15;;pm_inst_chip_pump_cpred;263544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 538408;;pm_inst_cmpl;233900;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 780277;;pm_inst_disp;237778;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_dl2l3_mod;226938;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_dl2l3_shr;232248;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10;;pm_inst_from_dl4;234214;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_inst_from_dmem;243968;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4261;;pm_inst_from_l2;267606;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l2_disp_conflict_ldhitst;234104;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l2_disp_conflict_other;229594;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l2_mepf;306996;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4289;;pm_inst_from_l2_no_conflict;296886;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1211;;pm_inst_from_l2miss;261610;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 966;;pm_inst_from_l3;238014;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l3_disp_conflict;233304;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l3_mepf;234738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 990;;pm_inst_from_l3_no_conflict;231466;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 192;;pm_inst_from_l3miss;227916;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 141;;pm_inst_from_l3miss_mod;235248;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_ll4;241954;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_lmem;230896;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_inst_from_memory;236714;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_off_chip_cache;256572;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 139;;pm_inst_from_on_chip_cache;234256;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_rl2l3_mod;241940;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_rl2l3_shr;244668;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3;;pm_inst_from_rl4;230446;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_rmem;237892;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_grp_pump_cpred;237246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_grp_pump_mpred;229582;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_grp_pump_mpred_rty;225976;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_imc_match_cmpl;223892;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 132;;pm_inst_pump_cpred;236474;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 30;;pm_inst_pump_mpred;233016;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4;;pm_inst_sys_pump_cpred;235494;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 46;;pm_inst_sys_pump_mpred;241126;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10;;pm_inst_sys_pump_mpred_rty;238694;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_dl2l3_mod;277948;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_dl2l3_shr;315012;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_dl4;271300;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_dmem;234094;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2;244394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2_mepf;230022;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2_no_conflict;233738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2miss;234792;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l3;230818;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l3_disp_conflict;231794;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l3_mepf;228382;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l3_no_conflict;225758;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l3miss;231938;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_ll4;235412;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_lmem;233602;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_memory;226334;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_off_chip_cache;233202;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_on_chip_cache;231652;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_rl2l3_mod;230028;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_rl2l3_shr;228120;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_rl4;232656;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_rmem;228944;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7;;pm_islb_miss;231716;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_itlb_miss;226824;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6029;;pm_l1_icache_miss;230742;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16099;;pm_l1_icache_reloaded_all;228198;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10761;;pm_l1_icache_reloaded_pref;223810;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 539655;;pm_thrd_conc_run_inst;229042;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_trans_run_inst;277688;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_tx_pass_run_inst;225962;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_mrk_back_br_cmpl;226558;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 46;;pm_mrk_br_cmpl;234938;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 20;;pm_mrk_br_mpred_cmpl;223518;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 90;;pm_mrk_br_taken_cmpl;225396;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_bru_fin;227152;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl2l3_mod;269382;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl2l3_mod_cyc;291246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl2l3_shr;276182;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl2l3_shr_cyc;241292;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl4;230592;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dl4_cyc;227296;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dmem;230422;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_dmem_cyc;227084;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9;;pm_mrk_data_from_l2;231668;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 47;;pm_mrk_data_from_l2_cyc;242914;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_disp_conflict_ldhitst;265336;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_disp_conflict_ldhitst_cyc;245284;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_disp_conflict_other;243430;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_disp_conflict_other_cyc;237166;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_mepf;238056;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l2_mepf_cyc;233848;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_data_from_l2_no_conflict;244858;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 22;;pm_mrk_data_from_l2_no_conflict_cyc;233290;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5;;pm_mrk_data_from_l2miss;225612;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 306;;pm_mrk_data_from_l2miss_cyc;225452;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_data_from_l3;229172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 292;;pm_mrk_data_from_l3_cyc;232512;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_data_from_l3_disp_conflict;234992;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1673;;pm_mrk_data_from_l3_disp_conflict_cyc;305872;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l3_mepf;243198;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l3_mepf_cyc;232646;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_mrk_data_from_l3_no_conflict;226410;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 90;;pm_mrk_data_from_l3_no_conflict_cyc;234818;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_mrk_data_from_l3miss;236406;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l3miss_cyc;230804;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_ll4;236172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_ll4_cyc;231772;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_lmem;236648;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_lmem_cyc;232258;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_memory;235158;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_memory_cyc;225556;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_off_chip_cache;237662;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_off_chip_cache_cyc;229480;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_data_from_on_chip_cache;233792;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 77;;pm_mrk_data_from_on_chip_cache_cyc;231742;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl2l3_mod;232290;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl2l3_mod_cyc;241302;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl2l3_shr;230512;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl2l3_shr_cyc;231912;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl4;227482;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rl4_cyc;275900;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rmem;252194;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_rmem_cyc;233214;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dcache_reload_intv;235774;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_derat_miss;236994;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_derat_miss_16g;236308;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_derat_miss_16m;241132;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_derat_miss_4k;250048;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_derat_miss_64k;235404;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dfu_fin;230250;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_dl2l3_mod;232142;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_dl2l3_shr;239282;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_dl4;232836;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_dmem;230040;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3;;pm_mrk_dpteg_from_l2;237550;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l2_mepf;246008;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l2_no_conflict;238634;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l2miss;233230;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l3;245886;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l3_disp_conflict;231006;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l3_mepf;267652;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l3_no_conflict;226698;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_dpteg_from_l3miss;230772;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_ll4;233926;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_lmem;283414;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_memory;243372;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_off_chip_cache;235362;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_on_chip_cache;242476;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_rl2l3_mod;230610;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_rl2l3_shr;234070;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_rl4;228992;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_rmem;232346;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_dtlb_miss;243274;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dtlb_miss_16g;229654;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dtlb_miss_16m;233246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dtlb_miss_4k;240456;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dtlb_miss_64k;229178;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_bkill;232946;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_bkill_cyc;231682;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_fab_rsp_claim_rty;231268;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13;;pm_mrk_fab_rsp_dclaim;226696;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10098;;pm_mrk_fab_rsp_dclaim_cyc;235820;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_rd_rty;228928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_rd_t_intv;233408;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 394;;pm_mrk_fab_rsp_rwitm_cyc;228360;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_rwitm_rty;231172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 842;;pm_mrk_fxu_fin;227540;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 22;;pm_mrk_inst_cmpl;229018;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 893;;pm_mrk_inst_decoded;241466;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2093;;pm_mrk_inst_disp;231394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_inst_fin;295358;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 18;;pm_mrk_inst_from_l3miss;273468;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4470;;pm_mrk_inst_issued;332712;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 127;;pm_mrk_inst_timeo;230348;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 224;;pm_mrk_l1_icache_miss;226038;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12;;pm_mrk_l1_reload_valid;253332;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 152;;pm_mrk_l2_rc_disp;232082;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 114;;pm_mrk_l2_rc_done;243436;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_larx_fin;234882;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 78;;pm_mrk_ld_miss_exposed_cyc;226126;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 29;;pm_mrk_ld_miss_l1;233176;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4781;;pm_mrk_ld_miss_l1_cyc;236742;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 493;;pm_mrk_lsu_fin;239020;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 32;;pm_mrk_ntf_fin;240148;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3015;;pm_mrk_run_cyc;233452;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 196;;pm_mrk_st_cmpl;239758;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_st_cmpl_int;265298;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 108;;pm_mrk_st_drain_to_l2disp_cyc;230420;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 44;;pm_mrk_st_fwd;227966;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2537;;pm_mrk_st_l2disp_to_cmpl_cyc;229606;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 421;;pm_mrk_st_nest;232594;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5710;;pm_mrk_stall_cmplu_cyc;231628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_stcx_fail;249926;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 107;;pm_mrk_vsu_fin;242802;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mult_mrk;233172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 42;;pm_sync_mrk_br_link;234266;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8;;pm_sync_mrk_br_mpred;223124;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_sync_mrk_fx_divide;231450;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6;;pm_sync_mrk_l2hit;227872;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12;;pm_sync_mrk_l2miss;225732;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_sync_mrk_l3miss;241576;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_sync_mrk_probe_nop;292246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 37;;pm_chip_pump_cpred;297746;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 153;;pm_data_chip_pump_cpred;245858;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_from_dmem;262038;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_lmem;232684;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 22;;pm_data_from_memory;231738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_rl4;234932;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_rmem;236510;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_grp_pump_cpred;227276;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_grp_pump_mpred;286422;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_grp_pump_mpred_rty;284124;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 156;;pm_data_pump_cpred;245086;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 94;;pm_data_pump_mpred;232676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7;;pm_data_sys_pump_cpred;231132;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 74;;pm_data_sys_pump_mpred;229030;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5;;pm_data_sys_pump_mpred_rty;372530;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_dl4;277474;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_dmem;279492;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_rmem;238464;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_grp_pump_cpred;241688;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_grp_pump_mpred;243100;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_grp_pump_mpred_rty;234738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1300;;pm_l3_co_mepf;234788;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 72;;pm_mem_co;228416;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mem_loc_thresh_ifu;237042;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mem_loc_thresh_lsu_high;235194;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mem_loc_thresh_lsu_med;233838;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1326;;pm_mem_pref;227120;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 110;;pm_mem_read;233856;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 32;;pm_mem_rwitm;233624;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 117017;;pm_nest_ref_clk;236416;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 512;;pm_pump_cpred;231644;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 152;;pm_pump_mpred;237666;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6;;pm_sys_pump_cpred;235144;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 134;;pm_sys_pump_mpred;232398;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9;;pm_sys_pump_mpred_rty;232414;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 861883;;pm_1lpar_cyc;235682;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_2lpar_cyc;229302;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_4lpar_cyc;235032;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 568;;pm_all_chip_pump_cpred;238056;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_all_grp_pump_cpred;236032;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_all_grp_pump_mpred;227636;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_all_grp_pump_mpred_rty;230278;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 581;;pm_all_pump_cpred;233838;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 138;;pm_all_pump_mpred;227606;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10;;pm_all_sys_pump_cpred;236316;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 170;;pm_all_sys_pump_mpred;230620;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13;;pm_all_sys_pump_mpred_rty;228538;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11343;;pm_bank_conflict;230738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 66;;pm_br_bc_8;231238;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1650;;pm_br_bc_8_conv;232436;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 168;;pm_br_mpred_ccache;234634;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3947;;pm_br_mpred_cr;238786;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 187;;pm_br_mpred_lstack;224070;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 365;;pm_br_mpred_ta;227606;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 31;;pm_br_mrk_2path;232600;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 62583;;pm_br_pred_br0;225526;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 14209;;pm_br_pred_br1;227886;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 76780;;pm_br_pred_br_cmpl;227916;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 775;;pm_br_pred_ccache_br0;228038;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_br_pred_ccache_br1;269456;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 776;;pm_br_pred_ccache_cmpl;232144;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 56906;;pm_br_pred_cr_br0;225782;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 14166;;pm_br_pred_cr_br1;228284;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 71188;;pm_br_pred_cr_cmpl;229916;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5589;;pm_br_pred_lstack_br0;228628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 36;;pm_br_pred_lstack_br1;229794;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5723;;pm_br_pred_lstack_cmpl;236350;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6363;;pm_br_pred_ta_br0;231868;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 33;;pm_br_pred_ta_br1;251590;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6401;;pm_br_pred_ta_cmpl;228134;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9985;;pm_br_uncond_br0;237396;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 96;;pm_br_uncond_br1;228848;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9876;;pm_br_uncond_cmpl;229956;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2641;;pm_castout_issued;232312;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2616;;pm_castout_issued_gpr;232564;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_clb_held;233728;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 21872;;pm_cmplu_stall_bru_cru;400608;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 66;;pm_cmplu_stall_coq_full;270182;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 18991;;pm_cmplu_stall_flush;240682;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1347;;pm_cmplu_stall_mem_ecc_delay;236740;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 604;;pm_cmplu_stall_no_ntf;230924;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 555;;pm_cmplu_stall_ntcg_flush;293720;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 41273;;pm_cmplu_stall_rej_lmq_full;231832;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 91526;;pm_cmplu_stall_reject;233144;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 883;;pm_cmplu_stall_reject_lhs;252588;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_cmplu_stall_scalar;233436;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_cmplu_stall_scalar_long;269010;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 96691;;pm_cmplu_stall_store;231358;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_cmplu_stall_vector;236196;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_cmplu_stall_vector_long;241030;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 314;;pm_cmplu_stall_vsu;233424;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 876;;pm_co0_alloc;234576;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 103404;;pm_co0_busy;268978;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 94390;;pm_co_usage;261654;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11207;;pm_cru_fin;234692;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 318;;pm_data_all_chip_pump_cpred;271258;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_dl2l3_mod;227210;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_data_all_from_dl2l3_shr;227610;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10;;pm_data_all_from_dl4;231834;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5;;pm_data_all_from_dmem;230190;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2680;;pm_data_all_from_l2;229462;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_l21_mod;231876;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_l21_shr;229044;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 42;;pm_data_all_from_l2_disp_conflict_ldhitst;236928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 389;;pm_data_all_from_l2_disp_conflict_other;229460;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_l2_mepf;233896;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2263;;pm_data_all_from_l2_no_conflict;230294;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5448;;pm_data_all_from_l2miss_mod;228612;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5136;;pm_data_all_from_l3;231214;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_l31_eco_mod;353550;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_l31_eco_shr;275538;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_all_from_l31_mod;280038;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16;;pm_data_all_from_l31_shr;274162;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1502;;pm_data_all_from_l3_disp_conflict;277508;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 91;;pm_data_all_from_l3_mepf;255318;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4328;;pm_data_all_from_l3_no_conflict;274272;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 342;;pm_data_all_from_l3miss_mod;236020;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 17;;pm_data_all_from_ll4;228974;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_lmem;232708;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 301;;pm_data_all_from_memory;268510;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4;;pm_data_all_from_off_chip_cache;235236;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 370;;pm_data_all_from_on_chip_cache;239556;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_from_rl2l3_mod;232108;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_all_from_rl2l3_shr;231668;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6;;pm_data_all_from_rl4;230784;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_data_all_from_rmem;235268;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_all_grp_pump_cpred;235240;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4;;pm_data_all_grp_pump_mpred;229872;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_data_all_grp_pump_mpred_rty;248630;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 283;;pm_data_all_pump_cpred;229884;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 82;;pm_data_all_pump_mpred;226308;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_data_all_sys_pump_cpred;232326;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 78;;pm_data_all_sys_pump_mpred;228434;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_data_all_sys_pump_mpred_rty;236358;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_l21_mod;232774;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_l21_shr;228586;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_l31_eco_mod;236000;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_data_from_l31_eco_shr;231386;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 40;;pm_data_from_l31_mod;233222;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 151;;pm_data_from_l31_shr;235654;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 20;;pm_data_from_mem;227110;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5655;;pm_dc_collisions;232486;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3102;;pm_dc_pref_stream_alloc;263748;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5025;;pm_dc_pref_stream_conf;238218;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 126;;pm_dc_pref_stream_fuzzy_conf;233548;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dc_pref_stream_strided_conf;234100;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dfu;226716;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dfu_dcffix;225828;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dfu_denbcd;226556;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dfu_mc;229072;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_disp_clb_held_bal;227416;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 267246;;pm_disp_clb_held_res;236488;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 44958;;pm_disp_clb_held_sb;233390;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 14358;;pm_disp_clb_held_sync;330468;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 38146;;pm_disp_clb_held_tlbie;293906;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 69894;;pm_disp_held_iq_full;242966;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 25727;;pm_disp_held_map_full;238616;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_disp_held_srq_full;249804;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_disp_hold_gct_full;244628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 161434;;pm_disp_wt;233848;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l21_mod;236408;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l21_shr;235244;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l2_disp_conflict_ldhitst;236928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l2_disp_conflict_other;239214;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l31_eco_mod;237786;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l31_eco_shr;243554;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l31_mod;236272;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5;;pm_dpteg_from_l31_shr;240744;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 26;;pm_eat_force_mispred;286570;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16096;;pm_eat_full_cyc;236302;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ee_off_ext_int;231182;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fav_tbegin;234150;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flop;234650;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flop_sum_scalar;227692;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flop_sum_vec;231204;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4949;;pm_flush_br_mpred;228376;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flush_disp;238176;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flush_disp_sb;227742;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flush_disp_sync;232918;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_flush_disp_tlbie;230820;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1674;;pm_flush_lsu;225546;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3757;;pm_flush_partial;229864;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu0_fconv;225564;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu0_fest;237956;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu0_frsp;228812;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu1_fconv;228736;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu1_fest;258310;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fpu1_frsp;235544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3663;;pm_fusion_toc_grp0_1;229822;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 24;;pm_fusion_toc_grp0_2;233760;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fusion_toc_grp0_3;228870;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fusion_toc_grp1_1;229616;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 87;;pm_fusion_vsx_grp0_1;234396;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 23;;pm_fusion_vsx_grp0_2;231018;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 88;;pm_fusion_vsx_grp0_3;231968;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_fusion_vsx_grp1_1;227262;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 80382;;pm_fxu0_busy_fxu1_idle;232586;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 139753;;pm_fxu0_fin;247846;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 81774;;pm_fxu1_busy_fxu0_idle;234728;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 140274;;pm_fxu1_fin;227538;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 194188;;pm_gct_empty_cyc;298210;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_gct_merge;354022;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8618;;pm_gct_noslot_br_mpred;258946;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13271;;pm_gct_noslot_br_mpred_icmiss;235842;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 80365;;pm_gct_noslot_cyc;237728;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2775;;pm_gct_noslot_disp_held_issq;241212;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 692;;pm_gct_noslot_disp_held_map;234912;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7930;;pm_gct_noslot_disp_held_other;240170;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_gct_noslot_disp_held_srq;240362;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6311;;pm_gct_noslot_ic_l3miss;235616;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 43768;;pm_gct_noslot_ic_miss;254442;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 85257;;pm_gct_util_11_14_entries;244232;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 56224;;pm_gct_util_15_17_entries;246430;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 372750;;pm_gct_util_18_entries;233886;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 99492;;pm_gct_util_1_2_entries;245036;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 81602;;pm_gct_util_3_6_entries;240040;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 77156;;pm_gct_util_7_10_entries;234022;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6138;;pm_grp_br_mpred_nonspec;233666;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 155527;;pm_grp_cmpl;238676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 221539;;pm_grp_disp;240990;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5848;;pm_grp_ic_miss_nonspec;239782;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 675;;pm_grp_mrk;240166;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 200957;;pm_grp_non_full_group;258610;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 17548;;pm_grp_term_2nd_branch;247720;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 353;;pm_grp_term_fpu_after_br;233286;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 108965;;pm_grp_term_noinst;247444;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 83596;;pm_grp_term_other;236578;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 36207;;pm_grp_term_slot_limit;240892;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 379852;;pm_ibuf_full_cyc;235596;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 378;;pm_ic_demand_l2_bht_redirect;235550;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5554;;pm_ic_demand_l2_br_redirect;237600;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7675;;pm_ic_demand_req;233362;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 20;;pm_ic_invalidate;268648;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1321;;pm_ic_pref_cancel_hit;252454;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 207;;pm_ic_pref_cancel_l2;236682;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 513;;pm_ic_pref_cancel_page;230412;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9133;;pm_ic_pref_req;241178;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10739;;pm_ic_pref_write;265260;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 118;;pm_ic_reload_private;245284;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 719;;pm_ifu_l2_touch;255080;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 266;;pm_inst_all_chip_pump_cpred;253628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_dl2l3_mod;252388;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3;;pm_inst_all_from_dl2l3_shr;257320;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 21;;pm_inst_all_from_dl4;250122;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_dmem;235784;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12192;;pm_inst_all_from_l2;240146;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l21_mod;225972;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l21_shr;232246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l2_disp_conflict_ldhitst;230788;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l2_disp_conflict_other;234340;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l2_mepf;241344;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12159;;pm_inst_all_from_l2_no_conflict;236904;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4215;;pm_inst_all_from_l2miss;238876;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3773;;pm_inst_all_from_l3;231178;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l31_eco_mod;235788;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l31_eco_shr;243560;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l31_mod;235158;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 448;;pm_inst_all_from_l31_shr;231842;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l3_disp_conflict;233494;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_l3_mepf;239036;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3779;;pm_inst_all_from_l3_no_conflict;229864;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 526;;pm_inst_all_from_l3miss_mod;318088;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 18;;pm_inst_all_from_ll4;233432;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_lmem;237180;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 17;;pm_inst_all_from_memory;230412;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_off_chip_cache;234178;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 359;;pm_inst_all_from_on_chip_cache;257358;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_rl2l3_mod;250648;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_rl2l3_shr;251438;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_rl4;258530;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_from_rmem;246768;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_grp_pump_cpred;246392;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_grp_pump_mpred;247556;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_grp_pump_mpred_rty;306942;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 384;;pm_inst_all_pump_cpred;244496;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 37;;pm_inst_all_pump_mpred;234260;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_all_sys_pump_cpred;232768;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 33;;pm_inst_all_sys_pump_mpred;232702;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_inst_all_sys_pump_mpred_rty;234156;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 171899;;pm_inst_from_l1;240526;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l21_mod;234062;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l21_shr;239942;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l31_eco_mod;235162;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l31_eco_shr;232932;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_from_l31_mod;230856;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 142;;pm_inst_from_l31_shr;235568;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_inst_imc_match_disp;235852;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_iops_disp;234508;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l21_mod;235138;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l21_shr;234934;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2_disp_conflict_ldhitst;231542;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l2_disp_conflict_other;232444;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l31_eco_mod;230596;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l31_eco_shr;227838;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l31_mod;230860;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ipteg_from_l31_shr;238662;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 160;;pm_iside_l2memacc;264328;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 95662;;pm_isu_ref_fx0;232336;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 95677;;pm_isu_ref_fx1;231548;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 198168;;pm_isu_ref_fxu;242686;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 20183;;pm_isu_ref_ls0;234846;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 19228;;pm_isu_ref_ls1;229636;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 74749;;pm_isu_ref_ls2;237470;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 85927;;pm_isu_ref_ls3;275728;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 46731;;pm_isu_rej_vs0;280434;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 20703;;pm_isu_rej_vs1;235042;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 40867;;pm_isu_rej_vsu;233104;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 27457;;pm_isu_reject_res_na;274940;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 62;;pm_isu_reject_sar_bypass;258930;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 247945;;pm_isu_reject_src_na;234616;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 248550;;pm_isu_rejects_all;233904;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 118;;pm_isync;230650;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5287;;pm_l1_demand_write;231200;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l1miss_lat_exc_1024;234048;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l1miss_lat_exc_2048;230028;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l1miss_lat_exc_256;231756;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l1miss_lat_exc_32;250238;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 84;;pm_l1pf_l2memacc;250388;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 950;;pm_l2_chip_pump;243588;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2165;;pm_l2_group_pump;236092;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 684;;pm_l2_rty_st;266910;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 43544;;pm_l2_st;254832;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6624;;pm_l2_st_miss;234832;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l2_tm_req_abort;239532;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l2_tm_st_abort_sister;245340;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 82524;;pm_l3_ci_usage;243082;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1003;;pm_l3_co0_alloc;229620;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 119282;;pm_l3_co0_busy;230100;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11258;;pm_l3_co_l31;230712;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_l3_co_mem;224398;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16122;;pm_l3_ld_pref;239462;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 408;;pm_l3_pf0_alloc;232692;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 163683;;pm_l3_pf0_busy;229636;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8232;;pm_l3_pf_miss_l3;230430;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 148;;pm_l3_pf_off_chip_cache;224406;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1016;;pm_l3_pf_off_chip_mem;234760;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7400;;pm_l3_pf_on_chip_cache;266770;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 566;;pm_l3_pf_on_chip_mem;229858;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 56164;;pm_l3_pf_usage;231686;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16360;;pm_l3_pref_all;225796;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 709;;pm_l3_rd0_alloc;231418;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 14494;;pm_l3_rd0_busy;232266;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 31450;;pm_l3_rd_usage;231142;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 335;;pm_l3_sn0_alloc;231854;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5180;;pm_l3_sn0_busy;229144;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1616;;pm_l3_sn_usage;238470;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 303;;pm_l3_st_pref;229768;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3305;;pm_l3_sw_pref;226268;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4010;;pm_l3_wi0_alloc;231496;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7793;;pm_ld_ref_l1_lsu0;235964;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8155;;pm_ld_ref_l1_lsu1;226654;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 62802;;pm_ld_ref_l1_lsu2;225442;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 62706;;pm_ld_ref_l1_lsu3;228812;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_link_stack_invalid_ptr;221404;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 278;;pm_link_stack_wrong_add_pred;226356;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ls0_erat_miss_pref;223870;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4232;;pm_ls0_l1_pref;225768;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 30;;pm_ls0_l1_sw_pref;228394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ls1_erat_miss_pref;230732;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ls1_l1_pref;224540;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 25;;pm_ls1_l1_sw_pref;224778;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 112;;pm_lsu0_flush_lrq;225668;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_flush_srq;231352;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_lsu0_flush_uld;222154;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3;;pm_lsu0_flush_ust;228490;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_l1_cam_cancel;234994;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 15;;pm_lsu0_larx_fin;228296;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 17;;pm_lsu0_lmq_lhr_merge;223630;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_ncld;231068;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 87481;;pm_lsu0_primary_erat_hit;259866;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8879;;pm_lsu0_reject;235474;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1033;;pm_lsu0_srq_stfwd;226992;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3954;;pm_lsu0_store_reject;233294;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_tm_l1_hit;229254;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_tm_l1_miss;227806;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu0_tma_req_l2;230710;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 124;;pm_lsu1_flush_lrq;229376;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_flush_srq;267394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_flush_uld;226894;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_lsu1_flush_ust;227054;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_l1_cam_cancel;226324;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_lsu1_larx_fin;222956;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 17;;pm_lsu1_lmq_lhr_merge;225720;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_ncld;228206;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 64681;;pm_lsu1_primary_erat_hit;225626;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7536;;pm_lsu1_reject;224246;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1020;;pm_lsu1_srq_stfwd;220836;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4734;;pm_lsu1_store_reject;223566;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_tm_l1_hit;252116;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_tm_l1_miss;268264;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu1_tma_req_l2;229266;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 42;;pm_lsu2_flush_lrq;230698;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu2_flush_srq;226956;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_lsu2_flush_uld;227846;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu2_l1_cam_cancel;232872;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 600;;pm_lsu2_larx_fin;226698;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_lsu2_ldf;224724;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12367;;pm_lsu2_ldx;228252;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 855;;pm_lsu2_lmq_lhr_merge;224974;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 116504;;pm_lsu2_primary_erat_hit;232952;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 51255;;pm_lsu2_reject;225748;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4312;;pm_lsu2_srq_stfwd;233662;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu2_tm_l1_hit;229876;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu2_tm_l1_miss;226242;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu2_tma_req_l2;292134;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 51;;pm_lsu3_flush_lrq;245544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_lsu3_flush_srq;234924;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_lsu3_flush_uld;241560;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu3_l1_cam_cancel;250548;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 609;;pm_lsu3_larx_fin;228800;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu3_ldf;234166;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12374;;pm_lsu3_ldx;229160;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 388;;pm_lsu3_lmq_lhr_merge;232878;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 102993;;pm_lsu3_primary_erat_hit;244586;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 64183;;pm_lsu3_reject;238562;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4192;;pm_lsu3_srq_stfwd;228540;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu3_tm_l1_hit;234218;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu3_tm_l1_miss;228948;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu3_tma_req_l2;229158;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_erat_miss_pref;230012;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4;;pm_lsu_flush_ust;229252;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_four_tablewalk_cyc;283380;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 34185;;pm_lsu_fx_fin;229324;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4209;;pm_lsu_l1_pref;231368;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 57;;pm_lsu_l1_sw_pref;230606;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_lsu_ldf;225800;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 24778;;pm_lsu_ldx;230466;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_lmq_full_cyc;233374;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2794;;pm_lsu_lmq_s0_alloc;265450;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 63675;;pm_lsu_lmq_s0_valid;227486;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 90136;;pm_lsu_lmq_srq_empty_all_cyc;225532;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11413;;pm_lsu_lrq_s0_alloc;233676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 444870;;pm_lsu_lrq_s0_valid;238172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11399;;pm_lsu_lrq_s43_alloc;229052;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 425245;;pm_lsu_lrq_s43_valid;226554;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6;;pm_lsu_mrk_derat_miss;229982;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_ncld;227452;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_ncst;227598;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 124429;;pm_lsu_reject;231970;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4204;;pm_lsu_set_mpred;233100;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 193195;;pm_lsu_srq_empty_cyc;228626;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 8295;;pm_lsu_srq_s0_alloc;226268;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 524933;;pm_lsu_srq_s0_valid;228738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3217;;pm_lsu_srq_s39_alloc;282018;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 212658;;pm_lsu_srq_s39_valid;282212;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 490;;pm_lsu_srq_sync;281098;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 44410;;pm_lsu_srq_sync_cyc;294722;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4328;;pm_lsu_store_reject;245296;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 5070;;pm_lsu_two_tablewalk_cyc;234242;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 16113;;pm_lwsync;234186;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lwsync_held;234798;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3;;pm_mrk_cru_fin;236146;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l21_mod;230716;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l21_mod_cyc;232150;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l21_shr;233976;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l21_shr_cyc;226104;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_eco_mod;236412;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_eco_mod_cyc;229994;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_eco_shr;236026;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_eco_shr_cyc;230120;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_mod;229142;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_mod_cyc;269344;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_data_from_l31_shr;243864;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_l31_shr_cyc;236078;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_data_from_mem;228228;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l21_mod;229912;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l21_shr;231188;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l2_disp_conflict_ldhitst;232846;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l2_disp_conflict_other;231148;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l31_eco_mod;231456;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l31_eco_shr;228756;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l31_mod;230332;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_dpteg_from_l31_shr;230378;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_match;232834;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fab_rsp_match_cyc;230254;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_filt_match;231066;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_fin_stall_cyc;239452;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1627;;pm_mrk_grp_cmpl;229040;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 109;;pm_mrk_grp_ic_miss;231546;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2179;;pm_mrk_grp_ntc;232502;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_mrk_ld_miss_exposed;232740;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_lsu_flush;232906;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2;;pm_mrk_lsu_flush_lrq;267120;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_lsu_flush_srq;232990;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_lsu_flush_uld;230626;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_lsu_flush_ust;232494;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 477;;pm_mrk_lsu_reject;237164;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 72;;pm_mrk_lsu_reject_erat_miss;232544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_src_pref_track_eff;234998;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_src_pref_track_ineff;235002;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_src_pref_track_mod;230362;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_src_pref_track_mod_l2;236362;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_src_pref_track_mod_l3;244880;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_tgt_pref_track_eff;229460;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_tgt_pref_track_ineff;234372;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_tgt_pref_track_mod;233206;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_tgt_pref_track_mod_l2;234844;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_mrk_tgt_pref_track_mod_l3;227866;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_nested_tend;225788;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_non_fav_tbegin;281332;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 63585;;pm_ntcg_all_fin;232778;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_outer_tbegin;232052;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_outer_tend;231416;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_track_eff;234992;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_track_ineff;233552;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_track_mod;237824;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_track_mod_l2;228394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_track_mod_l3;229332;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pref_tracked;235046;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pte_prefetch;307214;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 3150;;pm_rc0_alloc;247736;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 108387;;pm_rc0_busy;231524;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_rc_lifetime_exc_1024;234326;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_rc_lifetime_exc_2048;231560;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_rc_lifetime_exc_256;233680;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_rc_lifetime_exc_32;235774;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 138469;;pm_rc_usage;248628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 27295;;pm_real_srq_full;274932;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_run_cyc_smt2_shrd_mode;233046;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_run_cyc_smt2_split_mode;231144;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_run_cyc_smt8_mode;250688;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1532;;pm_sec_erat_hit;234212;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 136;;pm_shl_created;237088;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 223;;pm_shl_st_convert;309216;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 57;;pm_shl_st_disable;241702;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_sn0_alloc;231198;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_sn0_busy;227484;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_sn_usage;234992;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_snoop_tlbie;229310;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_stall_end_gct_empty;272876;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1091;;pm_stcx_lsu;232612;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13;;pm_swap_cancel;227564;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 47;;pm_swap_cancel_gpr;286076;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 15;;pm_swap_complete;228774;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_swap_complete_gpr;229664;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13009;;pm_tablewalk_cyc_pref;229666;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tabort_treclaim;226830;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tend_pend_cyc;231192;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thrd_grp_cmpl_both_cyc;231050;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thrd_prio_0_1_cyc;234040;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 191127;;pm_thrd_prio_2_3_cyc;229222;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 640165;;pm_thrd_prio_4_5_cyc;229422;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thrd_prio_6_7_cyc;259980;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thrd_rebal_cyc;249726;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_begin_all;241130;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_end_all;235706;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_con_tm;233258;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_conf_non_tm;299196;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_disallow;232946;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_footprint_overflow;231712;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_non_tx_conflict;229210;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_self;230638;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_tlbie;231590;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_fail_tx_conflict;229614;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_tbegin;280252;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_tresume;233410;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_tsuspend;232716;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_up_pref_l3;250408;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_up_pref_pointer;239928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_16flop;255884;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_1flop;250776;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_2flop;242326;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_4flop;292272;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_8flop;239392;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_complex_issued;236050;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_cy_issued;256028;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_dd_issued;248282;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_dp_2flop;241984;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_dp_fma;250854;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_dp_fsqrt_fdiv;240884;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_dq_issued;233470;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_ex_issued;232948;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13226;;pm_vsu0_fin;291172;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_fma;287074;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_fpscr;245058;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_fsqrt_fdiv;247318;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 58;;pm_vsu0_permute_issued;241350;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_scalar_dp_issued;293644;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 11;;pm_vsu0_simple_issued;284822;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_single;278624;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13120;;pm_vsu0_sq;280588;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 19;;pm_vsu0_stf;283982;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_vector_dp_issued;276282;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu0_vector_sp_issued;287096;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_16flop;244522;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_1flop;233222;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_2flop;232498;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_4flop;234482;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_8flop;241228;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_complex_issued;231898;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_cy_issued;233352;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_dd_issued;235300;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_dp_2flop;230342;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_dp_fma;229446;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_dp_fsqrt_fdiv;229002;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_dq_issued;233388;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_ex_issued;235718;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13247;;pm_vsu1_fin;231832;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_fma;229602;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_fpscr;232394;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_fsqrt_fdiv;230760;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 53;;pm_vsu1_permute_issued;228780;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_scalar_dp_issued;235242;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13;;pm_vsu1_simple_issued;260134;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_single;231098;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 13125;;pm_vsu1_sq;231928;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 34;;pm_vsu1_stf;231266;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_vector_dp_issued;229288;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_vsu1_vector_sp_issued;234808;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 153731;;pm_1plus_ppc_cmpl;230564;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 220446;;pm_1plus_ppc_disp;227258;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 867572;;pm_any_thrd_run_cyc;236870;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 544274;;pm_cmplu_stall;244350;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9667;;pm_cmplu_stall_bru;232848;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 113920;;pm_cmplu_stall_dcache_miss;254224;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 458;;pm_cmplu_stall_dmiss_l21_l31;273166;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 81702;;pm_cmplu_stall_dmiss_l2l3;271410;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 25354;;pm_cmplu_stall_dmiss_l2l3_conflict;232988;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 19824;;pm_cmplu_stall_dmiss_l3miss;232850;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 386;;pm_cmplu_stall_dmiss_lmem;230288;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1485;;pm_cmplu_stall_dmiss_remote;232202;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 37261;;pm_cmplu_stall_erat_miss;228094;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 2034;;pm_cmplu_stall_fxlong;233158;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 75344;;pm_cmplu_stall_fxu;227010;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 14998;;pm_cmplu_stall_hwsync;227888;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 67004;;pm_cmplu_stall_load_finish;238532;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 418023;;pm_cmplu_stall_lsu;231472;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7521;;pm_cmplu_stall_lwsync;230616;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_cmplu_stall_other_cmpl;230116;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 9377;;pm_cmplu_stall_st_fwd;231190;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 45508;;pm_cmplu_stall_thrd;256710;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 840660;;pm_cyc;230706;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 158736;;pm_disp_held;227340;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10162;;pm_disp_held_sync_hold;231720;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ext_int;230760;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7207;;pm_flush;228654;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 459;;pm_flush_completion;251500;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_freq_down;232664;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 866638;;pm_freq_up;237342;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 192121;;pm_hv_cyc;226130;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_ifetch_throttle;235640;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_iops_cmpl;226950;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1243;;pm_larx_fin;227510;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 122090;;pm_ld_cmpl;233412;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 66771;;pm_ld_l3miss_pend_cyc;235628;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 346888;;pm_lsu_fin;227050;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 83318;;pm_lsu_lmq_srq_empty_cyc;229492;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 22833;;pm_lsu_reject_erat_miss;232080;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10944;;pm_lsu_reject_lhs;229620;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 106929;;pm_lsu_reject_lmq_full;256494;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_lsu_srq_full_cyc;231160;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_probe_nop_disp;226598;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 854897;;pm_run_cyc;233244;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_run_cyc_smt2_mode;228376;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_run_cyc_smt4_mode;227160;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 909435;;pm_run_cyc_st_mode;249064;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 539672;;pm_run_inst_cmpl;230276;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 81399;;pm_st_cmpl;234594;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 98309;;pm_st_fin;229466;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 10086;;pm_st_fwd;230590;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_stcx_fail;232124;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 31613;;pm_tablewalk_cyc;229340;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7229;;pm_tb_bit_trans;227978;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 830804;;pm_thrd_all_run_cyc;227674;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tlbie_fin;231384;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_trans_run_cyc;231134;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_tm_tx_pass_run_cyc;232264;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc1_overflow;234474;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc2_overflow;231870;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc2_rewind;227924;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc2_saved;289512;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc3_overflow;272360;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc4_overflow;244032;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc4_rewind;234258;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc4_saved;230920;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc5_overflow;232918;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_pmc6_overflow;234300;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 7381;;pm_run_purr;233444;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6757;;pm_run_spurr;232998;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_suspended;231676;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_1024;234824;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_128;232162;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_2048;228864;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_256;234456;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_32;242436;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_4096;239854;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_512;236924;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_exc_64;267944;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_met;236036;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_thresh_not_met;236794;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_derat_miss_16g;230148;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_derat_miss_16m;297380;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_derat_miss_4k;241044;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 199;;pm_derat_miss_64k;237540;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_dl2l3_mod;240950;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_dl2l3_shr;233190;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 33;;pm_dpteg_from_l2;235738;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l2_mepf;232194;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 34;;pm_dpteg_from_l2_no_conflict;236988;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 12;;pm_dpteg_from_l2miss;241688;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_dpteg_from_l3;234652;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l3_disp_conflict;236154;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_l3_mepf;248900;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 1;;pm_dpteg_from_l3_no_conflict;232756;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_ll4;235254;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_lmem;232358;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 4;;pm_dpteg_from_memory;236850;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_off_chip_cache;235848;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 6;;pm_dpteg_from_on_chip_cache;229114;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_rl2l3_mod;238544;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_rl2l3_shr;235324;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dpteg_from_rl4;236142;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 40;;pm_dtlb_miss;237422;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dtlb_miss_16g;239216;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dtlb_miss_16m;233164;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 0;;pm_dtlb_miss_4k;234290;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 42;;pm_dtlb_miss_64k;234060;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 191;;pm_lsu_derat_miss;228772;100.00;;;;
+
+imported
+<open file '../sample-dumps/quick-pmu.log.2', mode 'r' at 0x7f50b06380c0>
+imported (pre) 42;;pm_tlb_miss;246762;100.00;;;;
+
+imported
