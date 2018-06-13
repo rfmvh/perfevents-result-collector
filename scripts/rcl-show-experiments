@@ -31,7 +31,7 @@ def show_experiment(csv, table, debug, **kwargs):
     logger.debug(data)
 
     for line in format_output(data, csv, head,options.table):
-        print line
+        print(line)
 
 
 if __name__ == '__main__':
