@@ -1,4 +1,10 @@
-import ConfigParser
+try:
+    # python 2
+    import ConfigParser
+except ImportError:
+    # python 3
+    import configparser as ConfigParser
+
 import logging
 import os
 import psycopg2
