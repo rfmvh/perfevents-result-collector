@@ -29,6 +29,7 @@ setup(
         'scripts/rcl-show-vendors',
         'scripts/rcl-show-virt',
     ],
+    data_files = [('', ['defaults.conf'])],
     classifiers = [
         "Programming Language :: Python",
         "Intended Audience :: Developers",
