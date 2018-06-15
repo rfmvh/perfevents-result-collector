@@ -30,7 +30,7 @@ def show_virt(csv, debug=False, **kwargs):
     logger.debug(data)
 
     for line in format_output(data, csv, head):
-        print line
+        print(line)
 
 
 if __name__ == '__main__':

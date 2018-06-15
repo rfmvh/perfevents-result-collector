@@ -67,7 +67,7 @@ def show_result(csv, table, debug, **kwargs):
     logger.debug(data)
     if not options.dryrun:
         for line in format_output(data, csv, details, table):
-            print line
+            print(line)
 
 
 if __name__ == '__main__':

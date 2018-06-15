@@ -43,7 +43,7 @@ def show_environment(csv, table, debug, **kwargs):
     logger.debug(data)
     if not options.dryrun:
         for line in format_output(data, csv, head,options.table):
-            print line
+            print(line)
 
 
 if __name__ == '__main__':
