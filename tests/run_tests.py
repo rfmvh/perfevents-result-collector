@@ -37,23 +37,26 @@ if not os.path.exists(logdir):
 	os.makedirs(logdir)
 
 for tool in tool_list:
-	try:
-		tool_dir = os.path.join(logdir, tool)
-		if not os.path.exists(tool_dir):
-			os.makedirs(tool_dir)
-		log = 0
-		print "Running %s ..." % tool
-		for opt in tools[tool]:
-			p = subprocess.Popen(tool + ' ' + opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-			f = open(os.path.join(tool_dir, str(log).zfill(2)), "w")
-			for line in p.stdout.readlines():
-				f.write(line)
-			retval = p.wait()
-			f.close()
-			if retval == 0:
-				print "\t[OK] %s %s" % (tool, opt)
-			else:
-				print "\t[!!] %s %s" % (tool, opt)
-			log += 1
-	except KeyError:
-		pass
+
+	# validate tool
+	if tool not in tools.keys():
+		continue
+
+	tool_dir = os.path.join(logdir, tool)
+	if not os.path.exists(tool_dir):
+		os.makedirs(tool_dir)
+	log = 0
+	print "Running %s ..." % tool
+
+	for opt in tools[tool]:
+		p = subprocess.Popen(tool + ' ' + opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+		f = open(os.path.join(tool_dir, str(log).zfill(2)), "w")
+		for line in p.stdout.readlines():
+			f.write(line)
+		retval = p.wait()
+		f.close()
+		if retval == 0:
+			print "\t[OK] %s %s" % (tool, opt)
+		else:
+			print "\t[!!] %s %s" % (tool, opt)
+		log += 1
