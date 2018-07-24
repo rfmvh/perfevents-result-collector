@@ -1,4 +1,5 @@
 import logging
+import re
 
 from perfresultcollector.dbinterface import DBConnection
 from perfresultcollector import set_logger_level
@@ -9,6 +10,7 @@ from perfresultcollector import set_logger_level
 db = DBConnection()
 
 log = logging.getLogger(__name__)
+re_strip_table = re.compile(r'^[a-z]+X')
 
 
 class Query(object):
@@ -73,7 +75,8 @@ class Query(object):
         if not results:
             if self._from == "experiments":
                 return None
-            self.insert_one(**kwargs)
+            stripped_kwargs = {re_strip_table.sub('', key): val for key, val in kwargs.items()}
+            self.insert_one(**stripped_kwargs)
             results = self.execute()
 
         return results[0][0]
@@ -105,8 +108,9 @@ class Query(object):
                 self.last_filter_name = item
                 self._where += " and "
 
+            column = split_item[0].replace('X', '.')
             self._where += "" + negation + \
-                split_item[0] + fk + " " + operator + " %(my_" + split_item[0] + str(self.counter) + ")s"
+                 column + fk + " " + operator + " %(my_" + split_item[0] + str(self.counter) + ")s"
             self.sql_parms_event["my_" + split_item[0] +
                                  str(self.counter)] = kwargs[item]
 

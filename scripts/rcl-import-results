@@ -268,7 +268,9 @@ if __name__ == "__main__":
     experiment_id = Query("experiments").getID_or_create(
         "exp_id", name=experiment)
     environment_id = Query("environments").getID_or_create(
-        "env_id", arch=arch, family=cpu_family, model=cpu_model, stepping=cpu_stepping)
+        "env_id", arch=arch, family=cpu_family, model=cpu_model,
+        stepping=cpu_stepping, vendorsXvendor_id=vendor_id,
+        kernelsXkernel_id=kernel_id, virtXvirt_id=virt_id)
 
     for line in f:
         match = regexp.search(line)
