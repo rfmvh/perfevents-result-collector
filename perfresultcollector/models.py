@@ -65,6 +65,11 @@ class Query(object):
         self._select = column
         self.filter(**kwargs)
         results = self.execute()
+
+        if len(results) > 1:
+            raise RuntimeError('filter given to getID_or_create must return '
+                               '0 or 1 results. Returned: {}'.format(results))
+
         if not results:
             if self._from == "experiments":
                 return None
@@ -125,7 +130,8 @@ class Query(object):
             return self._query 
         else:
             log.debug(self._query)
-        
+            log.debug(self.sql_parms_event)
+
         results = db.query(self._query, self.sql_parms_event)
         return results
 
