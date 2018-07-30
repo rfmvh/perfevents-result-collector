@@ -75,7 +75,8 @@ class Query(object):
         if not results:
             if self._from == "experiments":
                 return None
-            stripped_kwargs = {re_strip_table.sub('', key): val for key, val in kwargs.items()}
+            stripped_kwargs = dict((re_strip_table.sub('', key), val)
+                    for key, val in kwargs.items())
             self.insert_one(**stripped_kwargs)
             results = self.execute()
 
