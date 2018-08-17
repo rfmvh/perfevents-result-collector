@@ -181,10 +181,10 @@ class Query(object):
         kwargs_values = {}
         values = ""
 
-        if isinstance(kwargs.values()[0], list):
-            val = kwargs.values()[0]
-        else:
-            val = [kwargs.values()]
+        val = [kwargs.values()]
+        if isinstance(val[0], list):
+            val = val[0]
+
         for index in range(len(val)):
             x = kwargs.keys()
             values += "(" + ','.join(map(lambda x: " %(" +
