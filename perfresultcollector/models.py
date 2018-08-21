@@ -183,7 +183,7 @@ class Query(object):
 
         val = [kwargs.values()]
         if isinstance(val[0], list):
-            val = val[0]
+            val = val[0][0]
 
         for index in range(len(val)):
             x = kwargs.keys()
